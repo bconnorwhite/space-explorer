@@ -1,0 +1,51 @@
+body {
+	background-color: #000;
+	min-width: 900px;
+	/*Turn off select*/
+	-webkit-touch-callout: none; /* iOS Safari */
+  	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+ 	-khtml-user-select: none;    /* Konqueror */
+  	-moz-user-select: none;      /* Firefox */
+  	-ms-user-select: none;       /* Internet Explorer/Edge */
+  	user-select: none;           /* Non-prefixed version*/
+}
+
+pre {
+	margin: auto;
+	text-align: center;
+	color: #fff;
+}
+
+#button{
+	display: none;
+	background-color:#fff;
+	color:#000;
+	border:1px solid #888;
+}
+
+#main {
+	min-width: 900px;
+	display: none;
+}
+
+a:hover{
+	cursor: pointer;
+}
+
+#copyright {
+	position: fixed;
+    bottom: 0px;
+    left: 10px;
+    font-size: 10px;
+}
+
+#version {
+	position: fixed;
+	bottom: 0px;
+	right: 10px;
+	font-size: 10px;
+}
+
+.apple {
+	letter-spacing: -0.075rem;
+}
