@@ -11,6 +11,7 @@ body {
 }
 
 pre {
+	display: none;
 	margin: auto;
 	text-align: center;
 	color: #fff;
@@ -24,8 +25,8 @@ pre {
 }
 
 #main {
+	display: block;
 	min-width: 900px;
-	display: none;
 }
 
 a:hover{
