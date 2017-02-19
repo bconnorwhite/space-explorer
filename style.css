@@ -7,7 +7,6 @@ body {
  	-khtml-user-select: none;    /* Konqueror */
   	-moz-user-select: none;      /* Firefox */
   	-ms-user-select: none;       /* Internet Explorer/Edge */
-  	user-select: none;           /* Non-prefixed version*/
 }
 
 pre {
@@ -49,4 +48,9 @@ a:hover{
 
 .apple {
 	letter-spacing: -0.075rem;
+}
+
+.screen {
+	color: #000000;
+	transition: color 0.5s ease;
 }

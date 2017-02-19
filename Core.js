@@ -18,6 +18,8 @@ function initExplorer(exp){
   var sandbox = Sandbox();
 
   //Initialize Keyboard
+  var screen = Screen(sandbox);
+  screen.init();
   var keyboard = Keyboard(sandbox);
   keyboard.init();
 

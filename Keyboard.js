@@ -2,101 +2,81 @@
  *
  */
 
- function Keyboard(sb){
-   var keyboard = {
-     sandbox: sb,
-     escapeKey: EscapeKey(sb),
-     dimKey: DimKey(sb),
-     brightKey: BrightKey(sb),
-     powerKey: PowerKey(sb),
-     enterKey: EnterKey(sb)
-   };
-   keyboard.init = function(){
-     keyboard.escapeKey.init();
-     keyboard.dimKey.init();
-     keyboard.brightKey.init();
-     keyboard.powerKey.init();
-     keyboard.enterKey.init();
-   };
-   return keyboard;
- }
+function Keyboard(sb) {
+    var keyboard = {
+        sandbox: sb,
+        escapeKey: EscapeKey(sb),
+        dimKey: DimKey(sb),
+        brightKey: BrightKey(sb),
+        powerKey: PowerKey(sb),
+        enterKey: EnterKey(sb),
+        init: function() {
+            keyboard.escapeKey.init();
+            keyboard.dimKey.init();
+            keyboard.brightKey.init();
+            keyboard.powerKey.init();
+            keyboard.enterKey.init();
+        }
+    };
+    return keyboard;
+}
 
- function EscapeKey(sb){
-   var escapeKey = {
-     sandbox: sb,
-     element: document.getElementById('escape')
-   };
-   escapeKey.init = function(){
-      escapeKey.element.onclick = function(){
-        escapeKey.clicked();
-      };
-   };
-   escapeKey.clicked = function(){
-     sandbox.escape();
-   };
-   return escapeKey;
- }
+function Key(sb) {
+    var key = {
+        sandbox: sb,
+        element: null,
+        init: function() {
+            if (key.element !== null) {
+                key.element.onclick = function() {
+                    key.clicked();
+                };
+            }
+        }
+    };
+    return key;
+}
 
- function DimKey(sb){
-   var dimKey = {
-     sandbox: sb,
-     element: document.getElementById('dim')
-   };
-   dimKey.init = function(){
-      dimKey.element.onclick = function(){
-        dimKey.clicked();
-      };
-   };
-   dimKey.clicked = function(){
-     sandbox.dim();
-   };
-   return dimKey;
- }
+function EscapeKey(sb) {
+    var escapeKey = Key(sb);
+    escapeKey.element = document.getElementById('escape');
+    escapeKey.clicked = function() {
+        sandbox.escape();
+    };
+    return escapeKey;
+}
 
- function BrightKey(sb){
-   var brightKey = {
-     sandbox: sb,
-     element: document.getElementById('bright')
-   };
-   brightKey.init = function(){
-      brightKey.element.onclick = function(){
-        brightKey.clicked();
-      };
-   };
-   brightKey.clicked = function(){
-     sandbox.bright();
-   };
-   return brightKey;
- }
+function DimKey(sb) {
+    var dimKey = Key(sb);
+    dimKey.element = document.getElementById('dim');
+    dimKey.clicked = function() {
+        sandbox.dim();
+    };
+    return dimKey;
+}
 
- function PowerKey(sb){
-   var powerKey = {
-     sandbox: sb,
-     element: document.getElementById('power')
-   };
-   powerKey.init = function(){
-      powerKey.element.onclick = function(){
-        powerKey.clicked();
-      };
-   };
-   powerKey.clicked = function(){
-     sandbox.power();
-   };
-   return powerKey;
- }
+function BrightKey(sb) {
+    var brightKey = Key(sb);
+    brightKey.element = document.getElementById('bright');
+    brightKey.clicked = function() {
+        sandbox.bright();
+    };
+    return brightKey;
+}
 
- function EnterKey(sb){
-   var enterKey = {
-     sandbox: sb,
-     element: document.getElementById('enter')
-   };
-   enterKey.init = function(){
-      enterKey.element.onclick = function(){
-        enterKey.clicked();
-      };
-   };
-   enterKey.clicked = function(){
-     sandbox.enter();
-   };
-   return enterKey;
- }
+function PowerKey(sb) {
+    var powerKey = Key(sb);
+    powerKey.element = document.getElementById('power');
+    powerKey.clicked = function() {
+        sandbox.power();
+    };
+    return powerKey;
+}
+
+function EnterKey(sb) {
+    var enterKey = Key(sb);
+    enterKey.element = document.getElementById('enter');
+    enterKey.clicked = function() {
+        sandbox.enter();
+    };
+    return enterKey;
+}

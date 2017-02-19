@@ -2,27 +2,27 @@
  *
  */
 
- function Sandbox(){
-   var sandbox = {
-
-   };
-   sandbox.init = function(){
-
-   };
-   sandbox.escape = function(){
-     alert("ESC");
-   };
-   sandbox.dim = function(){
-     alert("DIM");
-   };
-   sandbox.bright = function(){
-     alert("BRIGHT");
-   };
-   sandbox.power = function(){
-     alert("POWER");
-   };
-   sandbox.enter = function(){
-     alert("ENTER");
-   };
-   return sandbox;
- }
+function Sandbox() {
+    var sandbox = {
+        channels: {},
+        register: function(channel, fn){
+          sandbox.channels[channel] = fn;
+        },
+        escape: function() {
+            alert("ESC");
+        },
+        dim: function() {
+            sandbox.channels.dim();
+        },
+        bright: function() {
+            sandbox.channels.brighten();
+        },
+        power: function() {
+            sandbox.channels.power();
+        },
+        enter: function() {
+            alert("ENTER");
+        }
+    };
+    return sandbox;
+}
