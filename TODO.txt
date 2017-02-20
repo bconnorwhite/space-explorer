@@ -1,6 +1,138 @@
+Where I am now:
+-trying to at least get Terminal working so I can ./SpiceX
+-VER 0.2:
+  -Terminal (not vim, just use ./SpiceX)
+  -SpiceX logo
+  -On ESC in SpiceX, Are you sure you want to exit? (y/n): prompt in message box
+  -Add more keys as necessary (also shift/caps lock functionality)
+-VER 0.3:
+  -Mine (able to buy res/year)
+-VER 0.4:
+  -Factory (able to create new rockets)
+-VER 0.5:
+  -Observatory (able to discover moon)
+-VER 0.6:
+  -Mission Control (able to do missions, random missions added (LEO, GEO, Lunar))
+-VER 0.7:
+  -Launcher (able to launch to discovered locations w/any rocket)
+-VER 0.8:
+  -Launch Window (w/launch options)
+-VER 0.9:
+  -Make pretty (Intro, twinkle stars, etc.)
+-VER 1.0:
+  -All the stuff above, beta tested, and launched live
+
+
+
+
+
+Pre intro load screen w/description (Ascii art puzzle rpg blah blah blah)
+
+
 Intro.js
 ------
--Make buttons for "Read" and "Talk to people" instead of auto incrementing
+-Above clamshell laptop have a bookshelf and a phone
+-Click book to open. Books read ++
+-Open book shows next to bookshelf, with instructions
+-Click phone to remove. People talked to ++ (phone returns)
+Terminal:
+Last login: Fri Feb 17 10:51:55 on ttys000
+Elons-MacBook-Air:~ Elon$
+
+Books:
+ _______________ _______________      _
+| Terminal For  |followed by a  |    | |
+|    Dummies    |filename.      |    |T|
+|List Files: ls |To execute a   |    |f|
+|Clear: clear   |file, enter ./ |    |D|
+|To open vim,   |followed by the|    | |
+|enter 'vim '   |filename.      |    | |
+|_______________|_______________|    |_|
+
+ _______________ _______________      _
+|    Vim For    |Quit: :q       |    | |
+|   Geniuses    |Left: h        |    |V|
+|Insert Text: i |Right: l       |    |f|
+|Cmnd Mode: ESC |Delete: x      |    |G|
+|In cmnd mode-  |               |    | |
+|Save: :wq      |               |    | |
+|_______________|_______________|    |_|
+
+ _______________ _______________      _
+| How To Start  |company you    |    | |
+|   A Company   |want to start  |    |H|
+|In ur favorite |followed by    |    |t|
+|text editor,   |.startCompany()|    |S|
+|enter the      |Then just run  |    |a|
+|name of the    |the file.      |    |C|
+|_______________|_______________|    |_|
+
+ _______________ _______________      _
+|    How To     |company...     |    | |
+|   Internet    |               |    |H|
+|               |               |    |t|
+|Unzip3 would be|               |    |I|
+|a great name   |               |    | |
+|for an internet|               |    | |
+|_______________|_______________|    |_|
+
+ _______________ _______________      _
+|  How To Sell  |company you    |    | |
+|   A Company   |want to start  |    |H|
+|In ur favorite |followed by    |    |t|
+|text editor,   |.sellCompany() |    |S|
+|enter the      |Then just run  |    |a|
+|name of the    |the file.      |    |C|
+|_______________|_______________|    |_|
+
+ _______________ _______________      _
+|    How To     |for an internet|    | |
+|   Internet    |company...     |    |H|
+|    Vol. 2     |               |    |t|
+|               |               |    |I|
+|Y.com would be |               |    |V|
+|a great name   |               |    |2|
+|_______________|_______________|    |_|
+
+ _______________ _______________             _
+|  It <i>is</i> Rocket |for an         |    | |
+|   Science,    |Australian     |           |I|
+|    5th ed.    |aerospace      |           |<i>i</i>|
+|               |company...     |           |R|
+|SpiceX would be|               |           |S|
+|a great name   |               |           | |
+|_______________|_______________|           |_|
+
+
+
+Vim:
+
+~
+~
+~
+~
+"Filename" [New File]
+-- INSERT --
+
+On Error:
+-bash: (what they typed): command not found
+
+
+$ unzip3.startCompany()
+...
+Congratulations on starting your company, UnZip3!
+$
+
+$ unzip3.sellCompany()
+...
+Congratulations on sell your company, UnZip3!
++$27000000 = $...
+$
+
+$ spiceX.sellCompany()
+-bash: spiceX.sellCompany(): I'm sorry Dave, I'm afraid I can't do that
+$
+
 -Show cost effect on button
 ------
 
