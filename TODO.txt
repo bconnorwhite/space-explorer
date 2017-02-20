@@ -3,3 +3,8 @@ Intro.js
 -Make buttons for "Read" and "Talk to people" instead of auto incrementing
 -Show cost effect on button
 ------
+
+Laptop.js
+------
+-open and close laptop (closing turns off screen)
+------
