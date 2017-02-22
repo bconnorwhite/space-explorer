@@ -12,7 +12,7 @@
   function initExplorer(exp){
     explorer = exp;
   }
-
+  
   //Initialize Sandbox
   var sandbox = Sandbox();
 
@@ -26,5 +26,8 @@
   //Initialize Keyboard
   var keyboard = Keyboard(sandbox);
   keyboard.init();
+  //Initialize Terminal
+  var terminal = Terminal(sandbox);
+  terminal.init();
 
 //})();

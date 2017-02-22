@@ -41,7 +41,7 @@ function Game(){//Creates explorer, window, and start initial window render.
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			 explorer = JSON.parse(xmlhttp.responseText);
-			 game.intro(true);
+			 game.intro(false);
 		}
 	};
 	xmlhttp.open("GET", "GetExplorer.php", true);
@@ -51,8 +51,8 @@ function Game(){//Creates explorer, window, and start initial window render.
 		if(skip){
 			window = new LocationWindow(explorer);
 			document.getElementById("intro").style.display = "none";
-			this.flipPower();
 			document.getElementById("main").style.display = "block";
+			this.flipPower();
 		}
 		else{
 			updateCredits(0);

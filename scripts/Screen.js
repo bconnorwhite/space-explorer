@@ -12,6 +12,7 @@ function Screen(sb) {
             screen.sandbox.register('power', screen.power);
             screen.sandbox.register('brighten', screen.brighten);
             screen.sandbox.register('dim', screen.dim);
+            screen.sandbox.register('write', screen.write);
         },
         on: function() { //Turns screen on
             screen.pow = true;
@@ -45,7 +46,10 @@ function Screen(sb) {
                 screen.brightness--;
                 screen.updateColor(screen.getColor());
             }
-        }
+        }/*,
+        write: function(row, col, string){
+            line =
+        }*/
     };
     return screen;
 }

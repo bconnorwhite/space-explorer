@@ -1,5 +1,6 @@
 Where I am now:
 -trying to at least get Terminal working so I can ./SpiceX
+  -Screen.js: create libraries for screen manipulation
 -VER 0.2:
   -Terminal (not vim, just use ./SpiceX)
   -SpiceX logo
