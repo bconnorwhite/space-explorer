@@ -6,15 +6,9 @@
  */
 
 //(function(){
-  //Initialize Explorer
-  var explorer;
-  ajaxGetJSON("GetExplorer.php", initExplorer);
-  function initExplorer(exp){
-    explorer = exp;
-  }
-  
   //Initialize Sandbox
   var sandbox = Sandbox();
+  sandbox.register("runSpaceExplorer", initSpaceExplorer);
 
   //Initialize laptop
   var laptop = Laptop(sandbox);
@@ -29,5 +23,20 @@
   //Initialize Terminal
   var terminal = Terminal(sandbox);
   terminal.init();
+
+  function initSpaceExplorer(){
+    //Initialize Game
+    var game = Game(sandbox);
+
+    //Initialize Explorer
+    var explorer;
+    ajaxGetJSON("GetExplorer.php", initExplorer);
+    function initExplorer(exp){
+      explorer = exp;
+    }
+
+    //Pass explorer to Game
+    game.init(explorer);
+  }
 
 //})();

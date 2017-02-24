@@ -24,7 +24,7 @@ Where I am now:
   -All the stuff above, beta tested, and launched live
 
 
-
+~Maybe store intro in cookies, and use as login for actual DB user? This way also you only store data if user keeps playing
 
 
 Pre intro load screen w/description (Ascii art puzzle rpg blah blah blah)

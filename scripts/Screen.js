@@ -2,6 +2,8 @@
  *
  */
 
+const WIDTH = 80;
+
 function Screen(sb) {
     var screen = {
         sandbox: sb,
@@ -13,6 +15,7 @@ function Screen(sb) {
             screen.sandbox.register('brighten', screen.brighten);
             screen.sandbox.register('dim', screen.dim);
             screen.sandbox.register('write', screen.write);
+            screen.sandbox.register('print', screen.print);
         },
         on: function() { //Turns screen on
             screen.pow = true;
@@ -46,10 +49,16 @@ function Screen(sb) {
                 screen.brightness--;
                 screen.updateColor(screen.getColor());
             }
-        }/*,
+        },
         write: function(row, col, string){
-            line =
-        }*/
+          var old = screen.elements[row].innerHTML;
+          var left = (old.substring(0,col) + string).substring(0,WIDTH);
+          var right = old.substring(left.length, 82);
+          screen.elements[row].innerHTML = left + right;
+        },
+        print: function(string, line){
+            screen.write(line, 2, string);
+        }
     };
     return screen;
 }

@@ -22,6 +22,15 @@ function Sandbox() {
         },
         enter: function() {
             alert("ENTER");
+        },
+        write: function(row, col, string) {
+          sandbox.channels.write(row, col, string);
+        },
+        print: function(string, line){
+          sandbox.channels.print(string, line);
+        },
+        runSpaceExplorer: function(){
+          sandbox.channels.runSpaceExplorer();
         }
     };
     return sandbox;
