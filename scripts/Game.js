@@ -35,9 +35,14 @@ function Game(sb) {
               "                                                                                ",
               "                                                                                ",
               "                                                                                "],
+        gamebox: Gamebox(),
         init: function(exp){
-          game.explorer = exp;
+          gamebox.init(exp);
+          gamebox.register('updateScreen', game.updateScreen);
           game.sandbox.setLoad(game.load);
+        },
+        updateScreen: function(){
+          //game.sandbox.
         }
     };
     return game;

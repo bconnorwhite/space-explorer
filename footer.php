@@ -5,6 +5,8 @@
   <script type="text/javascript" src="/SpaceExplorer/scripts/Laptop.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Keyboard.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Terminal.js"></script>
+  <script type="text/javascript" src="/SpaceExplorer/scripts/LocationWindow.js"></script>
+  <script type="text/javascript" src="/SpaceExplorer/scripts/Gamebox.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Game.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Screen.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Base.js"></script>
