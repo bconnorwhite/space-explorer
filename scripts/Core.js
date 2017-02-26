@@ -21,8 +21,10 @@
   var keyboard = Keyboard(sandbox);
   keyboard.init();
   //Initialize Terminal
-  var terminal = Terminal(sandbox);
-  terminal.init();
+  //var terminal = Terminal(sandbox);
+  //terminal.init();
+  //Initialize Space explorer
+  initSpaceExplorer();
 
   function initSpaceExplorer(){
     //Initialize Game

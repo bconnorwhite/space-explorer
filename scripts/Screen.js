@@ -8,18 +8,26 @@ function Screen(sb) {
     var screen = {
         sandbox: sb,
         elements: document.getElementsByClassName('screen'),
+        save: [],
         brightness: 15,
         pow: false,
+        load: false,
+        loadImage: [],
         init: function() {
             screen.sandbox.register('power', screen.power);
             screen.sandbox.register('brighten', screen.brighten);
             screen.sandbox.register('dim', screen.dim);
             screen.sandbox.register('write', screen.write);
             screen.sandbox.register('print', screen.print);
+            screen.sandbox.register('setLoad', screen.setLoad);
         },
         on: function() { //Turns screen on
             screen.pow = true;
             screen.updateColor(screen.getColor());
+            if(screen.load === true){
+                screen.tempFill(screen.loadImage);
+                setTimeout(function(){screen.refresh();}, 2000);
+            }
         },
         off: function() { //Turns screen off
             screen.updateColor('#000000');
@@ -58,6 +66,21 @@ function Screen(sb) {
         },
         print: function(string, line){
             screen.write(line, 2, string);
+        },
+        setLoad: function(image){
+            screen.load = true;
+            screen.loadImage = image;
+        },
+        tempFill: function(image){
+            for(var r=0; r<screen.elements.length; r++){
+              screen.save[r] = screen.elements[r].innerHTML;
+              screen.elements[r].innerHTML = image[r];
+            }
+        },
+        refresh: function(){
+            for(var r=0; r<screen.elements.length; r++){
+              screen.elements[r].innerHTML = screen.save[r];
+            }
         }
     };
     return screen;

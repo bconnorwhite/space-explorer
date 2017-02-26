@@ -31,6 +31,9 @@ function Sandbox() {
         },
         runSpaceExplorer: function(){
           sandbox.channels.runSpaceExplorer();
+        },
+        setLoad: function(image){
+          sandbox.channels.setLoad(image);
         }
     };
     return sandbox;

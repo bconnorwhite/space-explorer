@@ -42,7 +42,7 @@
 </span><span class="backlight">/                                         '..__' `__.'                                         \
 </span><span class="backlight">/                                               .,                                               \
 </span><span class="backlight">/                                              :'`                                                 \
-</span><span class="inside-swap">/ <a id="caps">#ALLCAPS#</a> <a id="a">##A##</a> <a id="s">##S##</a> <a id="d">##D##</a> <a id="f">##F##</a> <a href="g">##G##</a> <a href="h">##H##</a> <a id="j">##J##</a> <a id="k">##K##</a> <a id="l">##L##</a> ##### ##:##  <a id="enter">#ENTER#</a> \
+</span><span class="inside-swap">/ <a id="caps">#ALLCAPS#</a> <a id="a">##A##</a> <a id="s">##S##</a> <a id="d">##D##</a> <a id="f">##F##</a> <a id="g">##G##</a> <a id="h">##H##</a> <a id="j">##J##</a> <a id="k">##K##</a> <a id="l">##L##</a> ##### ##:##  <a id="enter">#ENTER#</a> \
 </span><span class="inside-swap">/ SHIFT ##Z## ##X## ##C## ##V## ##B## ##N## ##M## ##### ##.## ##### SHIFT       =^=      \
 </span><span class="inside-swap">/ ##### ##### ##### ###### ################################## ###### ##### <=== ==v== ===> \
 </span><span class="inside-swap">/                                    ____________________                                    \
