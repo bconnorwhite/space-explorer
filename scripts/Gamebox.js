@@ -23,9 +23,8 @@
      displayView: function(){
        gamebox.channels.displayView(gamebox.explorer.location.view);
      },
-     displayCreditBox: function(){
-       gamebox.channels.displayCreditBox();
-       gamebox.setCredits();
+     displayCreditBox: function(credits){
+       gamebox.channels.displayCreditBox(credits);
      },
      setCredits: function(){
        gamebox.channels.setCredits(gamebox.explorer.credits);
@@ -33,6 +32,12 @@
      setTitle: function(title){
        gamebox.channels.setTitle(title);
      },
+     displayStatus: function(image){
+       gamebox.channels.displayStatus(image);
+     },
+     setStatus: function(image){
+       gamebox.channels.setStatus(image);
+     }
    };
    return gamebox;
  }

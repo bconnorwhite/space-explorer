@@ -11,6 +11,7 @@ const viewFirstCol = 22;
 const viewLastRow = 26;
 const titleRow = 1;
 const creditRow = 28;
+const statusRow = 3;
 
 function Game(sb) {
     var game = {
@@ -76,6 +77,7 @@ function Game(sb) {
                      "|                                                                              |",
                      "|______________________________________________________________________________|" ],
         gamebox: Gamebox(),
+        statusLastRow: statusRow,
         init: function(exp){
           //Initialize gamebox
           game.gamebox.init(exp);
@@ -87,6 +89,8 @@ function Game(sb) {
           game.gamebox.register('displayCreditBox', game.displayCreditBox);
           game.gamebox.register('setCredits', game.setCredits);
           game.gamebox.register('setTitle', game.setTitle);
+          game.gamebox.register('displayStatus', game.displayStatus);
+          game.gamebox.register('setStatus', game.setStatus);
           //Load screen
           game.sandbox.setLoad(game.load);
           //Init location
@@ -112,17 +116,31 @@ function Game(sb) {
           game.sandbox.write("/", viewLastRow, windowLastCol);
         },
         displayTitleBox: function(title){
-          game.sandbox.repeatHorizontal("_", titleRow+1, windowFirstRow, sideBarLastCol);
+          game.drawSideBarBar("_", titleRow+1);
           game.setTitle(title);
         },
-        displayCreditBox: function(){
-          game.sandbox.repeatHorizontal("_", creditRow-1, windowFirstCol, sideBarLastCol);
+        setTitle: function(title){
+          game.sandbox.write(title, titleRow, windowFirstCol+1, windowLastCol);
+        },
+        displayCreditBox: function(credits){
+          game.drawSideBarBar("_", creditRow-1);
+          game.setCredits(credits);
         },
         setCredits: function(credits){
           game.sandbox.write("C: $" + credits, creditRow, windowFirstCol+1, windowLastCol);
         },
-        setTitle: function(title){
-          game.sandbox.write(title, titleRow, windowFirstCol+1, windowLastCol);
+        displayStatus: function(image){
+          game.statusLastRow = image.length + statusRow;
+          game.setStatus(image);
+          game.drawSideBarBar("_", game.statusLastRow);
+        },
+        setStatus: function(image){
+          for(var r=0; r<image.length; r++){
+            game.sandbox.write(image[r], statusRow+r, windowFirstCol+1, sideBarLastCol);
+          }
+        },
+        drawSideBarBar: function(char, row){
+          game.sandbox.repeatHorizontal(char, row, windowFirstCol, sideBarLastCol);
         }
     };
     return game;
