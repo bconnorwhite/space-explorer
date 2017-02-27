@@ -2,7 +2,7 @@
  *
  */
 
-const WIDTH = 80;
+ const WIDTH = 82;
 
 function Screen(sb) {
     var screen = {
@@ -60,14 +60,14 @@ function Screen(sb) {
                 screen.updateColor(screen.getColor());
             }
         },
-        write: function(string, row, col){
+        write: function(string, row, startCol, endCol){
           var old = screen.elements[row].innerHTML;
-          var left = (old.substring(0,col) + string).substring(0,WIDTH);
-          var right = old.substring(left.length, 82);
+          var left = (old.substring(0,startCol) + string).substring(0,endCol);
+          var right = old.substring(left.length, WIDTH);
           screen.elements[row].innerHTML = left + right;
         },
         print: function(string, line){
-            screen.write(line, 2, string);
+            screen.write(string, line, 2, WIDTH-2);
         },
         setLoad: function(image){
             screen.load = true;

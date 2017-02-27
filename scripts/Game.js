@@ -7,7 +7,7 @@ const windowLastRow = 29;
 const windowFirstCol = 1;
 const windowLastCol = 78;
 const sideBarLastCol = 19;
-const viewFirstRow = 22;
+const viewFirstCol = 22;
 const viewBottomRow = 26;
 const titleRow = 1;
 const creditRow = 28;
@@ -97,12 +97,12 @@ function Game(sb) {
           game.sandbox.repeatVerticle("||", windowFirstRow, windowLastRow, sideBarLastCol+1);
         },
         displayBottomBar: function(){
-          game.sandbox.repeatHorizontal("-", viewBottomRow+1, viewFirstRow, windowLastCol);
+          game.sandbox.repeatHorizontal("-", viewBottomRow+1, viewFirstCol, windowLastCol);
         },
         displayView: function(view){
-          for(var r=1; r>viewBottomRow; r++){
-            game.sandbox.write(view[r-1], r, viewFirstCol);
-          }
+          for(var r=1; r<=viewBottomRow; r++)
+            if(view[r-1] !== undefined)
+              game.sandbox.write(view[r-1], r, viewFirstCol);
         },
         displayTitleBox: function(title){
           game.sandbox.repeatHorizontal("_", titleRow+1, windowFirstRow, sideBarLastCol);
@@ -112,10 +112,10 @@ function Game(sb) {
           game.sandbox.repeatHorizontal("_", creditRow-1, windowFirstCol, sideBarLastCol);
         },
         setCredits: function(credits){
-          game.sandbox.write("C: $" + credits, creditRow, windowFirstCol+1);
+          game.sandbox.write("C: $" + credits, creditRow, windowFirstCol+1, windowLastCol);
         },
         setTitle: function(title){
-          game.sandbox.write(title, titleRow, windowFirstCol+1);
+          game.sandbox.write(title, titleRow, windowFirstCol+1, windowLastCol);
         }
     };
     return game;

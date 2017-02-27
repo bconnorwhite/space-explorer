@@ -23,8 +23,8 @@ function Sandbox() {
         enter: function() {
             alert("ENTER");
         },
-        write: function(string, row, col) {
-          sandbox.channels.write(string, row, col);
+        write: function(string, row, startCol, endCol) {
+          sandbox.channels.write(string, row, startCol, endCol);
         },
         print: function(string, line){
           sandbox.channels.print(string, line);
