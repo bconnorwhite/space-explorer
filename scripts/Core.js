@@ -31,14 +31,10 @@
     var game = Game(sandbox);
 
     //Initialize Explorer
-    var explorer;
     ajaxGetJSON("GetExplorer.php", initExplorer);
-    function initExplorer(exp){
-      explorer = exp;
+    function initExplorer(explorer){
+      game.init(explorer);
     }
-
-    //Pass explorer to Game
-    game.init(explorer);
   }
 
 //})();

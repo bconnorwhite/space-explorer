@@ -11,17 +11,27 @@
      init: function(exp){
        gamebox.explorer = exp;
      },
-     displaySidebar: function(){
-
+     displaySideBar: function(){
+       gamebox.channels.displaySideBar();
+     },
+     displayBottomBar: function(){
+       gamebox.channels.displayBottomBar();
+     },
+     displayTitleBox: function(title){
+       gamebox.channels.displayTitleBox(title);
      },
      displayView: function(){
-
+       gamebox.channels.displayView(gamebox.explorer.location.view);
      },
-     displayCredits: function(){
-
+     displayCreditBox: function(){
+       gamebox.channels.displayCreditBox();
+       gamebox.setCredits();
+     },
+     setCredits: function(){
+       gamebox.channels.setCredits(gamebox.explorer.credits);
      },
      setTitle: function(title){
-       
+       gamebox.channels.setTitle(title);
      },
    };
    return gamebox;

@@ -20,6 +20,8 @@ function Screen(sb) {
             screen.sandbox.register('write', screen.write);
             screen.sandbox.register('print', screen.print);
             screen.sandbox.register('setLoad', screen.setLoad);
+            screen.sandbox.register('repeatVerticle', screen.repeatVerticle);
+            screen.sandbox.register('repeatHorizontal', screen.repeatHorizontal);
         },
         on: function() { //Turns screen on
             screen.pow = true;
@@ -58,7 +60,7 @@ function Screen(sb) {
                 screen.updateColor(screen.getColor());
             }
         },
-        write: function(row, col, string){
+        write: function(string, row, col){
           var old = screen.elements[row].innerHTML;
           var left = (old.substring(0,col) + string).substring(0,WIDTH);
           var right = old.substring(left.length, 82);
@@ -80,6 +82,16 @@ function Screen(sb) {
         refresh: function(){
             for(var r=0; r<screen.elements.length; r++){
               screen.elements[r].innerHTML = screen.save[r];
+            }
+        },
+        repeatVerticle: function(string, startRow, endRow, col){
+            for(var r=startRow; r<=endRow; r++){
+              screen.write(string, r, col);
+            }
+        },
+        repeatHorizontal: function(string, row, startCol, endCol){
+            for(var c=startCol; c<=endCol; c++){
+              screen.write(string, row, c);
             }
         }
     };
