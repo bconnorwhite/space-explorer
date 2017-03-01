@@ -20,14 +20,14 @@
      displayTitleBox: function(title){
        gamebox.channels.displayTitleBox(title);
      },
-     displayView: function(){
-       gamebox.channels.displayView(gamebox.explorer.location.view);
+     displayView: function(view){
+       gamebox.channels.displayView(view);
      },
      displayCreditBox: function(credits){
        gamebox.channels.displayCreditBox(credits);
      },
-     setCredits: function(){
-       gamebox.channels.setCredits(gamebox.explorer.credits);
+     setCredits: function(credits){
+       gamebox.channels.setCredits(credits);
      },
      setTitle: function(title){
        gamebox.channels.setTitle(title);
@@ -37,6 +37,9 @@
      },
      setStatus: function(image){
        gamebox.channels.setStatus(image);
+     },
+     displaySideBarButtons: function(buttons, startRow){
+       gamebox.channels.displaySideBarButtons(buttons, startRow);
      }
    };
    return gamebox;

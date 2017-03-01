@@ -2,7 +2,7 @@
  *
  */
 
- const WIDTH = 82;
+ var WIDTH = 82;
 
 function Screen(sb) {
     var screen = {
@@ -60,14 +60,8 @@ function Screen(sb) {
                 screen.updateColor(screen.getColor());
             }
         },
-        write: function(string, row, startCol, endCol){
-          var old = screen.elements[row].innerHTML;
-          var left = (old.substring(0,startCol) + string).substring(0,endCol);
-          var right = old.substring(left.length, WIDTH);
-          screen.elements[row].innerHTML = left + right;
-        },
         print: function(string, line){
-            screen.write(string, line, 2, WIDTH-2);
+            screen.write(string, line, 2);
         },
         setLoad: function(image){
             screen.load = true;
@@ -93,7 +87,49 @@ function Screen(sb) {
             for(var c=startCol; c<=endCol; c++){
               screen.write(string, row, c);
             }
-        }
+        },
+        write: function(string, row, startCol){
+          var oldString = screen.elements[row].innerHTML;
+          var left = screen.substringIgnoreTags(oldString, 0, startCol);
+          var right = screen.substringIgnoreTags(oldString, startCol + screen.lengthIgnoreTags(string), screen.lengthIgnoreTags(oldString));
+          screen.elements[row].innerHTML = screen.substringIgnoreTags(left + string + right, 0, screen.lengthIgnoreTags(oldString));//Limit length to same as original
+        },
+        substringIgnoreTags: function(string, a, b){//Returns substring of string from a to b, ignoring tags
+          var locA = 0;
+          var tag = false;
+          for(var letter=0; letter < a && locA < string.length; locA++){//Skip over 'a' characters
+            if(string.charAt(locA) == '<')//start tag
+              tag = true;
+            else if(tag && string.charAt(locA) == '>')//end tag
+              tag = false;
+            else if(!tag)
+              letter++;
+          }
+          var locB = locA;
+          tag = false;
+          for(var letter=a; letter < b && locB < string.length; locB++){//Count b-a characters
+            if(string.charAt(locB) == '<')//start tag
+              tag = true;
+            else if(tag && string.charAt(locB) == '>')//end tag
+              tag = false;
+            else if(!tag)
+              letter++;
+          }
+          return string.substring(locA,locB);
+        },
+        lengthIgnoreTags: function(string){//Returns number of characters (ignoring tags)
+          var letter = 0;
+          var tag = false;
+          for(var loc=0; loc < string.length; loc++){
+            if(string.charAt(loc) == '<')//start tag
+              tag = true;
+            else if(tag && string.charAt(loc) == '>')//end tag
+              tag = false;
+            else if(!tag)
+              letter++;
+          }
+          return letter;
+        },
     };
     return screen;
 }
