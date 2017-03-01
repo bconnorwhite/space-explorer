@@ -1,31 +1,42 @@
 Where I am now:
--trying to at least get Terminal working so I can ./SpiceX
-  -Screen.js: create libraries for screen manipulation
+-VER 0.1
+  -Location View
 -VER 0.2:
-  -Terminal (not vim, just use ./SpiceX)
-  -SpiceX logo
-  -On ESC in SpiceX, Are you sure you want to exit? (y/n): prompt in message box
-  -Add more keys as necessary (also shift/caps lock functionality)
--VER 0.3:
   -Mine (able to buy res/year)
--VER 0.4:
+-VER 0.3:
   -Factory (able to create new rockets)
--VER 0.5:
+-VER 0.4:
   -Observatory (able to discover moon)
--VER 0.6:
+-VER 0.5:
   -Mission Control (able to do missions, random missions added (LEO, GEO, Lunar))
--VER 0.7:
+-VER 0.6:
   -Launcher (able to launch to discovered locations w/any rocket)
--VER 0.8:
+-VER 0.7:
   -Launch Window (w/launch options)
+-VER 0.8:
+  -Actual intro: STORY
+  =Terminal (not vim, just use ./SpiceX)
+  =On ESC in SpiceX, Are you sure you want to exit? (y/n): prompt in message box
+  =Add more keys as necessary (also shift/caps lock functionality)
 -VER 0.9:
   -Make pretty (Intro, twinkle stars, etc.)
 -VER 1.0:
   -All the stuff above, beta tested, and launched live
 
 
-~Maybe store intro in cookies, and use as login for actual DB user? This way also you only store data if user keeps playing
+STORY:
+*Going to need a standard cutscene where I can give messages
+-First person blink, staring up at stars (actual earth sky, differing in brightness, or ˙ stars)
+-"Where am I?"... "Who am I?"...
+-Wake up with no memories except a longing and the direction up
+-"It's dangerous to go alone take this" - get macbook
+-Start SpaceX
+-Memories slowly start to come back
+-Start building SAIs to analyze data from huge telescope arrays trying to find her
+-Realizes need more power, only place with enough is at center of galaxy
+-Reaches center of galaxy, builds SAI, as tells location of her, the whole thing crashes and you are sucked into a wormhole (back to beginning)
 
+~Maybe store intro in cookies, and use as login for actual DB user? This way also you only store data if user keeps playing
 
 Pre intro load screen w/description (Ascii art puzzle rpg blah blah blah)
 

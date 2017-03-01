@@ -12,4 +12,4 @@
   <script type="text/javascript" src="/SpaceExplorer/scripts/Base.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Core.js"></script>
 </html>
-<!-- ASCII inspiration credit: Joan G. Stark -->
+<!-- ASCII inspiration credit: Joan G. Stark, llizard -->

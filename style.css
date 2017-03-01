@@ -10,7 +10,6 @@ body {
 }
 
 pre {
-	display: none;
 	margin: auto;
 	text-align: center;
 	color: #fff;
@@ -21,6 +20,10 @@ pre {
 	background-color:#fff;
 	color:#000;
 	border:1px solid #888;
+}
+
+#intro {
+	display: none;
 }
 
 #main {
