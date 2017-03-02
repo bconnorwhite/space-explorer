@@ -96,7 +96,6 @@ function Screen(sb) {
           screen.elements[row].innerHTML = screen.substringIgnoreTags(left + string + right, 0, screen.lengthIgnoreTags(oldString));//Limit length to same as original
         },
         writeImage: function(image, row, col, height, width, align){
-          console.log("Row: " + row + " Col: " + col);
           var startRow, startCol, imageWidth=0;
           //Get width of Image
           for(var i=0; i<image.length; i++){
@@ -104,9 +103,12 @@ function Screen(sb) {
               imageWidth = screen.lengthIgnoreTags(image[i]);
             }
           }
-          console.log("Width: " + imageWidth);
           //Choose start row & col based on alignment
           switch(align){
+            case "top-left":
+              startRow = row;
+              startCol = col;
+              break;
             case "center":
               startRow = row + Math.round((height-image.length)/2);
               startCol = col + Math.round((width-imageWidth)/2);
@@ -115,49 +117,44 @@ function Screen(sb) {
               startRow = row + height - image.length;
               startCol = col;
               break;
+            default:
+              startRow = row;
+              startCol = col;
+              break;
           }
-          console.log(startRow + ":" + startCol);
           //Write image
           for(var r=0; r<image.length && r<=(row+height-startRow); r++){
             screen.write(image[r], startRow+r, startCol);
           }
         },
         substringIgnoreTags: function(string, a, b){//Returns substring of string from a to b, ignoring tags
-          var locA = 0;
-          var tag = false;
-          for(var letter=0; letter < a && locA < string.length; locA++){//Skip over 'a' characters
-            if(string.charAt(locA) == '<')//start tag
-              tag = true;
-            else if(tag && string.charAt(locA) == '>')//end tag
-              tag = false;
-            else if(!tag)
-              letter++;
-          }
-          var locB = locA;
-          tag = false;
-          for(var letter=a; letter < b && locB < string.length; locB++){//Count b-a characters
-            if(string.charAt(locB) == '<')//start tag
-              tag = true;
-            else if(tag && string.charAt(locB) == '>')//end tag
-              tag = false;
-            else if(!tag)
-              letter++;
-          }
-          return string.substring(locA,locB);
+          var start = screen.indexIgnoreTags(string, a);
+          var end = screen.indexIgnoreTags(string, b);
+          return string.substring(start,end);
         },
         lengthIgnoreTags: function(string){//Returns number of characters (ignoring tags)
-          var letter = 0;
-          var tag = false;
-          for(var loc=0; loc < string.length; loc++){
-            if(string.charAt(loc) == '<')//start tag
-              tag = true;
-            else if(tag && string.charAt(loc) == '>')//end tag
-              tag = false;
-            else if(!tag)
-              letter++;
-          }
-          return letter;
+          return screen.indexIgnoreTags(string, string.length);
         },
+        indexIgnoreTags: function(string, letters){//Returns index of 'letters'-ith char, ignoring tags
+          var tag = false;
+          for(var index=0; index<string.length; index++){
+            if(letters === 0)
+              return index;
+            else if(string.charAt(index) == '<')//Open tag
+              tag = true;
+            else if(tag && string.charAt(index) == '>')//End tag
+              tag = false;
+            else if(!tag){
+              if(string.substring(index, index+4) == '&lt;' || string.substring(index, index+4) == '&gt;'){
+                letters-=1;
+                index+=3;
+              } else{
+                letters-=1;
+              }
+            }
+          }
+          return string.length - letters;//If letters = string.length, returns # of chars
+        }
     };
     return screen;
 }

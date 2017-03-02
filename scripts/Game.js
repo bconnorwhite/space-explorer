@@ -107,9 +107,7 @@ function Game(sb) {
             game.sandbox.repeatHorizontal("-", viewLastRow + 1, viewFirstCol, windowLastCol);
         },
         displayView: function(view) {
-            for (var r = 1; r <= viewLastRow; r++)
-                if (view[r - 1] !== undefined)
-                    game.sandbox.write(view[r - 1], r, viewFirstCol);
+            game.sandbox.writeImage(view, windowFirstRow, viewFirstCol, viewLastRow-windowFirstRow, windowLastCol-viewFirstCol, "top-left");
             game.displayViewCorners();
         },
         displayViewCorners: function() {

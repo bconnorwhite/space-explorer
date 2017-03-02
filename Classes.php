@@ -20,7 +20,7 @@
 
 			$this->body = new Body($locArr["Body"]);
 			$this->type = $locArr["Type"];
-			$this->view = explode("\r\n", $locArr["Image"]);
+			$this->view = explode("\r\n", htmlspecialchars($locArr["Image"]));
 			$this->missionControl = new MissionControl($locArr["MissionControl"], $this->type, $id);
 			$this->launcher = new Launcher($locArr["Launcher"], $this->type, $id);
 			$this->observatory = new Observatory($locArr["Observatory"], $this->type);
@@ -81,7 +81,7 @@
 
 			$this->level = $lvl;
 			$this->name = $obArr["Name"];
-			$this->image = explode("\r\n", $obArr["Image"]);
+			$this->image = explode("\r\n", htmlspecialchars($obArr["Image"]));
 		}
 	}
 
@@ -93,7 +93,7 @@
 
 			$this->level = $lvl;
 			$this->name = $fArr["Name"];
-			$this->image = explode("\r\n", $fArr["Image"]);
+			$this->image = explode("\r\n", htmlspecialchars($fArr["Image"]));
 		}
 	}
 
@@ -105,7 +105,7 @@
 
 			$this->level = $lvl;
 			$this->name = $mArr["Name"];
-			$this->image = explode("\r\n", $mArr["Image"]);
+			$this->image = explode("\r\n", htmlspecialchars($mArr["Image"]));
 		}
 	}
 
@@ -117,7 +117,7 @@
 
 			$this->level = $lvl;
 			$this->name = $cArr["Name"];
-			$this->image = explode("\r\n", $cArr["Image"]);
+			$this->image = explode("\r\n", htmlspecialchars($cArr["Image"]));
 		}
 	}
 
@@ -155,7 +155,7 @@
 			for($b=1; $b<=$lvl; $b++){
 				$booster = getRow(array("Size", "Stage"), array($size, $b), "Boosters");
 				$this->boosters[] = $booster;
-				$this->image .= $booster["Image"];
+				$this->image .= htmlspecialchars($booster["Image"]);
 				if($b != $lvl)
 					$this->image .= "/n";
 			}
@@ -173,7 +173,7 @@
 			$this->name = $n;
 			$this->mass = $m;
 			$this->isp = $i;
-			$this->image = $img;
-			$this->flames = $f;
+			$this->image = htmlspecialchars($img);
+			$this->flames = htmlspecialchars($f);
 		}
 	}
