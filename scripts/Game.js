@@ -87,6 +87,7 @@ function Game(sb) {
             game.gamebox.register('displaySideBar', game.displaySideBar);
             game.gamebox.register('displayBottomBar', game.displayBottomBar);
             game.gamebox.register('displayView', game.displayView);
+            game.gamebox.register('displayViewIcons', game.displayViewIcons);
             game.gamebox.register('displayTitleBox', game.displayTitleBox);
             game.gamebox.register('displayCreditBox', game.displayCreditBox);
             game.gamebox.register('setCredits', game.setCredits);
@@ -116,6 +117,11 @@ function Game(sb) {
             game.sandbox.write("\\", windowFirstRow, windowLastCol);
             game.sandbox.write("\\", viewLastRow, viewFirstCol);
             game.sandbox.write("/", viewLastRow, windowLastCol);
+        },
+        displayViewIcons: function(icons){
+            for(var i=0; i<icons.length && i < 6; i++){
+                game.sandbox.writeImage(icons[i].image, 13+(7*(Math.floor(i/3))), (1+viewFirstCol+(19*(i%3))), 6, 18, icons[i].align);
+            }
         },
         displayTitleBox: function(title) {
             game.drawSideBarBar("_", titleRow + 1);

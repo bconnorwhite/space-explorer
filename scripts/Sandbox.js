@@ -26,6 +26,9 @@ function Sandbox() {
         write: function(string, row, startCol, endCol) {
           sandbox.channels.write(string, row, startCol, endCol);
         },
+        writeImage: function(image, row, col, height, width, align){
+          sandbox.channels.writeImage(image, row, col, height, width, align);
+        },
         print: function(string, line){
           sandbox.channels.print(string, line);
         },

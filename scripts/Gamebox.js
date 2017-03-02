@@ -23,6 +23,9 @@
      displayView: function(view){
        gamebox.channels.displayView(view);
      },
+     displayViewIcons: function(icons){
+       gamebox.channels.displayViewIcons(icons);
+     },
      displayCreditBox: function(credits){
        gamebox.channels.displayCreditBox(credits);
      },

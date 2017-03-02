@@ -18,6 +18,7 @@ function Screen(sb) {
             screen.sandbox.register('brighten', screen.brighten);
             screen.sandbox.register('dim', screen.dim);
             screen.sandbox.register('write', screen.write);
+            screen.sandbox.register('writeImage', screen.writeImage);
             screen.sandbox.register('print', screen.print);
             screen.sandbox.register('setLoad', screen.setLoad);
             screen.sandbox.register('repeatVerticle', screen.repeatVerticle);
@@ -93,6 +94,33 @@ function Screen(sb) {
           var left = screen.substringIgnoreTags(oldString, 0, startCol);
           var right = screen.substringIgnoreTags(oldString, startCol + screen.lengthIgnoreTags(string), screen.lengthIgnoreTags(oldString));
           screen.elements[row].innerHTML = screen.substringIgnoreTags(left + string + right, 0, screen.lengthIgnoreTags(oldString));//Limit length to same as original
+        },
+        writeImage: function(image, row, col, height, width, align){
+          console.log("Row: " + row + " Col: " + col);
+          var startRow, startCol, imageWidth=0;
+          //Get width of Image
+          for(var i=0; i<image.length; i++){
+            if(screen.lengthIgnoreTags(image[i]) > imageWidth){
+              imageWidth = screen.lengthIgnoreTags(image[i]);
+            }
+          }
+          console.log("Width: " + imageWidth);
+          //Choose start row & col based on alignment
+          switch(align){
+            case "center":
+              startRow = row + Math.round((height-image.length)/2);
+              startCol = col + Math.round((width-imageWidth)/2);
+              break;
+            case "lower-left":
+              startRow = row + height - image.length;
+              startCol = col;
+              break;
+          }
+          console.log(startRow + ":" + startCol);
+          //Write image
+          for(var r=0; r<image.length && r<=(row+height-startRow); r++){
+            screen.write(image[r], startRow+r, startCol);
+          }
         },
         substringIgnoreTags: function(string, a, b){//Returns substring of string from a to b, ignoring tags
           var locA = 0;
