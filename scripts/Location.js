@@ -28,43 +28,49 @@ function Location() {
         getButtons: function(expLoc) {
             return [{
                 title: expLoc.missionControl.name,
-                id: "mission-control-button"
+                class: "mission-control"
             }, {
                 title: expLoc.launcher.name,
-                id: "launcher-button"
+                class: "launcher"
             }, {
                 title: expLoc.observatory.name,
-                id: "observatory-button"
+                class: "observatory"
             }, {
                 title: expLoc.factory.name,
-                id: "factory-button"
+                class: "factory"
             }, {
                 title: expLoc.mine.name,
-                id: "mine-button"
+                class: "mine"
             }, {
                 title: expLoc.colony.name,
-                id: "colony-button"
+                class: "colony"
             }];
         },
         getViewIcons: function(expLoc) {
             return [{
                 image: expLoc.colony.image,
-                align: "center"
+                align: "center",
+                class: "colony"
             }, {
                 image: expLoc.observatory.image,
-                align: "center"
+                align: "center",
+                class: "observatory"
             }, {
                 image: expLoc.launcher.image,
-                align: "center"
+                align: "center",
+                class: "launcher"
             }, {
                 image: expLoc.mine.image,
-                align: "center"
+                align: "center",
+                class: "mine"
             },{
                 image: expLoc.missionControl.image,
-                align: "center"
+                align: "center",
+                class: "mission-control"
             },{
                 image: expLoc.factory.image,
-                align: "center"
+                align: "center",
+                class: "factory"
             }];
         }
     };

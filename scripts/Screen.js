@@ -89,13 +89,15 @@ function Screen(sb) {
               screen.write(string, row, c);
             }
         },
-        write: function(string, row, startCol){
+        write: function(string, row, startCol, theClass){
           var oldString = screen.elements[row].innerHTML;
           var left = screen.substringIgnoreTags(oldString, 0, startCol);
           var right = screen.substringIgnoreTags(oldString, startCol + screen.lengthIgnoreTags(string), screen.lengthIgnoreTags(oldString));
+          if(theClass !== undefined)
+            string = "<a class=" + theClass + ">" + string + "</a>";
           screen.elements[row].innerHTML = screen.substringIgnoreTags(left + string + right, 0, screen.lengthIgnoreTags(oldString));//Limit length to same as original
         },
-        writeImage: function(image, row, col, height, width, align){
+        writeImage: function(image, row, col, height, width, align, theClass){
           var startRow, startCol, imageWidth=0;
           //Get width of Image
           for(var i=0; i<image.length; i++){
@@ -124,7 +126,7 @@ function Screen(sb) {
           }
           //Write image
           for(var r=0; r<image.length && r<=(row+height-startRow); r++){
-            screen.write(image[r], startRow+r, startCol);
+            screen.write(image[r], startRow+r, startCol, theClass);
           }
         },
         substringIgnoreTags: function(string, a, b){//Returns substring of string from a to b, ignoring tags

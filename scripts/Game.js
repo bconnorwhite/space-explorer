@@ -118,7 +118,7 @@ function Game(sb) {
         },
         displayViewIcons: function(icons){
             for(var i=0; i<icons.length && i < 6; i++){
-                game.sandbox.writeImage(icons[i].image, 13+(7*(Math.floor(i/3))), (1+viewFirstCol+(19*(i%3))), 6, 18, icons[i].align);
+                game.sandbox.writeImage(icons[i].image, 13+(7*(Math.floor(i/3))), (1+viewFirstCol+(19*(i%3))), 6, 18, icons[i].align, icons[i].class);
             }
         },
         displayTitleBox: function(title) {
@@ -150,7 +150,7 @@ function Game(sb) {
         },
         displaySideBarButtons: function(buttons, startRow) { //Buttons have [id, title]
             for (var b = 0; b < buttons.length; b++){
-                game.sandbox.write("<a id='" + buttons[b].id + "'>" + buttons[b].title + "</a>", startRow+(b * 3)+1, windowFirstCol + 1);
+                game.sandbox.write(buttons[b].title, startRow+(b * 3)+1, windowFirstCol + 1, buttons[b].class);
                 game.sandbox.repeatHorizontal("_", startRow+(b*3)+2, windowFirstCol, sideBarLastCol);
             }
         }

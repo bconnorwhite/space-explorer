@@ -23,11 +23,11 @@ function Sandbox() {
         enter: function() {
             alert("ENTER");
         },
-        write: function(string, row, startCol, endCol) {
-          sandbox.channels.write(string, row, startCol, endCol);
+        write: function(string, row, startCol, theClass) {
+          sandbox.channels.write(string, row, startCol, theClass);
         },
-        writeImage: function(image, row, col, height, width, align){
-          sandbox.channels.writeImage(image, row, col, height, width, align);
+        writeImage: function(image, row, col, height, width, align, theClass){
+          sandbox.channels.writeImage(image, row, col, height, width, align, theClass);
         },
         print: function(string, line){
           sandbox.channels.print(string, line);
