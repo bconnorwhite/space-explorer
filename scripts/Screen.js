@@ -30,6 +30,8 @@ function Screen(sb) {
             if(screen.load === true){
                 screen.tempFill(screen.loadImage);
                 setTimeout(function(){screen.refresh();}, 2000);
+            } else {
+              screen.sandbox.loaded();
             }
         },
         off: function() { //Turns screen off
@@ -61,9 +63,6 @@ function Screen(sb) {
                 screen.updateColor(screen.getColor());
             }
         },
-        print: function(string, line){
-            screen.write(string, line, 2);
-        },
         setLoad: function(image){
             screen.load = true;
             screen.loadImage = image;
@@ -75,9 +74,9 @@ function Screen(sb) {
             }
         },
         refresh: function(){
-            for(var r=0; r<screen.elements.length; r++){
+            for(var r=0; r<screen.elements.length; r++)
               screen.elements[r].innerHTML = screen.save[r];
-            }
+            screen.sandbox.loaded();
         },
         repeatVerticle: function(string, startRow, endRow, col){
             for(var r=startRow; r<=endRow; r++){

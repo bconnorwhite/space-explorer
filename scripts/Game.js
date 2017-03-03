@@ -80,7 +80,11 @@ function Game(sb) {
         ],
         gamebox: Gamebox(),
         location: Location(),
+        mine: Mine(),
         init: function(exp) {
+            //Load screen
+            game.sandbox.setLoad(game.load);
+            game.sandbox.register('loaded', game.loaded);
             //Initialize gamebox
             game.gamebox.init(exp);
             //Register functions with gamebox
@@ -94,11 +98,32 @@ function Game(sb) {
             game.gamebox.register('setTitle', game.setTitle);
             game.gamebox.register('displayStatus', game.displayStatus);
             game.gamebox.register('setStatus', game.setStatus);
-            game.gamebox.register('displaySideBarButtons', game.displaySideBarButtons);
-            //Load screen
-            game.sandbox.setLoad(game.load);
-            //Init location
+            game.gamebox.register('displaySideBarButton', game.displaySideBarButton);
+            game.gamebox.register('switchTo', game.switchTo);
+        },
+        loaded: function(){
+            game.switchTo("location");
+        },
+        initLocation: function(){
             game.location.init(game.gamebox);
+        },
+        initMissionControl: function(){
+
+        },
+        initObservatory: function(){
+
+        },
+        initLauncher: function(){
+
+        },
+        initFactory: function(){
+
+        },
+        initMine: function(){
+            game.mine.init(game.gamebox);
+        },
+        initColony: function(){
+
         },
         displaySideBar: function() {
             game.sandbox.repeatVerticle("||", windowFirstRow, windowLastRow, sideBarLastCol + 1);
@@ -117,9 +142,8 @@ function Game(sb) {
             game.sandbox.write("/", viewLastRow, windowLastCol);
         },
         displayViewIcons: function(icons){
-            for(var i=0; i<icons.length && i < 6; i++){
+            for(var i=0; i<icons.length && i < 6; i++)
                 game.sandbox.writeImage(icons[i].image, 13+(7*(Math.floor(i/3))), (1+viewFirstCol+(19*(i%3))), 6, 18, icons[i].align, icons[i].class);
-            }
         },
         displayTitleBox: function(title) {
             game.drawSideBarBar("_", titleRow + 1);
@@ -148,11 +172,35 @@ function Game(sb) {
         drawSideBarBar: function(char, row) {
             game.sandbox.repeatHorizontal(char, row, windowFirstCol, sideBarLastCol);
         },
-        displaySideBarButtons: function(buttons, startRow) { //Buttons have [id, title]
-            for (var b = 0; b < buttons.length; b++){
-                game.sandbox.write(buttons[b].title, startRow+(b * 3)+1, windowFirstCol + 1, buttons[b].class);
-                game.sandbox.repeatHorizontal("_", startRow+(b*3)+2, windowFirstCol, sideBarLastCol);
-            }
+        displaySideBarButton: function(button, startRow) { //Buttons have [id, title]
+            game.sandbox.write(button.title, startRow+1, windowFirstCol+1, button.class);
+            game.sandbox.repeatHorizontal("_", startRow+2, windowFirstCol, sideBarLastCol);
+        },
+        switchTo: function(string){
+          game.sandbox.writeImage(game.windowBorder, 0, 0, windowLastRow+1, windowLastCol+1, "top-left");
+          switch(string){
+            case "location":
+              game.initLocation();
+              break;
+            case "mission-control":
+              game.initMissionControl();
+              break;
+            case "observatory":
+              game.initObservatory();
+              break;
+            case "launcher":
+              game.initLauncher();
+              break;
+            case "colony":
+              game.initColony();
+              break;
+            case "mine":
+              game.initMine();
+              break;
+            case "factory":
+              game.initFactory();
+              break;
+          }
         }
     };
     return game;

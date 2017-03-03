@@ -41,8 +41,11 @@
      setStatus: function(image){
        gamebox.channels.setStatus(image);
      },
-     displaySideBarButtons: function(buttons, startRow){
-       gamebox.channels.displaySideBarButtons(buttons, startRow);
+     displaySideBarButton: function(button, startRow){
+       gamebox.channels.displaySideBarButton(button, startRow);
+     },
+     switchTo: function(string){
+       gamebox.channels.switchTo(string);
      }
    };
    return gamebox;

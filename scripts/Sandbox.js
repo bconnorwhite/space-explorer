@@ -20,6 +20,9 @@ function Sandbox() {
         power: function() {
             sandbox.channels.power();
         },
+        loaded: function(){
+            sandbox.channels.loaded();
+        },
         enter: function() {
             alert("ENTER");
         },
