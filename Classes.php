@@ -48,6 +48,8 @@
 
 		public function __construct($lvl, $type, $loc){
 			$mcArr = getRow(array("Level","Type"), array($lvl,"'$type'"), "MissionControls");
+			if($mcArr == null)
+				$mcArr = getRow("Level", $lvl, "MissionControls");
 			$misArr = getRows("Location", $loc, "Missions");
 
 			$this->level = $lvl;
@@ -62,6 +64,8 @@
 
 		public function __construct($lvl, $type, $loc){
 			$launchArr = getRow(array("Level","Type"), array($lvl,"'$type'"), "Launchers");
+			if($launchArr == null)
+				$launchArr = getRow("Level", $lvl, "Launchers");
 			$rocketArr = getRows("Location", $loc, "Rockets");
 
 			$this->level = $lvl;
@@ -78,6 +82,8 @@
 
 		public function __construct($lvl, $type){
 			$obArr = getRow(array("Level","Type"), array($lvl,"'$type'"), "Observatories");
+			if($obArr == null)
+				$obArr = getRow("Level", $lvl, "Observatories");
 
 			$this->level = $lvl;
 			$this->name = $obArr["Name"];
@@ -90,6 +96,8 @@
 
 		public function __construct($lvl, $type){
 			$fArr = getRow(array("Level","Type"), array($lvl,"'$type'"), "Factories");
+			if($fArr == null)
+				$fArr = getRow("Level", $lvl, "Factories");
 
 			$this->level = $lvl;
 			$this->name = $fArr["Name"];
@@ -102,6 +110,8 @@
 
 		public function __construct($lvl, $type){
 			$mArr = getRow(array("Level","Type"), array($lvl,"'$type'"), "Mines");
+			if($mArr == null)
+				$mArr = getRow("Level", $lvl, "Mines");
 
 			$this->level = $lvl;
 			$this->name = $mArr["Name"];
@@ -114,6 +124,8 @@
 
 		public function __construct($lvl, $type){
 			$cArr = getRow(array("Level","Type"), array($lvl,"'$type'"), "Colonies");
+			if($cArr == null)
+				$cArr = getRow("Level", $lvl, "Colonies");
 
 			$this->level = $lvl;
 			$this->name = $cArr["Name"];
