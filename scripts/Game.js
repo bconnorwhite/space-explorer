@@ -90,6 +90,7 @@ function Game(sb) {
             //Load screen
             game.sandbox.setLoad(game.load);
             game.sandbox.register('loaded', game.loaded);
+            game.sandbox.register('escape', game.escape);
             //Initialize gamebox
             game.gamebox.init(exp);
             //Register functions with gamebox
@@ -176,9 +177,8 @@ function Game(sb) {
             game.drawSideBarBar("_", game.statusLastRow);
         },
         setStatus: function(image) {
-            for (var r = 0; r < image.length; r++) {
+            for (var r = 0; r < image.length; r++)
                 game.sandbox.write(image[r], statusRow + r, windowFirstCol + 1, sideBarLastCol);
-            }
         },
         drawSideBarBar: function(char, row) {
             game.sandbox.repeatHorizontal(char, row, windowFirstCol, sideBarLastCol);
@@ -190,6 +190,9 @@ function Game(sb) {
         displaySideBarLabel: function(string, row){
             game.sandbox.write(string, row+1, windowFirstCol+1);
             game.sandbox.repeatHorizontal("_", row+2, windowFirstCol, sideBarLastCol);
+        },
+        escape: function(){
+            game.switchTo('location');
         },
         switchTo: function(string){
           game.sandbox.writeImage(game.windowBorder, 0, 0, windowLastRow+1, windowLastCol+1, "top-left");

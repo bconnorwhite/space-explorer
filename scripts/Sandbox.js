@@ -9,7 +9,7 @@ function Sandbox() {
           sandbox.channels[channel] = fn;
         },
         escape: function() {
-            alert("ESC");
+            sandbox.channels.escape();
         },
         dim: function() {
             sandbox.channels.dim();
