@@ -78,7 +78,6 @@ function Game(sb) {
             "|                                                                              |",
             "|______________________________________________________________________________|"
         ],
-        gamebox: Gamebox(),
         location: Location(),
         missionControl: MissionControl(),
         observatory: Observatory(),
@@ -87,51 +86,35 @@ function Game(sb) {
         mine: Mine(),
         colony: Colony(),
         init: function(exp) {
+            game.explorer = exp;
             //Load screen
             game.sandbox.setLoad(game.load);
             game.sandbox.register('loaded', game.loaded);
             game.sandbox.register('escape', game.escape);
-            //Initialize gamebox
-            game.gamebox.init(exp);
-            //Register functions with gamebox
-            game.gamebox.register('displaySideBar', game.displaySideBar);
-            game.gamebox.register('displaySideBarIcon', game.displaySideBarIcon);
-            game.gamebox.register('displayBottomBar', game.displayBottomBar);
-            game.gamebox.register('displayView', game.displayView);
-            game.gamebox.register('displayViewIcons', game.displayViewIcons);
-            game.gamebox.register('displayTitleBox', game.displayTitleBox);
-            game.gamebox.register('displayCreditBox', game.displayCreditBox);
-            game.gamebox.register('setCredits', game.setCredits);
-            game.gamebox.register('setTitle', game.setTitle);
-            game.gamebox.register('displayStatus', game.displayStatus);
-            game.gamebox.register('setStatus', game.setStatus);
-            game.gamebox.register('displaySideBarButton', game.displaySideBarButton);
-            game.gamebox.register('displaySideBarLabel', game.displaySideBarLabel);
-            game.gamebox.register('switchTo', game.switchTo);
         },
         loaded: function(){
             game.switchTo("location");
         },
         initLocation: function(){
-            game.location.init(game.gamebox);
+            game.location.init(game);
         },
         initMissionControl: function(){
-            game.missionControl.init(game.gamebox);
+            game.missionControl.init(game);
         },
         initObservatory: function(){
-            game.observatory.init(game.gamebox);
+            game.observatory.init(game);
         },
         initLauncher: function(){
-            game.launcher.init(game.gamebox);
+            game.launcher.init(game);
         },
         initFactory: function(){
-            game.factory.init(game.gamebox);
+            game.factory.init(game);
         },
         initMine: function(){
-            game.mine.init(game.gamebox);
+            game.mine.init(game);
         },
         initColony: function(){
-            game.colony.init(game.gamebox);
+            game.colony.init(game);
         },
         displaySideBar: function() {
             game.sandbox.repeatVerticle("||", windowFirstRow, windowLastRow, sideBarLastCol + 1);

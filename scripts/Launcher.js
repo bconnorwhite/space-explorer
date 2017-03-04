@@ -4,16 +4,16 @@
 
  function Launcher() {
      var launcher = {
-         init: function(gb) {
-             launcher.gamebox = gb;
+         init: function(game) {
+             launcher.game = game;
              launcher.format();
          },
          format: function(){
-           launcher.gamebox.displaySideBar();
-           launcher.gamebox.displayTitleBox(launcher.gamebox.explorer.location.launcher.name);
-           //launcher.gamebox.displaySideBarIcon(launcher.gamebox.explorer.location.launcher.image);
-           launcher.gamebox.displayCreditBox(launcher.gamebox.explorer.credits);
-           launcher.gamebox.displayBottomBar();
+           launcher.game.displaySideBar();
+           launcher.game.displayTitleBox(launcher.game.explorer.location.launcher.name);
+           //launcher.game.displaySideBarIcon(launcher.game.explorer.location.launcher.image);
+           launcher.game.displayCreditBox(launcher.game.explorer.credits);
+           launcher.game.displayBottomBar();
          }
      };
      return launcher;

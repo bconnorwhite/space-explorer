@@ -4,16 +4,16 @@
 
  function Factory() {
      var factory = {
-         init: function(gb) {
-             factory.gamebox = gb;
+         init: function(game) {
+             factory.game = game;
              factory.format();
          },
          format: function(){
-           factory.gamebox.displaySideBar();
-           factory.gamebox.displayTitleBox(factory.gamebox.explorer.location.factory.name);
-           //factory.gamebox.displaySideBarIcon(factory.gamebox.explorer.location.factory.image);
-           factory.gamebox.displayCreditBox(factory.gamebox.explorer.credits);
-           factory.gamebox.displayBottomBar();
+           factory.game.displaySideBar();
+           factory.game.displayTitleBox(factory.game.explorer.location.factory.name);
+           //factory.game.displaySideBarIcon(factory.game.explorer.location.factory.image);
+           factory.game.displayCreditBox(factory.game.explorer.credits);
+           factory.game.displayBottomBar();
          }
      };
      return factory;

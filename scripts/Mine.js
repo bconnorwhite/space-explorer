@@ -4,17 +4,17 @@
 
  function Mine() {
      var mine = {
-         init: function(gb) {
-             mine.gamebox = gb;
+         init: function(game) {
+             mine.game = game;
              mine.format();
          },
          format: function(){
-           mine.gamebox.displaySideBar();
-           mine.gamebox.displayTitleBox(mine.gamebox.explorer.location.mine.name);
-           mine.gamebox.displaySideBarIcon(mine.gamebox.explorer.location.mine.image, 4, 6);
-           mine.gamebox.displaySideBarLabel("STORE", 11);
-           mine.gamebox.displayCreditBox(mine.gamebox.explorer.credits);
-           mine.gamebox.displayBottomBar();
+           mine.game.displaySideBar();
+           mine.game.displayTitleBox(mine.game.explorer.location.mine.name);
+           mine.game.displaySideBarIcon(mine.game.explorer.location.mine.image, 4, 6);
+           mine.game.displaySideBarLabel("STORE", 11);
+           mine.game.displayCreditBox(mine.game.explorer.credits);
+           mine.game.displayBottomBar();
          }
      };
      return mine;

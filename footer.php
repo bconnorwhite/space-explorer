@@ -12,7 +12,6 @@
   <script type="text/javascript" src="/SpaceExplorer/scripts/Factory.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Mine.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Colony.js"></script>
-  <script type="text/javascript" src="/SpaceExplorer/scripts/Gamebox.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Game.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Screen.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Base.js"></script>

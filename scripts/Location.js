@@ -5,8 +5,8 @@
 function Location() {
     var location = {
         buildings: [],
-        init: function(gb) {
-            location.gamebox = gb;
+        init: function(game) {
+            location.game = game;
             location.format();
             location.build();
             location.displayViewIcons();
@@ -14,30 +14,30 @@ function Location() {
             location.initBuildings();
         },
         format: function(){
-          location.gamebox.displaySideBar();
-          location.gamebox.displayTitleBox("SPACE EXPLORER");
-          location.gamebox.displayStatus(location.getStatus(location.gamebox.explorer.location));
-          location.gamebox.displayCreditBox(location.gamebox.explorer.credits);
-          location.gamebox.displayBottomBar();
-          location.gamebox.displayView(location.gamebox.explorer.location.view);
+          location.game.displaySideBar();
+          location.game.displayTitleBox("SPACE EXPLORER");
+          location.game.displayStatus(location.getStatus(location.game.explorer.location));
+          location.game.displayCreditBox(location.game.explorer.credits);
+          location.game.displayBottomBar();
+          location.game.displayView(location.game.explorer.location.view);
         },
         build: function(){
-          location.buildings[0] = Building(location.gamebox.explorer.location.observatory, "observatory", location.gamebox);
-          location.buildings[1] = Building(location.gamebox.explorer.location.missionControl, "mission-control", location.gamebox);
-          location.buildings[2] = Building(location.gamebox.explorer.location.launcher, "launcher", location.gamebox);
-          location.buildings[3] = Building(location.gamebox.explorer.location.factory, "factory", location.gamebox);
-          location.buildings[4] = Building(location.gamebox.explorer.location.mine, "mine", location.gamebox);
-          location.buildings[5] = Building(location.gamebox.explorer.location.colony, "colony", location.gamebox);
+          location.buildings[0] = Building(location.game.explorer.location.observatory, "observatory", location.game);
+          location.buildings[1] = Building(location.game.explorer.location.missionControl, "mission-control", location.game);
+          location.buildings[2] = Building(location.game.explorer.location.launcher, "launcher", location.game);
+          location.buildings[3] = Building(location.game.explorer.location.factory, "factory", location.game);
+          location.buildings[4] = Building(location.game.explorer.location.mine, "mine", location.game);
+          location.buildings[5] = Building(location.game.explorer.location.colony, "colony", location.game);
         },
         displayViewIcons: function(align){
           icons = [];
           for(var b=0; b<location.buildings.length; b++)
             icons[b] = location.buildings[b].getViewIcon("center");
-          location.gamebox.displayViewIcons(icons);
+          location.game.displayViewIcons(icons);
         },
         displaySideBarButtons: function(startRow){
           for(var b=0; b<location.buildings.length; b++)
-            location.gamebox.displaySideBarButton(location.buildings[b].getButton(), startRow+(3*b));
+            location.game.displaySideBarButton(location.buildings[b].getButton(), startRow+(3*b));
         },
         initBuildings: function(){
           for(var b=0; b<location.buildings.length; b++)
@@ -59,7 +59,7 @@ function Location() {
 
 function Building(b, theClass, gb){
   var building = {
-    gamebox: gb,
+    game: gb,
     name: b.name,
     image: b.image,
     class: theClass,
@@ -83,7 +83,7 @@ function Building(b, theClass, gb){
     },
     setClick: function(e){
       e.onclick = function(){
-        building.gamebox.switchTo(building.class);
+        building.game.switchTo(building.class);
       };
     }
   };

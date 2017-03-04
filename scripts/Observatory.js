@@ -4,16 +4,16 @@
 
  function Observatory() {
      var observatory = {
-         init: function(gb) {
-             observatory.gamebox = gb;
+         init: function(game) {
+             observatory.game = game;
              observatory.format();
          },
          format: function(){
-           observatory.gamebox.displaySideBar();
-           observatory.gamebox.displayTitleBox(observatory.gamebox.explorer.location.observatory.name);
-           //observatory.gamebox.displaySideBarIcon(observatory.gamebox.explorer.location.observatory.image);
-           observatory.gamebox.displayCreditBox(observatory.gamebox.explorer.credits);
-           observatory.gamebox.displayBottomBar();
+           observatory.game.displaySideBar();
+           observatory.game.displayTitleBox(observatory.game.explorer.location.observatory.name);
+           //observatory.game.displaySideBarIcon(observatory.game.explorer.location.observatory.image);
+           observatory.game.displayCreditBox(observatory.game.explorer.credits);
+           observatory.game.displayBottomBar();
          }
      };
      return observatory;

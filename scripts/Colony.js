@@ -4,16 +4,16 @@
 
  function Colony() {
      var colony = {
-         init: function(gb) {
-             colony.gamebox = gb;
+         init: function(game) {
+             colony.game = game;
              colony.format();
          },
          format: function(){
-           colony.gamebox.displaySideBar();
-           colony.gamebox.displayTitleBox(colony.gamebox.explorer.location.colony.name);
-           //colony.gamebox.displaySideBarIcon(colony.gamebox.explorer.location.colony.image);
-           colony.gamebox.displayCreditBox(colony.gamebox.explorer.credits);
-           colony.gamebox.displayBottomBar();
+           colony.game.displaySideBar();
+           colony.game.displayTitleBox(colony.game.explorer.location.colony.name);
+           //colony.game.displaySideBarIcon(colony.game.explorer.location.colony.image);
+           colony.game.displayCreditBox(colony.game.explorer.credits);
+           colony.game.displayBottomBar();
          }
      };
      return colony;
