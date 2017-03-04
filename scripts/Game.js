@@ -161,14 +161,14 @@ function Game(sb) {
             game.setTitle(title);
         },
         setTitle: function(title) {
-            game.sandbox.write(title, titleRow, windowFirstCol + 1, windowLastCol);
+            game.sandbox.write(title, titleRow, windowFirstCol + 1);
         },
         displayCreditBox: function(credits) {
             game.drawSideBarBar("_", creditRow - 1);
             game.setCredits(credits);
         },
         setCredits: function(credits) {
-            game.sandbox.write("C: $" + credits, creditRow, windowFirstCol + 1, windowLastCol);
+            game.sandbox.write("C: $" + credits, creditRow, windowFirstCol + 1);
         },
         displayStatus: function(image) {
             game.statusLastRow = image.length + statusRow;
