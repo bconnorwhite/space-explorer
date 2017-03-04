@@ -6,7 +6,12 @@
   <script type="text/javascript" src="/SpaceExplorer/scripts/Keyboard.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Terminal.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Location.js"></script>
+  <script type="text/javascript" src="/SpaceExplorer/scripts/MissionControl.js"></script>
+  <script type="text/javascript" src="/SpaceExplorer/scripts/Observatory.js"></script>
+  <script type="text/javascript" src="/SpaceExplorer/scripts/Launcher.js"></script>
+  <script type="text/javascript" src="/SpaceExplorer/scripts/Factory.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Mine.js"></script>
+  <script type="text/javascript" src="/SpaceExplorer/scripts/Colony.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Gamebox.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Game.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Screen.js"></script>

@@ -80,7 +80,12 @@ function Game(sb) {
         ],
         gamebox: Gamebox(),
         location: Location(),
+        missionControl: MissionControl(),
+        observatory: Observatory(),
+        launcher: Launcher(),
+        factory: Factory(),
         mine: Mine(),
+        colony: Colony(),
         init: function(exp) {
             //Load screen
             game.sandbox.setLoad(game.load);
@@ -89,6 +94,7 @@ function Game(sb) {
             game.gamebox.init(exp);
             //Register functions with gamebox
             game.gamebox.register('displaySideBar', game.displaySideBar);
+            game.gamebox.register('displaySideBarIcon', game.displaySideBarIcon);
             game.gamebox.register('displayBottomBar', game.displayBottomBar);
             game.gamebox.register('displayView', game.displayView);
             game.gamebox.register('displayViewIcons', game.displayViewIcons);
@@ -99,6 +105,7 @@ function Game(sb) {
             game.gamebox.register('displayStatus', game.displayStatus);
             game.gamebox.register('setStatus', game.setStatus);
             game.gamebox.register('displaySideBarButton', game.displaySideBarButton);
+            game.gamebox.register('displaySideBarLabel', game.displaySideBarLabel);
             game.gamebox.register('switchTo', game.switchTo);
         },
         loaded: function(){
@@ -108,25 +115,29 @@ function Game(sb) {
             game.location.init(game.gamebox);
         },
         initMissionControl: function(){
-
+            game.missionControl.init(game.gamebox);
         },
         initObservatory: function(){
-
+            game.observatory.init(game.gamebox);
         },
         initLauncher: function(){
-
+            game.launcher.init(game.gamebox);
         },
         initFactory: function(){
-
+            game.factory.init(game.gamebox);
         },
         initMine: function(){
             game.mine.init(game.gamebox);
         },
         initColony: function(){
-
+            game.colony.init(game.gamebox);
         },
         displaySideBar: function() {
             game.sandbox.repeatVerticle("||", windowFirstRow, windowLastRow, sideBarLastCol + 1);
+        },
+        displaySideBarIcon: function(image, row, height){
+            game.sandbox.writeImage(image, row, windowFirstCol, height, sideBarLastCol-windowFirstCol, "center");
+            game.sandbox.repeatHorizontal("_", row+height, windowFirstCol, sideBarLastCol);
         },
         displayBottomBar: function() {
             game.sandbox.repeatHorizontal("-", viewLastRow + 1, viewFirstCol, windowLastCol);
@@ -175,6 +186,10 @@ function Game(sb) {
         displaySideBarButton: function(button, startRow) { //Buttons have [id, title]
             game.sandbox.write(button.title, startRow+1, windowFirstCol+1, button.class);
             game.sandbox.repeatHorizontal("_", startRow+2, windowFirstCol, sideBarLastCol);
+        },
+        displaySideBarLabel: function(string, row){
+            game.sandbox.write(string, row+1, windowFirstCol+1);
+            game.sandbox.repeatHorizontal("_", row+2, windowFirstCol, sideBarLastCol);
         },
         switchTo: function(string){
           game.sandbox.writeImage(game.windowBorder, 0, 0, windowLastRow+1, windowLastCol+1, "top-left");

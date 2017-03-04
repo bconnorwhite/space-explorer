@@ -11,7 +11,8 @@
          format: function(){
            mine.gamebox.displaySideBar();
            mine.gamebox.displayTitleBox(mine.gamebox.explorer.location.mine.name);
-           //mine.gamebox.displaySideBarIcon(mine.gamebox.explorer.location.mine.image);
+           mine.gamebox.displaySideBarIcon(mine.gamebox.explorer.location.mine.image, 4, 6);
+           mine.gamebox.displaySideBarLabel("STORE", 11);
            mine.gamebox.displayCreditBox(mine.gamebox.explorer.credits);
            mine.gamebox.displayBottomBar();
          }

@@ -14,6 +14,9 @@
      displaySideBar: function(){
        gamebox.channels.displaySideBar();
      },
+     displaySideBarIcon: function(image, row, height){
+       gamebox.channels.displaySideBarIcon(image, row, height);
+     },
      displayBottomBar: function(){
        gamebox.channels.displayBottomBar();
      },
@@ -43,6 +46,9 @@
      },
      displaySideBarButton: function(button, startRow){
        gamebox.channels.displaySideBarButton(button, startRow);
+     },
+     displaySideBarLabel: function(string, row){
+       gamebox.channels.displaySideBarLabel(string, row);
      },
      switchTo: function(string){
        gamebox.channels.switchTo(string);

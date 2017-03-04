@@ -1,4 +1,5 @@
 Where I am now:
+?Do I need gamebox?
 -VER 0.1
   -Location View
 -VER 0.2:
