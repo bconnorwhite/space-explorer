@@ -16,12 +16,7 @@ var statusRow = 3;
 function Game(sb) {
     var game = {
         sandbox: sb,
-        load: ["                                                                               ",
-            "                                                                                ",
-            "                                                                                ",
-            "                                                                                ",
-            "                                                                                ",
-            "                                                                                ",
+        spiceXLogo: [
             "      .``                                                                       ",
             "      --::::--.``                                                               ",
             "         ``.-:::/::-..`                                                         ",
@@ -38,16 +33,19 @@ function Game(sb) {
             "                         `-oyhhdddddhs/.         `.:////////:.                  ",
             "                        .osyyyyyyys/.`              .-::::::::.                 ",
             "                         `                                                      ",
-            "                                                                                ",
-            "                                                                                ",
-            "                                                                                ",
-            "                                                                                ",
-            "                                                                                ",
-            "                                                                                ",
-            "                                                                                ",
-            "                                                                                "
         ],
-        windowBorder: ["================================================================================",
+        spaceExplorerLogo: [
+            "  ___                         ____            _",
+            " / _ \\                       |  __|          | |",
+            " \\ \\\\_\\_ __   __ _  ___ ___  | |____  ___ __ | | ___  _ __ ___ _ __",
+            "__\\ \\ | '_ \\ / _` |/ __/ _ \\ |  __\\ \\/ / ‘_ \\| |/ _ \\| ‘__/ _ \\ ‘__/",
+            "\\ \\\\ \\| |_) | (_| | (_|  __/ | |__|&gt;  &lt;| |_) | | (_) | | |  __/ |",
+            " \\___/| .__/ \\__,_|\\___\\___| |____/_/\\_\\ .__/|_|\\___/|_|  \\___|_|",
+            "      | |                              | |",
+            "      |_|                              |_|",
+        ],
+        windowBorder: [
+            "================================================================================",
             "|                                                                              |",
             "|                                                                              |",
             "|                                                                              |",
@@ -88,7 +86,7 @@ function Game(sb) {
         init: function(exp) {
             game.explorer = exp;
             //Load screen
-            game.sandbox.setLoad(game.load);
+            game.sandbox.setLoad(game.spiceXLogo);
             game.sandbox.register('loaded', game.loaded);
             game.sandbox.register('escape', game.escape);
         },

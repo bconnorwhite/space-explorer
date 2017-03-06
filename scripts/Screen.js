@@ -3,6 +3,8 @@
  */
 
  var WIDTH = 82;
+ var HEIGHT = 30;
+ var blankRow = "                                                                                ";
 
 function Screen(sb) {
     var screen = {
@@ -67,11 +69,16 @@ function Screen(sb) {
             screen.load = true;
             screen.loadImage = image;
         },
+        clear: function(){
+            screen.elements[0].innerHTML = blankRow.substring(0, blankRow.length-1);
+            for(var r=1; r<screen.elements.length; r++)
+              screen.elements[r].innerHTML = blankRow;
+        },
         tempFill: function(image){
-            for(var r=0; r<screen.elements.length; r++){
+            for(var r=0; r<screen.elements.length; r++)
               screen.save[r] = screen.elements[r].innerHTML;
-              screen.elements[r].innerHTML = image[r];
-            }
+            screen.clear();
+            screen.writeImage(image, 0, 0, HEIGHT, WIDTH, "center");
         },
         refresh: function(){
             for(var r=0; r<screen.elements.length; r++)
