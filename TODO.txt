@@ -1,27 +1,40 @@
 Where I am now:
--VER 0.1
-  -Location View
--VER 0.2:
-  -Mine (able to buy res/year)
--VER 0.3:
-  -Factory (able to create new rockets)
--VER 0.4:
-  -Observatory (able to discover moon)
--VER 0.5:
-  -Mission Control (able to do missions, random missions added (LEO, GEO, Lunar))
--VER 0.6:
-  -Launcher (able to launch to discovered locations w/any rocket)
--VER 0.7:
-  -Launch Window (w/launch options)
--VER 0.8:
-  -Actual intro: STORY
-  =Terminal (not vim, just use ./SpiceX)
-  =On ESC in SpiceX, Are you sure you want to exit? (y/n): prompt in message box
-  =Add more keys as necessary (also shift/caps lock functionality)
+-VER 0.2: Colony
+  -Refactor DB
+    -food, water, energy, population, research investment, and usage rates
+  
+-VER 0.3: Mine
+  -Refactor DB w/ 'Mines' and 'MineBlueprints'
+    -investment/year in energy, ore, food, water
+  -Ability to increase investment/year in energy, ore, food, water
+-VER 0.4: Factory
+  -Refactor DB w/ 'Factory' and 'FactoryBlueprints'
+    -blueprints, currently building
+  -Ability to build blueprints
+-VER 0.5: Observatory
+  -Refactor DB w/ 'Observatory' and 'ObservatoryBlueprints'
+    -discoveries, {investment rate for new discoveries}
+  -Ability to discover moon, {automate discoveries}
+-VER 0.6: Mission Control
+  -Refactor DB
+    -missions, {trading}
+  -able to do missions, random missions added (LEO, GEO, Lunar)), {trading}
+-VER 0.7: Launcher
+  -Refactor DB
+    -rockets, {ships}, {automated launches}
+  -able to launch to discovered locations w/any rocket)
+-VER 0.8: Launch Window
+  -w/launch options
 -VER 0.9:
-  -Make pretty (Intro, twinkle stars, etc.) - also more stars in view
+  -Make pretty (Intro, twinkle stars, factory moving smoke, etc.) - also more stars in view
 -VER 1.0:
   -All the stuff above, beta tested, and launched live
+-Ver 1.x:
+  -Fill out solar system
+    -Accurate clock (sped up to 1yr = 1minute), travel speed, and observed location of bodies
+    -Observatory w/accurate varying brightness (opacity) and color
+  -Fill out known stars and exoplanets from database, random generation for rest of galaxy
+  -Fill in known galaxies from database
 
 
 STORY:

@@ -1,4 +1,12 @@
-Space RPG
+___________
+                                            _
+                                           | |
+ ___ _ __   __ _  ___ ___    _____  ___ __ | | ___  _ __ ___ _ __
+/ __| '_ \ / _` |/ __/ _ \  / _ \ \/ / ‘_ \| |/ _ \| ‘__/ _ \ ‘__/
+\__ \ |_) | (_| | (_|  __/ |  __/>  <| |_) | | (_) | | |  __/ |
+|___/ .__/ \__,_|\___\___|  \___/_/\_\ .__/|_|\___/|_|  \___|_|
+    | |                              | |
+    |_|                              |_|
 ___________
 
          *
@@ -474,20 +482,20 @@ Large Resource Extraction Center (antimatter, dyson sphere)
  /==============================================================================\
 || Res. Extract. Lv1||/                                                        \||
 ||__________________||  Solar Array:                                            ||
-||                  ||    Current Production Rate: 1M Joules / day              || <- add consumption rate
-||                  ||    Investment Rate: $10T / day               + Adjust -  || <- Add “Solar Farm: $1092039      > Upgrade”
+||                  ||    Current Production Rate: 1M Joules / year             || <- add consumption rate
+||                  ||    Investment Rate: $10T / year               + Adjust - || <- Add “Solar Farm: $1092039      > Upgrade”
 ||       -7\        ||                                                          ||
 ||       /          ||  Fuel:                                                   ||
-||                  ||    Current Production Rate: 20 Fuelios / day             ||
-||                  ||    Investment Rate: $10T / day               + Adjust -  ||
+||                  ||    Current Production Rate: 20 Fuelios / year            ||
+||                  ||    Investment Rate: $10T / year              + Adjust -  ||
 ||__________________||                                                          ||
 ||                  ||  Ore:                                                    ||
-|| STORE            ||    Current Production Rate: 30 Oreos / day               ||
-||__________________||    Investment Rate: $10T / day               + Adjust -  ||
+|| STORE            ||    Current Production Rate: 30 Oreos / year              ||
+||__________________||    Investment Rate: $10T / year              + Adjust -  ||
 ||                  ||                                                          ||
 || Mine 2           ||  Food:                                                   ||
-|| = $100000        ||    Production Rate: 40 Foodies / day                     ||
-||__________________||    Investment Rate: $10M / day               + Adjust -  || <- add consumption rate
+|| = $100000        ||    Production Rate: 40 Foodies / year                    ||
+||__________________||    Investment Rate: $10M / year              + Adjust -  || <- add consumption rate
 ||                  ||                                                          ||
 ||                  ||  Water:                                                  ||
 ||      <=7\        ||    Production Rate:                                      ||
