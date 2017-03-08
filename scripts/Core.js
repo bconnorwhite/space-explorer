@@ -13,16 +13,12 @@
   //Initialize laptop
   var laptop = Laptop(sandbox);
   laptop.init();
-
   //Initialize Screen
   var screen = Screen(sandbox);
   screen.init();
   //Initialize Keyboard
   var keyboard = Keyboard(sandbox);
   keyboard.init();
-  //Initialize Terminal
-  //var terminal = Terminal(sandbox);
-  //terminal.init();
   //Initialize Space explorer
   initSpaceExplorer();
 
