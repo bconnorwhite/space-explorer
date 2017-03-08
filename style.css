@@ -15,20 +15,31 @@ pre {
 	color: #fff;
 }
 
-#button{
+#button {
 	display: none;
 	background-color:#fff;
 	color:#000;
 	border:1px solid #888;
 }
 
-#intro {
-	display: none;
+#view {
+	min-width: 900px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top:0px;
+	z-index: 0;
 }
 
 #main {
 	display: block;
 	min-width: 900px;
+	position: relative;
+	z-index: 10;
+}
+
+#main span {
+	background-color: #000;
 }
 
 a:hover{
