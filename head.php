@@ -8,9 +8,3 @@
 		<link rel="shortcut icon" href="favicon.ico">
 	</head>
 <body>
-	<pre id="intro">
-		<div>Books read: <span id="books">-</span></div>
-		<div>People talked to: <span id="talked">-</span></div>
-		<div><a id="button">Start a company (UnZip3)</a></div>
-		<div>C: $<span class="credits"></span></span>
-	</pre>
