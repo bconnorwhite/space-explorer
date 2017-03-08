@@ -34,8 +34,8 @@
 </span></span><span id="closed-hinge">.-------------------------------------------------------------------------------.
 </span>/<span class="inside"> <a id="escape">ESC</a> <a id="dim">[&#9788;]</a> <a id="bright">[&#9728;]</a> ##### ##### ##### #### #### #### #### #### #### #### #### #### <a id="power">(|) </a></span>\
 /<span class="inside"> #### <a id="1">##1##</a> <a id="2">##2##</a> <a id="3">##3##</a> <a id="4">##4##</a> <a id="5">##5##</a> <a id="6">##6##</a> <a id="7">##7##</a> <a id="8">##8##</a> <a id="9">##9##</a> <a id="0">##0##</a> ##### ##### DEL </span>\
-7<span class="inside"> <a id="tab">#TAB</a> <a id="q">##Q##</a> <a id="w">##W##</a> <a id="e">##E##</a> <a id="r">##R##</a> <a id="t">##T##</a> <a id="y">##Y##</a> <a id="u">##U##</a> <a id="i">##I##</a> <a id="o">##O##</a> <a id="p">##P##</a> ##### ##### ##### </span>\
-<span class="backlight">7                                      .'`'--'``.                                      \
+/<span class="inside"> <a id="tab">#TAB</a> <a id="q">##Q##</a> <a id="w">##W##</a> <a id="e">##E##</a> <a id="r">##R##</a> <a id="t">##T##</a> <a id="y">##Y##</a> <a id="u">##U##</a> <a id="i">##I##</a> <a id="o">##O##</a> <a id="p">##P##</a> ##### ##### ##### </span>\
+<span class="backlight">/                                      .'`'--'``.                                      \
 </span><span class="backlight">/                                      :.         '.                                     \
 </span><span class="backlight">/                                         :         :                                      \
 </span><span class="backlight">/                                         _'   _     ;                                       \
