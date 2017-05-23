@@ -1,4 +1,4 @@
-    <pre id="copyright">© <?php echo date("Y"); ?> Connor White</pre>
+    <pre id="copyright">© <?php echo date("Y"); ?> Connor White, Wesley White</pre>
     <pre id="version">Version 0.1</pre>
   </body>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Core.js"></script>
