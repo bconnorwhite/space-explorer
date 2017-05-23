@@ -57,9 +57,9 @@ function Location() {
     return location;
 }
 
-function Building(b, theClass, gb){
+function Building(b, theClass, g){
   var building = {
-    game: gb,
+    game: g,
     name: b.name,
     image: b.image,
     class: theClass,

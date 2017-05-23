@@ -154,11 +154,11 @@ E.   |___|   |___|   |___|   |___|   |___|   |___|   |___|   |___|   |___|    |_
 ——————————————————————————————
 Fuel Source | Speed Limit
 ——————————————————————————————
-Chemical      (0.001c)
-Fission       (0.01c)
-Fusion        (0.1c)
-Antimatter    (1c)
-Warp          (instant) - any source can technically power
+Chemical      (<0.001c)
+Fission       (<0.01c)
+Fusion        (<0.1c)
+Antimatter    (<1c)
+Warp          (instant) - any source can technically power, although so much energy is needed you really need antimatter
 ——————————————————————————————
 Ships
 ———————————————
@@ -452,25 +452,25 @@ Food
 Water
 ----------------------------
 
-Small Resource Extraction Site (chemical fuel, coal)
+Small Resource Extraction Site
 
 -7\
 /
 
-Resource Extraction Site (chemical fuel, solar array)
+Resource Extraction Site (solar farm and 
 
 <=7\
  / \
 /
 
-Large Resource Extraction Site (fission reactor, solar farm)
+Large Resource Extraction Site (access to fision, solar farm)
 
  <=77\
   // \
  //
 //
 
-Resource Extraction Center (fusion reactor, orbital array)
+Resource Extraction Center (access to fusion, orbital array)
 
  <==77\
    // \|
@@ -478,7 +478,7 @@ Resource Extraction Center (fusion reactor, orbital array)
  //
 //
 
-Large Resource Extraction Center (antimatter, dyson sphere)
+Large Resource Extraction Center (access to antimatter, dyson sphere)
    ____
  <===77\\
     // \\\
@@ -490,7 +490,7 @@ Large Resource Extraction Center (antimatter, dyson sphere)
  /==============================================================================\
 || Res. Extract. Lv1||/                                                        \||
 ||__________________||  Solar Array:                                            ||
-||                  ||    Current Production Rate: 1M Joules / year             || <- add consumption rate
+||                  ||    Production Rate: 1M Joules / year                     || <- add consumption rate
 ||                  ||    Investment Rate: $10T / year               + Adjust - || <- Add “Solar Farm: $1092039      > Upgrade”
 ||       -7\        ||                                                          ||
 ||       /          ||  Fuel:                                                   ||
@@ -517,6 +517,35 @@ Large Resource Extraction Center (antimatter, dyson sphere)
 ||__________________||----------------------------------------------------------||
 || C: $100000       ||  Not enough credits.                                     || <- for messages, such as not enough credits
 ||__________________||__________________________________________________________||
+
+
+
+Solar Array:
+ Production Rate : Joules / year
+ Consumption Rate: Joules /year
+ Investment Rate : $/year      			+ Adjust -
+ Solar Farm: $					> Upgrade
+
+Food:
+ Production Rate : 
+ Consumption Rate:
+ Investment Rate :				+ Adjust -
+
+Water:
+ Production Rate :
+ Consumption Rate:
+ Investment Rate :
+
+Fuel:
+ Production Rate :
+ Investment Rate :
+
+Ore:
+ Production Rate :
+ Investment Rate :
+
+
+
 
 ----------------------------
 Launch Pads

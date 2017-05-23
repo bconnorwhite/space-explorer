@@ -1,12 +1,13 @@
 Where I am now:
--VER 0.2: Colony
-  -Refactor DB
-    -food, water, energy, population, research investment, and usage rates
-  
--VER 0.3: Mine
-  -Refactor DB w/ 'Mines' and 'MineBlueprints'
-    -investment/year in energy, ore, food, water
-  -Ability to increase investment/year in energy, ore, food, water
+-VER 0.2: Mine
+  -Add ability to increase investment/year in energy, ore, food
+  -Blueprints DB to check if next mine available
+  -Reorder tabs on location view?
+  -Refactor DB so with a Discoveries table (ExplorerID vs Body Discovered)
+-VER 0.3: Colony
+  -DB: colony fields
+  -Requires: food, water, energy
+  -Output: population, blueprints
 -VER 0.4: Factory
   -Refactor DB w/ 'Factory' and 'FactoryBlueprints'
     -blueprints, currently building

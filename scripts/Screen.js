@@ -95,7 +95,7 @@ function Screen(sb) {
               screen.write(string, row, c);
             }
         },
-        write: function(string, row, startCol, theClass){
+        write: function(string, row, startCol, theClass){//Write string to screen, do not clear old
           var oldString = screen.elements[row].innerHTML;
           var left = screen.substringIgnoreTags(oldString, 0, startCol);
           var right = screen.substringIgnoreTags(oldString, startCol + screen.lengthIgnoreTags(string), screen.lengthIgnoreTags(oldString));

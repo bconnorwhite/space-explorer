@@ -40,7 +40,7 @@ function EscapeKey(sb) {
     var escapeKey = Key(sb);
     escapeKey.element = document.getElementById('escape');
     escapeKey.clicked = function() {
-        sandbox.escape();
+        sb.escape();
     };
     return escapeKey;
 }
@@ -49,7 +49,7 @@ function DimKey(sb) {
     var dimKey = Key(sb);
     dimKey.element = document.getElementById('dim');
     dimKey.clicked = function() {
-        sandbox.dim();
+        sb.dim();
     };
     return dimKey;
 }
@@ -58,7 +58,7 @@ function BrightKey(sb) {
     var brightKey = Key(sb);
     brightKey.element = document.getElementById('bright');
     brightKey.clicked = function() {
-        sandbox.bright();
+        sb.bright();
     };
     return brightKey;
 }
@@ -67,7 +67,7 @@ function PowerKey(sb) {
     var powerKey = Key(sb);
     powerKey.element = document.getElementById('power');
     powerKey.clicked = function() {
-        sandbox.power();
+        sb.power();
     };
     return powerKey;
 }
@@ -76,7 +76,7 @@ function EnterKey(sb) {
     var enterKey = Key(sb);
     enterKey.element = document.getElementById('enter');
     enterKey.clicked = function() {
-        sandbox.enter();
+        sb.enter();
     };
     return enterKey;
 }

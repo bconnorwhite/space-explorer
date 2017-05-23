@@ -1,5 +1,5 @@
 <?php
 	include 'Classes.php';
 
-	$explorer = new Explorer("1");
+	$explorer = new Explorer("0");
 	echo json_encode($explorer);

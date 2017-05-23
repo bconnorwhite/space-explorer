@@ -8,25 +8,28 @@
 			$expArr = getRow("ID", $id, "Explorers");
 
 			$this->credits = $expArr["Credits"];
-			$this->location = new Location($expArr["Location"]);
+			$this->location = new Location($id, $expArr["Location"]);
 		}
 	}
 
 	class Location {
 		public $body, $type, $view, $missionControl, $launcher, $observatory, $factory, $mine, $colony;
 
-		public function __construct($id){
-			$locArr = getRow("ID", $id, "Locations");
+		public function __construct($eid, $lid){
+			$locArr = getRow("ID", $lid, "Locations");
+			$expLocArr = getRow(["ExplorerID", "LocationID"], [$eid, $lid], "ExplorerLocations");
 
 			$this->body = new Body($locArr["Body"]);
 			$this->type = $locArr["Type"];
+			$this->greenhouseEffect = $locArr["GreenhouseEffect"];
 			$this->view = explode("\r\n", htmlspecialchars($locArr["Image"]));
-			$this->missionControl = new MissionControl($locArr["MissionControl"], $this->type, $id);
-			$this->launcher = new Launcher($locArr["Launcher"], $this->type, $id);
-			$this->observatory = new Observatory($locArr["Observatory"], $this->type);
-			$this->factory = new Factory($locArr["Factory"], $this->type);
-			$this->mine = new Mine($locArr["Mine"], $this->type);
-			$this->colony = new Colony($locArr["Colony"], $this->type);
+
+			$this->missionControl = new MissionControl($expLocArr["MissionControl"], $this->type, $lid);
+			$this->launcher = new Launcher($expLocArr["Launcher"], $this->type, $lid);
+			$this->observatory = new Observatory($expLocArr["Observatory"], $this->type);
+			$this->factory = new Factory($expLocArr["Factory"], $this->type);
+			$this->mine = new Mine($expLocArr["Mine"], $this->type, $expLocArr["EnergyInvestment"], $expLocArr["FuelInvestment"], $expLocArr["OreInvestment"], $expLocArr["FoodInvestment"], $expLocArr["EnergySource"]);
+			$this->colony = new Colony($expLocArr["Colony"], $this->type, $expLocArr["Population"]);
 		}
 	}
 
@@ -38,8 +41,14 @@
 
 			$this->name = $id;
 			$this->type = $bodyArr["Type"];
-			if($bodyArr["Parent"] != null)
+			if($bodyArr["Type"] == "System")
+				$this->luminosity = $bodyArr["Luminosity"];
+			else if($bodyArr["Type"] == "Planet" || $bodyArr["Type"] == "Moon")
+					$this->albedo = $bodyArr["Albedo"];
+			if($bodyArr["Parent"] != null){
 				$this->parent = new Body($bodyArr["Parent"]);
+				$this->distance = $bodyArr["Distance"];
+			}
 		}
 	}
 
@@ -108,7 +117,7 @@
 	class Mine {
 		public $level, $name, $image;
 
-		public function __construct($lvl, $type){
+		public function __construct($lvl, $type, $energy, $fuel, $ore, $food, $source){
 			$mArr = getRow(array("Level","Type"), array($lvl,"'$type'"), "Mines");
 			if($mArr == null)
 				$mArr = getRow("Level", $lvl, "Mines");
@@ -116,18 +125,24 @@
 			$this->level = $lvl;
 			$this->name = $mArr["Name"];
 			$this->image = explode("\r\n", htmlspecialchars($mArr["Image"]));
+			$this->energyInvestment = $energy;
+			$this->foodInvestment = $food;
+			$this->fuelInvestment = $fuel;
+			$this->oreInvestment = $ore;
+			$this->energySource = $source;
 		}
 	}
 
 	class Colony {
 		public $level, $name, $image;
 
-		public function __construct($lvl, $type){
+		public function __construct($lvl, $type, $pop){
 			$cArr = getRow(array("Level","Type"), array($lvl,"'$type'"), "Colonies");
 			if($cArr == null)
 				$cArr = getRow("Level", $lvl, "Colonies");
 
 			$this->level = $lvl;
+			$this->population = $pop;
 			$this->name = $cArr["Name"];
 			$this->image = explode("\r\n", htmlspecialchars($cArr["Image"]));
 		}

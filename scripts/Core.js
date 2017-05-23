@@ -1,13 +1,15 @@
 /* Core.js
- * -Uses Base.js to initialize explorer
- * -Initializes Screen
- * -Starts modules, passing screen
- * -Uses Base.js to manage window
+ * -Uses DBManager to interact with database
+ * -Initializes Sandbox, passing DBManager
+ * -Initializes modules, inside Sandbox
  */
 
-//(function(){
+(function(){
+  //Initialize DBManager
+  var dbManager = DBManager();
+
   //Initialize Sandbox
-  var sandbox = Sandbox();
+  var sandbox = Sandbox(dbManager);
   sandbox.register("runSpaceExplorer", initSpaceExplorer);
 
   //Initialize laptop
@@ -19,18 +21,8 @@
   //Initialize Keyboard
   var keyboard = Keyboard(sandbox);
   keyboard.init();
-  //Initialize Space explorer
-  initSpaceExplorer();
+  //Initialize Game
+  var game = Game(sandbox);
+  game.init();
 
-  function initSpaceExplorer(){
-    //Initialize Game
-    var game = Game(sandbox);
-
-    //Initialize Explorer
-    ajaxGetJSON("GetExplorer.php", initExplorer);
-    function initExplorer(explorer){
-      game.init(explorer);
-    }
-  }
-
-//})();
+})();
