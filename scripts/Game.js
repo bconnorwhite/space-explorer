@@ -132,6 +132,12 @@ function Game(sb) {
     initColony: function(){
       game.colony.init(game);
     },
+    clear: function(row, startCol, endCol){//Clears a row (fills with spaces)
+      game.sandbox.repeatHorizontal(" ", row, startCol, endCol);
+    },
+    clearViewRow: function(row){//Clears a view row
+      game.clear(row, viewFirstCol, windowLastCol);
+    },
     displaySideBar: function(){ //Display a blank sidebar on the screen
       game.sandbox.repeatVerticle("||", windowFirstRow, windowLastRow, sideBarLastCol + 1);
     },
@@ -142,8 +148,10 @@ function Game(sb) {
     displayBottomBar: function(){ //Display a blank bottom bar on the screen
       game.sandbox.repeatHorizontal("-", viewLastRow + 1, viewFirstCol, windowLastCol);
     },
-    displayView: function(view){ //Displays a view window on the screen, with background image 'view'
-      game.sandbox.writeImage(view, windowFirstRow, viewFirstCol, viewLastRow-windowFirstRow, windowLastCol-viewFirstCol, "top-left");
+    displayView: function(view, alignment){ //Displays a view window on the screen, with background image 'view'
+      if(alignment === undefined)
+        alignment = "top-left";
+      game.sandbox.writeImage(view, windowFirstRow, viewFirstCol, viewLastRow-windowFirstRow, windowLastCol-viewFirstCol, alignment);
       game.displayViewCorners();
     },
     displayViewLine: function(string, row, col, theClass, float){
