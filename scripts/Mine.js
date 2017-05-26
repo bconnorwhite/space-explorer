@@ -1,7 +1,12 @@
 /* Mine.js
  *
  */
-var solarCost = 0.0847;
+var minInvestment = 1;
+
+var solarCost = 0.0847;//Credits per Joule
+var foodCost = 1;//Credits per Joule
+var fuelCost = 1;//Credits per Joule
+var oreCost = 1;//Credits per kg
 
 var Adjust = {
   INVEST: 0,
@@ -30,12 +35,28 @@ function Mine() {
      mine.game.displayViewLine("Investment Rate :", 5, 2);
    },
    populateView: function(){
+     mine.refreshEnergy();
+     mine.refreshFood();
+     mine.refreshFuel();
+     mine.refreshOre();
+   },
+   refreshEnergy: function(){
      mine.addResource(mine.game.explorer.location.mine.energySource, "J", mine.getEnergyProduction(), 0, mine.game.explorer.location.mine.energyInvestment, 0, mine.adjustEnergy);
-     mine.addResource("Food", "J", -1, 0, mine.game.explorer.location.mine.foodInvestment, 1, mine.adjustEnergy);
-     mine.addResource("Fuel", "J", -1, 0, mine.game.explorer.location.mine.fuelInvestment, 2, mine.adjustEnergy);
-     mine.addResource("Ore", "kg", -1, 0, mine.game.explorer.location.mine.oreInvestment, 3, mine.adjustEnergy);
+   },
+   refreshFood: function(){
+     mine.addResource("Food", "J", mine.getFoodProduction(), 0, mine.game.explorer.location.mine.foodInvestment, 1, mine.adjustFood);
+   },
+   refreshFuel: function(){
+     mine.addResource("Fuel", "J", mine.getFuelProduction(), 0, mine.game.explorer.location.mine.fuelInvestment, 2, mine.adjustFuel);
+   },
+   refreshOre: function(){
+     mine.addResource("Ore", "kg", mine.getOreProduction(), 0, mine.game.explorer.location.mine.oreInvestment, 3, mine.adjustOre);
    },
    addResource: function(resource, units, production, consumption, investment, slot, adjustFunc){
+     mine.game.clearViewRow((slot*6)+2);
+     mine.game.clearViewRow((slot*6)+3);
+     mine.game.clearViewRow((slot*6)+4);
+     mine.game.clearViewRow((slot*6)+5);
      mine.game.displayViewLine(resource + ":", (slot*6)+2, 1);
      mine.game.displayViewLine("Production Rate : " + production + " " + units + "/year", (slot*6)+3, 2);
      mine.game.displayViewLine("Consumption Rate: " + consumption + " " + units + "/year", (slot*6)+4, 2);
@@ -50,15 +71,71 @@ function Mine() {
      //To adjust energy: adjust investment rate AND save to database. Should be done through sandbox.
      switch(adjust){
        case Adjust.INVEST:
-        mine.game.adjustEnergy(Adjust.INVEST);
+        mine.game.explorer.location.mine.energyInvestment = parseInt(mine.game.explorer.location.mine.energyInvestment) + minInvestment;
+        mine.refreshEnergy();
         break;
        case Adjust.DIVEST:
-        console.log("DIVESTING");
+        if(parseInt(mine.game.explorer.location.mine.energyInvestment) >= minInvestment){
+          mine.game.explorer.location.mine.energyInvestment = parseInt(mine.game.explorer.location.mine.energyInvestment) - minInvestment;
+          mine.refreshEnergy();
+        }
+        break;
+     }
+   },
+   adjustFood: function(adjust){
+     console.log("Adjust food");
+     switch(adjust){
+       case Adjust.INVEST:
+        mine.game.explorer.location.foodInvestment = parseInt(mine.game.explorer.location.foodInvestment) + minInvestment;
+        mine.refreshFood();
+        break;
+       case Adjust.DIVEST:
+        if(parseInt(mine.game.explorer.location.mine.foodInvestment) >= minInvestment){
+         mine.game.explorer.location.mine.foodInvestment = parseInt(mine.game.explorer.location.mine.foodInvestment) - minInvestment;
+         mine.refreshFood();
+        }
+        break;
+     }
+   },
+   adjustFuel: function(adjust){
+     switch(adjust){
+       case Adjust.INVEST:
+        mine.game.explorer.location.fuelInvestment = parseInt(mine.game.explorer.location.fuelInvestment) + minInvestment;
+        mine.refreshFuel();
+        break;
+       case Adjust.DIVEST:
+        if(parseInt(mine.game.explorer.location.mine.fuelInvestment) >= minInvestment){
+         mine.game.explorer.location.mine.fuelInvestment = parseInt(mine.game.explorer.location.mine.fuelInvestment) - minInvestment;
+         mine.refreshFuel();
+        }
+        break;
+     }
+   },
+   adjustOre: function(adjust){
+     switch(adjust){
+       case Adjust.INVEST:
+        mine.game.explorer.location.oreInvestment = parseInt(mine.game.explorer.location.oreInvestment) + minInvestment;
+        mine.refreshOre();
+        break;
+       case Adjust.DIVEST:
+        if(parseInt(mine.game.explorer.location.mine.oreInvestment) >= minInvestment){
+          mine.game.explorer.location.mine.oreInvestment = parseInt(mine.game.explorer.location.mine.oreInvestment) - minInvestment;
+          mine.refreshOre();
+        }
         break;
      }
    },
    getEnergyProduction: function(){//Calculates energy production rate in Joules/year given credits invested/year
      return mine.game.explorer.location.mine.energyInvestment / solarCost;
+   },
+   getFoodProduction: function(){
+     return mine.game.explorer.location.mine.foodInvestment / foodCost;
+   },
+   getFuelProduction: function(){
+     return mine.game.explorer.location.mine.fuelInvestment / fuelCost;
+   },
+   getOreProduction: function(){
+     return mine.game.explorer.location.mine.oreInvestment / oreCost;
    }
  };
  return mine;

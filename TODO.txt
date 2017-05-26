@@ -1,29 +1,31 @@
 Where I am now:
--VER 0.1: Explorer data
-  -Store explorer locally
-  -Get new explorer from database
 -VER 0.2: Mine
-  -Add ability to increase investment/year in energy, ore, food
-  -Blueprints DB to check if next mine available
-  -Reorder tabs on location view?
-  -Refactor DB so with a Discoveries table (ExplorerID vs Body Discovered)
+  -Blueprints DB to check if next mine available, be able to upgrade each (solar, food, fuel, ore) as well as Mine
+  =Reorder tabs on location view
 -VER 0.3: Colony
+  -plan colony window layout
+  =populate colony window
   -DB: colony fields
   -Requires: food, water, energy
   -Output: population, blueprints
 -VER 0.4: Factory
+  -plan factory window layout
+  =Populate factory window
   -Refactor DB w/ 'Factory' and 'FactoryBlueprints'
     -blueprints, currently building
   -Ability to build blueprints
 -VER 0.5: Observatory
+  =Populate observatory window
   -Refactor DB w/ 'Observatory' and 'ObservatoryBlueprints'
     -discoveries, {investment rate for new discoveries}
   -Ability to discover moon, {automate discoveries}
 -VER 0.6: Mission Control
+  =Populate mission control window
   -Refactor DB
     -missions, {trading}
   -able to do missions, random missions added (LEO, GEO, Lunar)), {trading}
 -VER 0.7: Launcher
+  =Build out launcher window
   -Refactor DB
     -rockets, {ships}, {automated launches}
   -able to launch to discovered locations w/any rocket)
