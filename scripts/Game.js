@@ -163,6 +163,18 @@ function Game(sb) {
       for(var i=0; i<icons.length && i < 6; i++)
         game.sandbox.writeImage(icons[i].image, 13+(7*(Math.floor(i/3))), (1+viewFirstCol+(19*(i%3))), 6, 18, icons[i].align, icons[i].class);
     },
+    displayViewRightArrow: function(){
+      game.sandbox.write("\\", 13,windowLastCol - 2,"view-right-arrow");
+      game.sandbox.write("\\", 14,windowLastCol - 1,"view-right-arrow");
+      game.sandbox.write("/", 15,windowLastCol - 1,"view-right-arrow");
+      game.sandbox.write("/", 16,windowLastCol - 2,"view-right-arrow");
+    },
+    displayViewLeftArrow: function(){
+      game.sandbox.write("/", 13,viewFirstCol + 2,"view-left-arrow");
+      game.sandbox.write("/", 14,viewFirstCol + 1,"view-left-arrow");
+      game.sandbox.write("\\", 15,viewFirstCol + 1,"view-left-arrow");
+      game.sandbox.write("\\", 16,viewFirstCol + 2,"view-left-arrow");
+    },
     displayTitleBox: function(title){
       game.drawSideBarBar("_", titleRow + 1);
       game.setTitle(title);
