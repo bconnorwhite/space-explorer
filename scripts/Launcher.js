@@ -20,7 +20,7 @@
        launcher.game.drawSideBarBar("_",17);
        launcher.game.drawSideBarBar("_",24);
        launcher.game.displayView(rocketImage);
-       //launcher.game.explorer.location.launcher.rockets[];
+       //launcher.game.explorer.location.launcher.rockets;
        //if(launcher.game.explorer.location.launcher.rockets[]<rockets.length){
         launcher.game.displayViewRightArrow();
        //}
