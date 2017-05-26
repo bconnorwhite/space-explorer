@@ -1,4 +1,7 @@
 Where I am now:
+-VER 0.1: Explorer data
+  -Store explorer locally
+  -Get new explorer from database
 -VER 0.2: Mine
   -Add ability to increase investment/year in energy, ore, food
   -Blueprints DB to check if next mine available

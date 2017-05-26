@@ -10,7 +10,7 @@
 
   //Initialize Sandbox
   var sandbox = Sandbox(dbManager);
-  sandbox.register("runSpaceExplorer", initSpaceExplorer);
+  //sandbox.register("runSpaceExplorer", initSpaceExplorer);
 
   //Initialize laptop
   var laptop = Laptop(sandbox);

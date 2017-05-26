@@ -457,7 +457,7 @@ Small Resource Extraction Site
 -7\
 /
 
-Resource Extraction Site (solar farm and 
+Resource Extraction Site (solar farm and
 
 <=7\
  / \
@@ -527,7 +527,7 @@ Solar Array:
  Solar Farm: $					> Upgrade
 
 Food:
- Production Rate : 
+ Production Rate :
  Consumption Rate:
  Investment Rate :				+ Adjust -
 
@@ -679,6 +679,39 @@ __/_|_|_\______\__
     \ \/888\\/##\
      \ \\___\\ \
       \_________\
+
+
+      ______________________________________________________________________________
+     /==============================================================================\
+    || Launcher name    ||/                                                        \||
+    ||__________________||                                                          ||
+    ||                  ||                                                          ||
+    ||                  ||                                                          ||
+    ||        _.        ||                                                          ||
+    ||       /_/        ||                                                          ||
+    ||                  ||                                                          ||
+    ||                  ||                                                          ||
+    ||__________________||                                                          ||
+    ||                  ||                                                          ||
+    || STORE            ||                                                          ||
+    ||__________________||                                                          ||
+    ||                  ||  /                                                    \  || -explorer.location.launcher.rockets[rNum]
+    ||                  || /                         |                            \ || -left arrow if rNum > 0
+    ||                  || \                                                      / || -right arrow if rNum < max
+    ||__________________||  \                                                    /  ||
+    ||                  ||                                                          ||
+    ||                  ||                                                          ||
+    ||                  ||                                                          ||
+    ||                  ||                                                          ||
+    ||                  ||                                                          ||
+    ||                  ||                                                          ||
+    ||__________________||                                                          ||
+    ||                  ||                                                          ||
+    || > Upgrade        ||                                                          ||
+    || > Back           ||\                                                        /||
+    ||__________________||----------------------------------------------------------||
+    || C: $100000       ||  Not enough credits.                                     || <- for messages, such as not enough credits
+    ||__________________||__________________________________________________________||
 
 ----------------------------
 Observatories
