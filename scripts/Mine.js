@@ -83,10 +83,9 @@ function Mine() {
      }
    },
    adjustFood: function(adjust){
-     console.log("Adjust food");
      switch(adjust){
        case Adjust.INVEST:
-        mine.game.explorer.location.foodInvestment = parseInt(mine.game.explorer.location.foodInvestment) + minInvestment;
+        mine.game.explorer.location.mine.foodInvestment = parseInt(mine.game.explorer.location.mine.foodInvestment) + minInvestment;
         mine.refreshFood();
         break;
        case Adjust.DIVEST:
@@ -100,7 +99,7 @@ function Mine() {
    adjustFuel: function(adjust){
      switch(adjust){
        case Adjust.INVEST:
-        mine.game.explorer.location.fuelInvestment = parseInt(mine.game.explorer.location.fuelInvestment) + minInvestment;
+        mine.game.explorer.location.mine.fuelInvestment = parseInt(mine.game.explorer.location.mine.fuelInvestment) + minInvestment;
         mine.refreshFuel();
         break;
        case Adjust.DIVEST:
@@ -114,7 +113,7 @@ function Mine() {
    adjustOre: function(adjust){
      switch(adjust){
        case Adjust.INVEST:
-        mine.game.explorer.location.oreInvestment = parseInt(mine.game.explorer.location.oreInvestment) + minInvestment;
+        mine.game.explorer.location.mine.oreInvestment = parseInt(mine.game.explorer.location.mine.oreInvestment) + minInvestment;
         mine.refreshOre();
         break;
        case Adjust.DIVEST:
@@ -139,4 +138,12 @@ function Mine() {
    }
  };
  return mine;
+}
+
+
+function Unit(){
+  var unit = {
+
+  };
+  return unit;
 }
