@@ -83,13 +83,18 @@ function Game(sb) {
     factory: Factory(),
     mine: Mine(),
     colony: Colony(),
-    init: function(){ //Register sandbox functions, sets callback for getExplorer
-      game.sandbox.register('getExplorer', game.getExplorer(explorer, game.loadGame()));
+    init: function(){ //Register sandbox functions
+      game.sandbox.register('getExplorer', game.getExplorer);
+      game.sandbox.register('power', game.run);
       game.sandbox.register('loaded', game.loaded);
-      game.sandbox.register('escape', game.escape);
-      game.sandbox.getExplorer();
+      game.sandbox.requestExplorer();
+    },
+    run: function(){
+      console.log("GAME: Running game");
+      game.loadGame();
     },
     getExplorer: function(exp){ //Sets explorer to 'exp'
+      console.log("GAME: Explorer: ");
       console.log(exp);
       game.explorer = exp;
     },
@@ -101,6 +106,10 @@ function Game(sb) {
     },
     loaded: function(){ //Function to be called when game is loaded (after SpiceX Logo)
       game.switchTo("location");
+      game.sandbox.register('escape', game.escape);//Register escape, which returns to location screen
+    },
+    escape: function(){
+      game.switchTo('location');
     },
     initLocation: function(){
       game.location.init(game);
@@ -188,10 +197,8 @@ function Game(sb) {
       game.sandbox.write(string, row+1, windowFirstCol+1);
       game.sandbox.repeatHorizontal("_", row+2, windowFirstCol, sideBarLastCol);
     },
-    escape: function(){
-      game.switchTo('location');
-    },
     switchTo: function(string){ //Switch to a new context
+      console.log("GAME: Switching to " + string);
       game.sandbox.writeImage(game.windowBorder, 0, 0, windowLastRow+1, windowLastCol+1, "top-left");
       switch(string){
         case "location":
