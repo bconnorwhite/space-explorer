@@ -69,6 +69,7 @@
 				$mcArr = getRow("Level", $lvl, "MissionControls");
 			$misArr = getRows("Location", $loc, "Missions");
 
+			$this->id = $mcArr["ID"];
 			$this->level = $lvl;
 			$this->name = $mcArr["Name"];
 			$this->image = explode("\r\n", $mcArr["Image"]);
@@ -85,6 +86,7 @@
 				$launchArr = getRow("Level", $lvl, "Launchers");
 			$rocketArr = getRows("Location", $loc, "Rockets");
 
+			$this->id = $launchArr["ID"];
 			$this->level = $lvl;
 			$this->name = $launchArr["Name"];
 			$this->image = explode("\r\n", $launchArr["Image"]);
@@ -102,6 +104,7 @@
 			if($obArr == null)
 				$obArr = getRow("Level", $lvl, "Observatories");
 
+			$this->id = $obArr["ID"];
 			$this->level = $lvl;
 			$this->name = $obArr["Name"];
 			$this->image = explode("\r\n", htmlspecialchars($obArr["Image"]));
@@ -116,6 +119,7 @@
 			if($fArr == null)
 				$fArr = getRow("Level", $lvl, "Factories");
 
+			$this->id = $fArr["ID"];
 			$this->level = $lvl;
 			$this->name = $fArr["Name"];
 			$this->image = explode("\r\n", htmlspecialchars($fArr["Image"]));
@@ -130,6 +134,7 @@
 			if($mArr == null)
 				$mArr = getRow("Level", $lvl, "Mines");
 
+			$this->id = $mArr["ID"];
 			$this->level = $lvl;
 			$this->name = $mArr["Name"];
 			$this->image = explode("\r\n", htmlspecialchars($mArr["Image"]));
@@ -149,6 +154,7 @@
 			if($cArr == null)
 				$cArr = getRow("Level", $lvl, "Colonies");
 
+			$this->id = $cArr["ID"];
 			$this->level = $lvl;
 			$this->population = $pop;
 			$this->name = $cArr["Name"];
@@ -165,16 +171,17 @@
 			$eArr = getRow(array("Size", "Level"), array($s,$e), "Engines");
 
 			$this->size = $s;
-			$this->noseCone = new NoseCone($nc, $ncArr["Name"], $ncArr["Mass"], $ncArr["Drag"], $ncArr["Image"]);
-			$this->fuselage = new Fuselage($s, $f, $fArr["Name"]);
-			$this->engine = new Engine($e, $eArr["Name"], $eArr["Mass"], $eArr["ISP"], $eArr["Image"], $eArr["Flames"]);
+			$this->noseCone = new NoseCone($ncArr["ID"], $nc, $ncArr["Name"], $ncArr["Mass"], $ncArr["Drag"], $ncArr["Image"]);
+			$this->fuselage = new Fuselage($fArr["ID"], $s, $f, $fArr["Name"]);
+			$this->engine = new Engine($eArr["ID"], $e, $eArr["Name"], $eArr["Mass"], $eArr["ISP"], $eArr["Image"], $eArr["Flames"]);
 		}
 	}
 
 	class NoseCone {
 		public $level, $name, $mass, $drag, $image;
 
-		public function __construct($lvl, $n, $m, $dr, $img){
+		public function __construct($id, $lvl, $n, $m, $dr, $img){
+			$this->id = $id;
 			$this->level = $lvl;
 			$this->name = $n;
 			$this->mass = $m;
@@ -186,7 +193,7 @@
 	class Fuselage {
 		public $level, $name, $boosters, $image;
 
-		public function __construct($size, $lvl, $n){
+		public function __construct($id, $size, $lvl, $n){
 			for($b=1; $b<=$lvl; $b++){
 				$booster = getRow(array("Size", "Stage"), array($size, $b), "Boosters");
 				$this->boosters[] = $booster;
@@ -194,7 +201,7 @@
 				if($b != $lvl)
 					$this->image .= "/n";
 			}
-
+			$this->id = $id;
 			$this->level = $lvl;
 			$this->name = $n;
 		}
@@ -203,7 +210,8 @@
 	class Engine {
 		public $level, $name, $mass, $isp, $image, $flames;
 
-		public function __construct($lvl, $n, $m, $i, $img, $f){
+		public function __construct($id, $lvl, $n, $m, $i, $img, $f){
+			$this->id = $id;
 			$this->level = $lvl;
 			$this->name = $n;
 			$this->mass = $m;
