@@ -696,17 +696,17 @@ __/_|_|_\______\__
     || STORE            ||                                                          ||
     ||__________________||                                                          ||
     ||                  ||  /                                                    \  || -explorer.location.launcher.rockets[rNum]
-    ||                  || /                         |                            \ || -left arrow if rNum > 0
-    ||                  || \                                                      / || -right arrow if rNum < max
-    ||__________________||  \                                                    /  ||
+    || Launcher #2      || /                         |                            \ || -left arrow if rNum > 0
+    || = $500           || \                                                      / || -right arrow if rNum < max
+    || > Upgrade        ||  \                                                    /  ||
+    ||__________________||                                                          ||
     ||                  ||                                                          ||
-    ||                  ||                                                          ||
+    ||      pic         ||                                                          ||
     ||                  ||                                                          ||
     ||                  ||                                                          ||
     ||                  ||                                                          ||
     ||                  ||                                                          ||
     ||__________________||                                                          ||
-    || > Upgrade        ||                                                          ||
     || > Back           ||\                                                        /||
     ||__________________||----------------------------------------------------------||
     || C: $100000       ||  Not enough credits.                                     || <- for messages, such as not enough credits

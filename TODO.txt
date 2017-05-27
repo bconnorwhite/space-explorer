@@ -1,7 +1,11 @@
 Where I am now:
 -VER 0.2: Mine
-  -Blueprints DB to check if next mine available, be able to upgrade each (solar, food, fuel, ore) as well as Mine
-  =Reorder tabs on location view
+  =Back button (Game.js, Mine.js)
+  -Get image, cost, and title (if blueprint is owned)
+  =Upgrade button (Game.js, Mine.js)
+  -Upgrade functionality
+  -Blueprints for Mine units (Farm, Solar Array, Ore Mine, and Fuel Refinery)
+  -Upgrade Mine units functionality
 -VER 0.3: Colony
   -plan colony window layout
   =populate colony window
@@ -33,6 +37,7 @@ Where I am now:
   -w/launch options
 -VER 0.9:
   -Make pretty (Intro, twinkle stars, factory moving smoke, etc.) - also more stars in view
+  =Reorder location view tabs
 -VER 1.0:
   -All the stuff above, beta tested, and launched live
 -Ver 1.x:
