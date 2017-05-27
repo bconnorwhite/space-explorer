@@ -6,9 +6,17 @@
 
 		public function __construct($id) {
 			$expArr = getRow("ID", $id, "Explorers");
+			$bpArr = getRows("ExplorerID", $id, "Blueprints");
 
 			$this->credits = $expArr["Credits"];
 			$this->location = new Location($id, $expArr["Location"]);
+			$this->blueprints = [];
+			foreach($bpArr as $bp){//Creates list of blueprints IDs for each type of blueprint
+				$type = $bp["TableName"];
+				if(empty($this->blueprints[$type]))
+					$this->blueprints[$type] = [];
+				array_push($this->blueprints[$type], $bp["RowID"]);
+			}
 		}
 	}
 
