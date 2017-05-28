@@ -1,6 +1,6 @@
 Where I am now:
 -OTHER:
-  -reorganize Game.js
+  -
 -VER 0.2: Mine
   =displayUpgrade()         (Game.js)
   =displayBackButton()      (Game.js)
