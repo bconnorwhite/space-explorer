@@ -98,9 +98,6 @@ function Game(sb) {
       console.log(exp);
       game.explorer = exp;
     },
-    saveExplorer: function(exp){ //Send 'exp' to sandbox for saving to Database
-      game.sandbox.saveExplorer(exp);
-    },
     loadGame: function(){ //Displays SpiceX Logo and registers 'loaded' and 'escape'
       game.sandbox.setLoad(game.spiceXLogo);
     },

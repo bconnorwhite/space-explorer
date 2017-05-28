@@ -25,14 +25,11 @@ function Mine() {
      mine.game.displayTitleBox(mine.game.explorer.location.mine.name);
      mine.game.displaySideBarIcon(mine.game.explorer.location.mine.image, 4, 6);
      mine.game.displaySideBarLabel("STORE", 11);
+     //TODO: mine.game.displayUpgrade(name, cost, upgrade function, image) - should call from game.js
+     //TODO: mine.game.displayBackButton() - should call from game.js
      mine.game.displayCreditBox(mine.game.explorer.credits);
      mine.game.displayBottomBar();
      mine.game.displayViewCorners();
-
-     mine.game.displayViewLine(mine.game.explorer.location.mine.energySource + ":", 2, 1);
-     mine.game.displayViewLine("Production Rate :", 3, 2);
-     mine.game.displayViewLine("Consumption Rate:", 4, 2);
-     mine.game.displayViewLine("Investment Rate :", 5, 2);
    },
    populateView: function(){
      mine.refreshEnergy();
