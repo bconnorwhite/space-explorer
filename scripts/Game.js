@@ -89,14 +89,14 @@ function Game(sb) {
       game.sandbox.register('loaded', game.loaded);
       game.sandbox.requestExplorer();
     },
-    run: function(){
-      console.log("GAME: Running game");
-      game.loadGame();
-    },
     getExplorer: function(exp){ //Sets explorer to 'exp'
       console.log("GAME: Explorer: ");
       console.log(exp);
       game.explorer = exp;
+    },
+    run: function(){
+      console.log("GAME: Running game");
+      game.loadGame();
     },
     loadGame: function(){ //Displays SpiceX Logo and registers 'loaded' and 'escape'
       game.sandbox.setLoad(game.spiceXLogo);
@@ -132,15 +132,58 @@ function Game(sb) {
     clear: function(row, startCol, endCol){//Clears a row (fills with spaces)
       game.sandbox.repeatHorizontal(" ", row, startCol, endCol);
     },
-    clearViewRow: function(row){//Clears a view row
-      game.clear(row, viewFirstCol, windowLastCol);
-    },
     displaySideBar: function(){ //Display a blank sidebar on the screen
       game.sandbox.repeatVerticle("||", windowFirstRow, windowLastRow, sideBarLastCol + 1);
+    },
+    drawSideBarBar: function(char, row){
+      game.sandbox.repeatHorizontal(char, row, windowFirstCol, sideBarLastCol);
+    },
+    setTitle: function(title){
+      game.sandbox.write(title, titleRow, windowFirstCol + 1);
+    },
+    displayTitleBox: function(title){
+      game.drawSideBarBar("_", titleRow + 1);
+      game.setTitle(title);
+    },
+    setStatus: function(image){//Set location status
+      for(var r = 0; r < image.length; r++)
+          game.sandbox.write(image[r], statusRow + r, windowFirstCol + 1, sideBarLastCol);
+    },
+    displayStatus: function(image){//Display location staus
+      game.statusLastRow = image.length + statusRow;
+      game.setStatus(image);
+      game.drawSideBarBar("_", game.statusLastRow);
     },
     displaySideBarIcon: function(image, row, height){ //Display an icon on the sidebar
       game.sandbox.writeImage(image, row, windowFirstCol, height, sideBarLastCol-windowFirstCol, "center");
       game.sandbox.repeatHorizontal("_", row+height, windowFirstCol, sideBarLastCol);
+    },
+    displaySideBarButton: function(button, startRow){ //Buttons have [id, title]
+      game.sandbox.write(button.title, startRow+1, windowFirstCol+1, button.class);
+      game.sandbox.repeatHorizontal("_", startRow+2, windowFirstCol, sideBarLastCol);
+    },
+    displaySideBarLabel: function(string, row){
+      game.sandbox.write(string, row+1, windowFirstCol+1);
+      game.sandbox.repeatHorizontal("_", row+2, windowFirstCol, sideBarLastCol);
+    },
+    displayUpgradeBox: function(blueprint){
+      //TODO: display upgrade box  (use blueprint.name), format in scratchpad.txt
+    },
+    displayUpgrade: function(blueprint){
+      game.displaySideBarLabel("STORE", 11);
+      game.displayUpgradeBox(blueprint);
+      //TODO: display upgrade image (use blueprint.image), format in scratchpad.txt
+    },
+    displayBackButton: function(){
+      //TODO: display back button, format in scratchpad.txt
+      //TODO: link onclick of back button to switchTo("location");
+    },
+    displayCreditBox: function(credits){
+      game.drawSideBarBar("_", creditRow - 1);
+      game.setCredits(credits);
+    },
+    setCredits: function(credits){
+      game.sandbox.write("C: $" + credits, creditRow, windowFirstCol + 1);
     },
     displayBottomBar: function(){ //Display a blank bottom bar on the screen
       game.sandbox.repeatHorizontal("-", viewLastRow + 1, viewFirstCol, windowLastCol);
@@ -157,6 +200,9 @@ function Game(sb) {
       } else {
         game.sandbox.write(string, row, col+viewFirstCol, theClass);
       }
+    },
+    clearViewRow: function(row){//Clears a view row
+      game.clear(row, viewFirstCol, windowLastCol);
     },
     displayViewCorners: function(){
       game.sandbox.write("/", windowFirstRow, viewFirstCol);
@@ -179,49 +225,6 @@ function Game(sb) {
       game.sandbox.write("/", 14,viewFirstCol + 1,"view-left-arrow");
       game.sandbox.write("\\", 15,viewFirstCol + 1,"view-left-arrow");
       game.sandbox.write("\\", 16,viewFirstCol + 2,"view-left-arrow");
-    },
-    displayTitleBox: function(title){
-      game.drawSideBarBar("_", titleRow + 1);
-      game.setTitle(title);
-    },
-    setTitle: function(title){
-      game.sandbox.write(title, titleRow, windowFirstCol + 1);
-    },
-    displayCreditBox: function(credits){
-      game.drawSideBarBar("_", creditRow - 1);
-      game.setCredits(credits);
-    },
-    setCredits: function(credits){
-      game.sandbox.write("C: $" + credits, creditRow, windowFirstCol + 1);
-    },
-    displayStatus: function(image){
-      game.statusLastRow = image.length + statusRow;
-      game.setStatus(image);
-      game.drawSideBarBar("_", game.statusLastRow);
-    },
-    setStatus: function(image){
-      for(var r = 0; r < image.length; r++)
-          game.sandbox.write(image[r], statusRow + r, windowFirstCol + 1, sideBarLastCol);
-    },
-    drawSideBarBar: function(char, row){
-      game.sandbox.repeatHorizontal(char, row, windowFirstCol, sideBarLastCol);
-    },
-    displaySideBarButton: function(button, startRow){ //Buttons have [id, title]
-      game.sandbox.write(button.title, startRow+1, windowFirstCol+1, button.class);
-      game.sandbox.repeatHorizontal("_", startRow+2, windowFirstCol, sideBarLastCol);
-    },
-    displaySideBarLabel: function(string, row){
-      game.sandbox.write(string, row+1, windowFirstCol+1);
-      game.sandbox.repeatHorizontal("_", row+2, windowFirstCol, sideBarLastCol);
-    },
-    displayUpgrade: function(blueprint){
-      game.displaySideBarLabel("STORE", 11);
-      //TODO: display upgrade box  (use blueprint.name), format in scratchpad.txt
-      //TODO: display upgrade image (use blueprint.image), format in scratchpad.txt
-    },
-    displayBackButton: function(){
-      //TODO: display back button, format in scratchpad.txt
-      //TODO: link onclick of back button to switchTo("location");
     },
     switchTo: function(string){ //Switch to a new context
       console.log("GAME: Switching to " + string);
