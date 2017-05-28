@@ -24,9 +24,8 @@ function Mine() {
      mine.game.displaySideBar();
      mine.game.displayTitleBox(mine.game.explorer.location.mine.name);
      mine.game.displaySideBarIcon(mine.game.explorer.location.mine.image, 4, 6);
-     mine.game.displaySideBarLabel("STORE", 11);
-     //TODO: mine.game.displayUpgrade(name, cost, upgrade function, image) - should call from game.js
-     //TODO: mine.game.displayBackButton() - should call from game.js
+     mine.game.displayUpgrade(mine.game.explorer.location.mine.blueprint, mine.upgrade());
+     mine.game.displayBackButton();
      mine.game.displayCreditBox(mine.game.explorer.credits);
      mine.game.displayBottomBar();
      mine.game.displayViewCorners();
@@ -36,6 +35,9 @@ function Mine() {
      mine.refreshFood();
      mine.refreshFuel();
      mine.refreshOre();
+   },
+   upgrade: function(){
+     //TODO
    },
    refreshEnergy: function(){
      mine.addResource(mine.game.explorer.location.mine.energySource, "J", mine.getEnergyProduction(), 0, mine.game.explorer.location.mine.energyInvestment, 0, mine.adjustEnergy);

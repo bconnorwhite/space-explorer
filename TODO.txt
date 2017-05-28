@@ -1,11 +1,10 @@
 Where I am now:
 -VER 0.2: Mine
-  =Back button (Game.js, Mine.js)
-  -Get image, cost, and title (if blueprint is owned)
-  =Upgrade button (Game.js, Mine.js)
+  =displayUpgrade()         (Game.js)
+  =displayBackButton()      (Game.js)
   -Upgrade functionality
   -Blueprints for Mine units (Farm, Solar Array, Ore Mine, and Fuel Refinery)
-  -Upgrade Mine units functionality
+  -Mine units upgrade functionality
 -VER 0.3: Colony
   -plan colony window layout
   =populate colony window

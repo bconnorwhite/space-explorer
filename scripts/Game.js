@@ -214,6 +214,15 @@ function Game(sb) {
       game.sandbox.write(string, row+1, windowFirstCol+1);
       game.sandbox.repeatHorizontal("_", row+2, windowFirstCol, sideBarLastCol);
     },
+    displayUpgrade: function(blueprint){
+      game.displaySideBarLabel("STORE", 11);
+      //TODO: display upgrade box  (use blueprint.name), format in scratchpad.txt
+      //TODO: display upgrade image (use blueprint.image), format in scratchpad.txt
+    },
+    displayBackButton: function(){
+      //TODO: display back button, format in scratchpad.txt
+      //TODO: link onclick of back button to switchTo("location");
+    },
     switchTo: function(string){ //Switch to a new context
       console.log("GAME: Switching to " + string);
       game.sandbox.writeImage(game.windowBorder, 0, 0, windowLastRow+1, windowLastCol+1, "top-left");
