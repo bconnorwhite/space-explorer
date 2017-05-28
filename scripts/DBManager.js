@@ -4,25 +4,17 @@
 
 function DBManager(){
   var dbManager = {
-    getJSON: function(filename, callback){
+    getJSON: function(filename, callback, params){
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function(){
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
           callback(JSON.parse(xmlhttp.responseText));
         }
       };
-      xmlhttp.open("GET", filename, true);
-      xmlhttp.send();
-    },
-    saveJSON: function(filename, json){
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-          return 0;
-        }
-      };
-      xmlhttp.open("GET", filename, true);
-      xmlhttp.send(JSON.strigify(json));
+      xmlhttp.open("POST", filename, true);
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      console.log(filename + "?q=" + params);
+      xmlhttp.send(params);
     }
   };
   return dbManager;
