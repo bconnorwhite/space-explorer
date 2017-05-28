@@ -8,7 +8,6 @@
 			return $row;
 		}
 		return null;
-
 	}
 
 	function getRows($keys, $ids, $table){//Return all rows in '$table' where each column '$keys' matches '$ids'
@@ -33,7 +32,7 @@
 		$sql = "SELECT * FROM $table WHERE ";
 		if(is_array($keys) && is_array($ids)){//Allows for lists of keys and ids that must match
 			for($i = 0; $i<count($keys) && $i<count($ids); $i++){
-				$sql = $sql . "$keys[$i] = $ids[$i]";
+				$sql = $sql . "$keys[$i] = '$ids[$i]'";
 				if(($i + 1) < count($keys)){
 					$sql = $sql . " AND ";
 				}
@@ -41,7 +40,6 @@
 		} else {//If keys and ids are variables instead of arrays
 			$sql = $sql . "$keys = $ids";
 		}
-
 		$result = mysqli_query($conn, $sql);
 		mysqli_close($conn);
 
