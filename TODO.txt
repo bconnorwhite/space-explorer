@@ -5,7 +5,8 @@ Where I am now:
   =displayUpgrade()         (Game.js)
   =displayBackButton()      (Game.js)
   -Upgrade functionality
-  -Blueprints for Mine units (Farm, Solar Array, Ore Mine, and Fuel Refinery)
+  -Mine units blueprints (Farm, Solar Array, Ore Mine, and Fuel Refinery) - only needs title and rate
+    -what does upgrading the Mine itself do then??? - capacity - able to hold larger units
   -Mine units upgrade functionality
 -VER 0.3: Colony
   -plan colony window layout
