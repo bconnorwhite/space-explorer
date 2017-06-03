@@ -87,13 +87,15 @@ function Screen(sb) {
       screen.sandbox.loaded();
     },
     repeatVerticle: function(string, startRow, endRow, col){
-      for(var r=startRow; r<=endRow; r++){
+      for(var r=startRow; r<=endRow; r++)
         screen.write(string, r, col);
-      }
     },
     repeatHorizontal: function(string, row, startCol, endCol){
-      for(var c=startCol; c<=endCol; c++){
-        screen.write(string, row, c);
+      var output = "";
+      for(var c=startCol; c<=endCol; c++)
+        output += string;
+      screen.write(output, row, startCol);
+    },
       }
     },
     write: function(string, row, startCol, theClass){//Write string to screen, do not clear old
