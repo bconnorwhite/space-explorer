@@ -1,6 +1,6 @@
 Where I am now:
 -OTHER:
-  -
+  -Switch to remote database
 -VER 0.2: Mine
   =displayUpgrade()         (Game.js)
   =displayBackButton()      (Game.js)
@@ -38,6 +38,7 @@ Where I am now:
 -VER 0.8: Launch Window
   -w/launch options
 -VER 0.9:
+  =Fix laptop from being broken for like half a second on load in - use opacity 0 as default
   -Make pretty (Intro, twinkle stars, factory moving smoke, etc.) - also more stars in view
   -Location view behind laptop?
   =Reorder location view tabs
