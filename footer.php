@@ -16,4 +16,4 @@
     <script type="text/javascript" src="/SpaceExplorer/scripts/DBManager.js"></script>
   <script type="text/javascript" src="/SpaceExplorer/scripts/Core.js"></script>
 </html>
-<!-- ASCII inspiration credit: Joan G. Stark, llizard, Ojo98, mruge -->
+<!-- ASCII art inspiration credit: Joan G. Stark, llizard, Ojo98, mruge -->
