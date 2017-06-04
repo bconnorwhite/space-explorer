@@ -3,7 +3,6 @@ Where I am now:
   -
 -VER 0.2: Mine
   =displayUpgrade()         (Game.js)
-  =displayBackButton()      (Game.js)
   -Upgrade functionality
   -Mine units blueprints (Farm, Solar Array, Ore Mine, and Fuel Refinery) - only needs title and rate
     -what does upgrading the Mine itself do then??? - capacity - able to hold larger units

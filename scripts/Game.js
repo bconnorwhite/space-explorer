@@ -176,9 +176,7 @@ function Game(sb) {
       //TODO: display upgrade image (use blueprint.image), format in scratchpad.txt
     },
     displayBackButton: function(){
-      //TODO: display back button, get format in scratchpad.txt for startRow and startCol
       game.sandbox.write("> Back", 26, windowFirstCol+1, "back");
-      //TODO: link onclick of back button to switchTo("location");
       game.sandbox.setClicks("back", game.switchTo, ["location"]);
     },
     displayCreditBox: function(credits){
