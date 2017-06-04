@@ -1,8 +1,11 @@
+Legend:
+  -Connor, probably
+  =Wesley is able to do this
+  >Completed
+
 Where we are now:
 
--VER 0.1: Laptop, Screen, Location functionality
-  =Reorder Location sidebar (Mine, Colony, Factory, Observatory, Mission Control, Launcher)
-  =Reorder Location icons (Mine, Observatory, Launcher, Colony, Observatory, Mission Control)
+>VER 0.1: Laptop, Screen, Location functionality
 -VER 0.2: Building Formats
   =displayUpgrade() - Game.js
   -Colony

@@ -12,6 +12,9 @@ var viewLastRow = 26;
 var titleRow = 1;
 var creditRow = 28;
 var statusRow = 3;
+var viewIconStartRow = 13;
+var iconHeight = 6;
+var iconWidth = 18;
 
 function Game(sb) {
   var game = {
@@ -222,10 +225,10 @@ function Game(sb) {
     },
     displayViewIcons: function(icons){ //For icons on location view
       if(icons.length > 6)
-        console.error("GAME: Too many icons");
+        console.error("GAME: Too many view icons");
       else
         for(var i=0; i<icons.length; i++)
-          game.sandbox.writeImage(icons[i].image, 13+(7*(Math.floor(i/3))), (1+viewFirstCol+(19*(i%3))), 6, 18, icons[i].align, icons[i].class);
+          game.sandbox.writeImage(icons[i].image, viewIconStartRow+((iconHeight+1)*(1-(i%2))), (viewFirstCol+1+((iconWidth+1)*(Math.floor(i/2)))), iconHeight, iconWidth, icons[i].align, icons[i].class);
     },
     displayViewRightArrow: function(){
       game.sandbox.write("\\", 13,windowLastCol - 2,"view-right-arrow");
