@@ -41,7 +41,7 @@ ___________
          *
 __________
 
-Nose Cones: - dirt cheap
+Nose Cones: - volume is very important as it limits cargo size.
 (i.e. 2nd Gen A Class Nose Cone)
 
 L Lvl1, Lvl2, Lvl3, Lvl4
@@ -167,6 +167,9 @@ Ships
 -Capacity (# of people or tons of cargo)
 ———————————————
 
+
+For heavy version, require 3 (instead of 1) of all stages except the last stage.
+Extra boosters do not use fairings.
 
      /^\
      |.|
@@ -441,6 +444,39 @@ Type 1 Civ (1B - 9B)
 Type 2 Civ (10B - 99B)
 
 Type 3 Civ (100B - 999B)
+
+ ______________________________________________________________________________
+/==============================================================================\
+|| Body             ||/                                                        \||
+|| Colony Name      || Blueprints                                               ||
+||__________________||                                                        ^ || -should we use a scroll bar and have Buildings, fairings, fuselages, engines OR
+||                  ||  Buildings                                               || -should we not use a scroll bar and have Buildings, Rocket Parts?
+||        _.        ||     xxxxxxxxxxxxxxxxxx  Type: Resource Extraction        ||
+||       /_/        ||   / x                x  Name: Res. Extract. Lv2       \  ||
+||                  ||  /  x     Image      x                                 \ ||
+||                  ||  \  x                x  Progress: 0%                   / || -rate at which progress increases is based on project budget
+||                  ||   \ x                x  Research Budget: $0           /  || -once progress hits 100%, blueprint is no longer displayed in colony, available for use at factory or building
+||__________________||     xxxxxxxxxxxxxxxxxx                   + Adjust -      ||
+||                  ||                                                          ||
+|| Population:      ||  Rocket Parts                                            ||
+||  7               ||     x                                                    ||
+||                  ||     x                                                    ||
+|| Explorers:       ||     x                                                    ||
+||  1               ||     x                                                    ||
+||                  ||     x                                                    ||
+|| Date:            ||     x                                                    ||
+||  MAR 2030        ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||__________________||                                                        v ||
+|| > Back           ||\                                                        /||
+||__________________||----------------------------------------------------------||
+|| C: $100000       ||  Not enough credits.                                     || <- for messages, such as not enough credits
+||__________________||__________________________________________________________||
+
+
 ----------------------------
 Mines, Resource Extraction, Power Station, Power Plant
 -Higher level mines get access to better resources

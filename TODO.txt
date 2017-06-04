@@ -1,6 +1,9 @@
 Where I am now:
 -OTHER:
   -
+-DESIGN:
+  -Redesign nose cones for higher volume versions, make them look a little more like a ship
+  -Rebrand nose cone as fairing
 -VER 0.2: Mine
   =displayUpgrade()         (Game.js)
   -Upgrade functionality
@@ -33,6 +36,7 @@ Where I am now:
   =Build out launcher window
   -Refactor DB
     -rockets, {ships}, {automated launches}
+  -work out the physics
   -able to launch to discovered locations w/any rocket)
 -VER 0.8: Launch Window
   -w/launch options
@@ -43,6 +47,7 @@ Where I am now:
   =Reorder location view tabs
 -VER 1.0:
   -All the stuff above, beta tested, and launched live
+  -Uglify JS & CSS
 -Ver 1.x:
   -Fill out solar system
     -Accurate clock (sped up to 1yr = 1minute), travel speed, and observed location of bodies
