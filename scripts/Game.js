@@ -45,7 +45,7 @@ function Game(sb) {
         "      |_|                              |_|",
     ],
     windowBorder: [
-        "================================================================================",
+        "===============================================================================",
         "|                                                                              |",
         "|                                                                              |",
         "|                                                                              |",
@@ -84,8 +84,8 @@ function Game(sb) {
     mine: Mine(),
     colony: Colony(),
     init: function(){ //Register sandbox functions
+      game.sandbox.setLoad(game.spiceXLogo);
       game.sandbox.register('getExplorer', game.getExplorer);
-      game.sandbox.register('power', game.run);
       game.sandbox.register('loaded', game.loaded);
       game.sandbox.requestExplorer();
     },
@@ -93,13 +93,6 @@ function Game(sb) {
       console.log("GAME: Explorer: ");
       console.log(exp);
       game.explorer = exp;
-    },
-    run: function(){
-      console.log("GAME: Running game");
-      game.loadGame();
-    },
-    loadGame: function(){ //Displays SpiceX Logo and registers 'loaded' and 'escape'
-      game.sandbox.setLoad(game.spiceXLogo);
     },
     loaded: function(){ //Function to be called when game is loaded (after SpiceX Logo)
       game.switchTo("location");

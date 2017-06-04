@@ -1,9 +1,8 @@
 /* Screen.js
  *
  */
- var WIDTH = 82;
+ var WIDTH = 80;
  var HEIGHT = 30;
- var blankRow = "                                                                                ";
 
 function Screen(sb) {
   var screen = {
@@ -30,6 +29,7 @@ function Screen(sb) {
       screen.pow = true;
       screen.updateColor(screen.getColor());
       if(screen.load === true){
+        console.log("SCREEN: Loading");
         screen.tempFill(screen.loadImage);
         setTimeout(function(){screen.refresh();}, 2000);
       } else {
@@ -67,19 +67,20 @@ function Screen(sb) {
       }
     },
     setLoad: function(image){
+      console.log("SCREEN: Setting load");
       screen.load = true;
       screen.loadImage = image;
     },
     clear: function(){
-      screen.elements[0].innerHTML = blankRow.substring(0, blankRow.length-1);
+      screen.repeatHorizontal(" ", 0, 0, WIDTH-2);//First row has one less column.
       for(var r=1; r<screen.elements.length; r++)
-        screen.elements[r].innerHTML = blankRow;
+        screen.repeatHorizontal(" ", r, 0, WIDTH-1);
     },
     tempFill: function(image){
       for(var r=0; r<screen.elements.length; r++)
         screen.save[r] = screen.elements[r].innerHTML;
       screen.clear();
-      screen.writeImage(image, 0, 0, HEIGHT, WIDTH, "center");
+      screen.writeImage(image, 0, 0, HEIGHT-1, WIDTH-1, "center");
     },
     refresh: function(){
       for(var r=0; r<screen.elements.length; r++)

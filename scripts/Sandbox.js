@@ -13,7 +13,7 @@ function Sandbox(dbm) {
     },
     broadcast: function(channel, params){//Call all functions registered with a channel
       if(sandbox.channels[channel]===undefined)
-        console.log("SANDBOX: Missing channel");
+        console.error("SANDBOX: Missing channel");
       else
         for(var f=0; f<sandbox.channels[channel].length; f++)
           sandbox.channels[channel][f].apply(this, params);
