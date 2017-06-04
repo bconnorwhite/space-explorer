@@ -17,17 +17,32 @@
 		return $rows;
 	}
 
-	function getResult($keys, $ids, $table){
-		$database = "SpaceExplorer";
+	function getConnection($servername, $username, $password, $dbname){
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		if($conn->connect_error)
+			die("Connection failed: " . $conn->connect_error);//TODO: Might want to handle this better...
+		$conn->set_charset('utf8mb4');
+		return $conn;
+	}
+
+	function getLocalConnection(){
+		$dbname = "SpaceExplorer";
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
+		return getConnection($servername, $username, $password, $dbname);
+	}
 
-		$conn = new mysqli($servername, $username, $password, $database);
-		if($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
-		$conn->set_charset('utf8mb4');
+	function getRemoteConnection(){
+		$servername = "mysql.connorwhite.org";
+		$username = "spicex";
+		$password = "7v6auR0g8Z9x";
+		$dbname = "spaceexplorer";
+		return getConnection($servername, $username, $password, $dbname);
+	}
+
+	function getResult($keys, $ids, $table){
+		$conn = getRemoteConnection();
 
 		$sql = "SELECT * FROM $table WHERE ";
 		if(is_array($keys) && is_array($ids)){//Allows for lists of keys and ids that must match

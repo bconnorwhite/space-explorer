@@ -1,6 +1,6 @@
 Where I am now:
 -OTHER:
-  -Switch to remote database
+  -
 -VER 0.2: Mine
   =displayUpgrade()         (Game.js)
   =displayBackButton()      (Game.js)
