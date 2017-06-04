@@ -254,7 +254,8 @@ function Screen(sb) {
       }
       //Write image
       for(var r=0; r<image.length && r<=(row+height-startRow); r++)
-        screen.write(image[r], startRow+r, startCol, theClass);
+        if(image[r] !== '' && image[r] !== undefined)
+          screen.write(image[r], startRow+r, startCol, theClass);
     },
     getImageWidth: function(image){
       var width = 0;
