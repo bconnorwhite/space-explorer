@@ -147,7 +147,7 @@ function Game(sb) {
     },
     setStatus: function(image){//Set location status
       for(var r = 0; r < image.length; r++)
-          game.sandbox.write(image[r], statusRow + r, windowFirstCol + 1, sideBarLastCol);
+          game.sandbox.write(image[r], statusRow + r, windowFirstCol + 1);
     },
     displayStatus: function(image){//Display location staus
       game.statusLastRow = image.length + statusRow;
@@ -175,8 +175,10 @@ function Game(sb) {
       //TODO: display upgrade image (use blueprint.image), format in scratchpad.txt
     },
     displayBackButton: function(){
-      //TODO: display back button, format in scratchpad.txt
+      //TODO: display back button, get format in scratchpad.txt for startRow and startCol
+      game.sandbox.write("> Back", 26, windowFirstCol+1, "back");
       //TODO: link onclick of back button to switchTo("location");
+      game.sandbox.setClicks("back", game.switchTo, ["location"]);
     },
     displayCreditBox: function(credits){
       game.drawSideBarBar("_", creditRow - 1);
@@ -226,10 +228,13 @@ function Game(sb) {
       game.sandbox.write("\\", 15,viewFirstCol + 1,"view-left-arrow");
       game.sandbox.write("\\", 16,viewFirstCol + 2,"view-left-arrow");
     },
-    switchTo: function(string){ //Switch to a new context
-      console.log("GAME: Switching to " + string);
+    setClicks: function(theClass, context){
+      game.sandbox.setClicks(theClass, game.switchTo, [context]);
+    },
+    switchTo: function(context){ //Switch to a new context
+      console.log("GAME: Switching to " + context);
       game.sandbox.writeImage(game.windowBorder, 0, 0, windowLastRow+1, windowLastCol+1, "top-left");
-      switch(string){
+      switch(context){
         case "location":
           game.initLocation();
           break;

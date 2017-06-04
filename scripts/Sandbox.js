@@ -48,6 +48,9 @@ function Sandbox(dbm) {
     write: function(string, row, startCol, theClass) {
       sandbox.broadcast('write', [string, row, startCol, theClass]);
     },
+    setClicks: function(theClass, func, params){
+      sandbox.broadcast('setClicks', [theClass, func, params]);
+    },
     writeImage: function(image, row, col, height, width, align, theClass){
       sandbox.broadcast('writeImage', [image, row, col, height, width, align, theClass]);
     },

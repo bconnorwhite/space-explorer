@@ -1,7 +1,6 @@
 /* Screen.js
  *
  */
-
  var WIDTH = 82;
  var HEIGHT = 30;
  var blankRow = "                                                                                ";
@@ -24,6 +23,7 @@ function Screen(sb) {
       screen.sandbox.register('setLoad', screen.setLoad);
       screen.sandbox.register('repeatVerticle', screen.repeatVerticle);
       screen.sandbox.register('repeatHorizontal', screen.repeatHorizontal);
+      screen.sandbox.register('setClicks', screen.setClicks);
     },
     on: function() { //Turns screen on
       console.log("SCREEN: Power On");
@@ -96,24 +96,104 @@ function Screen(sb) {
         output += string;
       screen.write(output, row, startCol);
     },
+    setClicks: function(theClass, func, params){
+      var elements = document.getElementsByClassName(theClass);
+      var clickFunc = function(fn, p){
+        return function(){fn.apply(this, p);};
+      };
+      for(var e=0; e<elements.length; e++){
+        elements[e].onclick = clickFunc(func, params);
       }
     },
-    write: function(string, row, startCol, theClass){//Write string to screen, do not clear old
-      var oldString = screen.elements[row].innerHTML;
-      var left = screen.substringIgnoreTags(oldString, 0, startCol);
-      var right = screen.substringIgnoreTags(oldString, startCol + screen.lengthIgnoreTags(string), screen.lengthIgnoreTags(oldString));
-      if(theClass !== undefined)
-        string = "<a class=" + theClass + ">" + string + "</a>";
-      screen.elements[row].innerHTML = screen.substringIgnoreTags(left + string + right, 0, screen.lengthIgnoreTags(oldString));//Limit length to same as original
+    write: function(string, row, startCol, theClass){
+      var element = screen.elements[row];
+      screen.writeElement(string, element, startCol, theClass);
+    },
+    writeElement: function(string, element, startCol, theClass){
+      var nodes = element.childNodes;
+      screen.writeNode(string, nodes, startCol, theClass);
+    },
+    writeNode: function(string, nodes, startCol, theClass){
+      //Get nodes that overlap with string, starting from startCol
+      var overlapping = screen.getOverlappingNodes(startCol, string.length, nodes);
+      //Combine overlapping nodes
+      var combinedNode = screen.combineNodes(overlapping.nodes);
+      //Recursively call this function OR begin writing
+      if(combinedNode.childNodes.length > 0){//Still contains more child nodes, keep going...
+        console.warn("Recursive writeNode(): Haven't tested this yet might want to pay attention");
+        writeNode(string, combinedNode.childNodes, startCol-overlapping.start, theClass);
+      } else {//Down to a single text node. Insert new node with string
+        var left = document.createTextNode(combinedNode.textContent.substring(0, startCol-overlapping.start));
+        var right = document.createTextNode(combinedNode.textContent.substring(startCol-overlapping.start + string.length));
+        var middle;
+        var stringNode = document.createTextNode(string);
+        if(theClass !== undefined){//There is a class, use A element
+          middle = document.createElement("a");
+          middle.className = theClass;
+          middle.appendChild(stringNode);
+        } else {
+          middle = stringNode;
+        }
+        //Actually insert new node into document
+        var parent = overlapping.nodes[0].parentNode;
+        parent.insertBefore(left, overlapping.nodes[0]);
+        parent.insertBefore(middle, overlapping.nodes[0]);
+        parent.insertBefore(right, overlapping.nodes[0]);
+        screen.removeNodes(overlapping.nodes, parent);
+      }
+    },
+    /* getOverlappingNodes(startCol, count, nodes)
+     * Input: startCol: starting column
+              count: number of characters to count
+              nodes: list of nodes
+     * Return: Object containing 'nodes' and 'start'
+              nodes: list of nodes which are overlapped by counting 'count' chars starting at 'startCol'
+              start: first column of first node
+    */
+    getOverlappingNodes: function(startCol, count, nodes){
+      var overlapping = [];
+      var counter = 0;
+      var start = -1;
+      for(var n=0; n<nodes.length; n++){//Run past each node
+        var nodeLength = nodes[n].textContent.length;
+        if(startCol < counter+nodeLength){//If start is in this node
+          overlapping.push(nodes[n]);
+          startCol += nodes[n].textContent.substring(startCol, count).length;//Set startCol to end of string or node, whichever is first
+          if(start < 0)
+            start = counter;
+        }
+        counter += nodeLength;//Set counter to beginning of next node
+      }
+      var data = {
+        nodes: overlapping,
+        start: start
+      };
+      return data;
+    },
+    /* getOverlappingNodes(nodes)
+     * Input: nodes: list of nodes
+     * Return: single node combined from list of nodes
+    */
+    combineNodes: function(nodes){
+      if(nodes.length > 1){
+        var combinedNode = document.createTextNode("");
+        for(var n=0; n<nodes.length; n++){
+          combinedNode.textContent += nodes[n].textContent;
+        }
+        return combinedNode;
+      } else {
+        return nodes[0];
+      }
+    },
+    //Removes all nodes in 'nodes' from 'parent'
+    removeNodes: function(nodes, parent){
+      for(var n=0; n<nodes.length; n++){
+        parent.removeChild(nodes[n]);
+      }
     },
     writeImage: function(image, row, col, height, width, align, theClass){
-      var startRow, startCol, imageWidth=0;
-      //Get width of Image
-      for(var i=0; i<image.length; i++){
-        if(screen.lengthIgnoreTags(image[i]) > imageWidth){
-          imageWidth = screen.lengthIgnoreTags(image[i]);
-        }
-      }
+      var startRow, startCol;
+      var imageWidth = screen.getImageWidth(image);
       //Choose start row & col based on alignment
       switch(align){
         case "top-left":
@@ -134,9 +214,15 @@ function Screen(sb) {
           break;
       }
       //Write image
-      for(var r=0; r<image.length && r<=(row+height-startRow); r++){
+      for(var r=0; r<image.length && r<=(row+height-startRow); r++)
         screen.write(image[r], startRow+r, startCol, theClass);
-      }
+    },
+    getImageWidth: function(image){
+      var width = 0;
+      for(var i=0; i<image.length; i++)
+        if(screen.lengthIgnoreTags(image[i]) > width)
+          width = screen.lengthIgnoreTags(image[i]);
+      return width;
     },
     substringIgnoreTags: function(string, a, b){//Returns substring of string from a to b, ignoring tags
       var start = screen.indexIgnoreTags(string, a);
