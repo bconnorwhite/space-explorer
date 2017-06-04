@@ -167,11 +167,13 @@ function Game(sb) {
       game.sandbox.repeatHorizontal("_", row+height, windowFirstCol, sideBarLastCol);
     },
     displaySideBarButton: function(button, startRow){ //Buttons have [id, title]
-      game.sandbox.write(button.title, startRow+1, windowFirstCol+1, button.class);
+      if(button.title !== '')
+        game.sandbox.write(button.title, startRow+1, windowFirstCol+1, button.class);
       game.sandbox.repeatHorizontal("_", startRow+2, windowFirstCol, sideBarLastCol);
     },
     displaySideBarLabel: function(string, row){
-      game.sandbox.write(string, row+1, windowFirstCol+1);
+      if(string !== '')
+        game.sandbox.write(string, row+1, windowFirstCol+1);
       game.sandbox.repeatHorizontal("_", row+2, windowFirstCol, sideBarLastCol);
     },
     displayUpgradeBox: function(blueprint){

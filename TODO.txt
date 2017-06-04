@@ -1,7 +1,6 @@
 Where we are now:
 
 -VER 0.1: Laptop, Screen, Location functionality
-  -Check out why Location.js is writing blank strings
   =Reorder Location sidebar (Mine, Colony, Factory, Observatory, Mission Control, Launcher)
   =Reorder Location icons (Mine, Observatory, Launcher, Colony, Observatory, Mission Control)
 -VER 0.2: Building Formats
