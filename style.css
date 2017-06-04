@@ -72,3 +72,7 @@ a:hover{
 #lid, .inside {
 	visibility: hidden;
 }
+
+.inside-swap {
+	display: none;
+}
