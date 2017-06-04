@@ -1,9 +1,10 @@
 Where I am now:
 
 -VER 0.1: Laptop, Screen, Location functionality
-  =Reorder sidebar
   -Fix laptop from splitting before load (set opacity 0 by default)
   -Rebrand nose cone as fairing
+  =Reorder Location sidebar (Mine, Colony, Factory, Observatory, Mission Control, Launcher)
+  =Reorder Location icons (Mine, Observatory, Launcher, Colony, Observatory, Mission Control)
 -VER 0.2: Building Formats
   =displayUpgrade() - Game.js
   -Colony
