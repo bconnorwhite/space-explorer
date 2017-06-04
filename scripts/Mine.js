@@ -18,7 +18,7 @@ function Mine() {
    init: function(game) {
      mine.game = game;
      mine.format();
-     mine.populateView();
+     mine.displayView();
    },
    format: function(){
      mine.game.displaySideBar();
@@ -30,7 +30,7 @@ function Mine() {
      mine.game.displayBottomBar();
      mine.game.displayViewCorners();
    },
-   populateView: function(){
+   displayView: function(){
      mine.refreshEnergy();
      mine.refreshFood();
      mine.refreshFuel();
