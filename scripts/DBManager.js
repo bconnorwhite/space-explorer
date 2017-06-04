@@ -13,7 +13,7 @@ function DBManager(){
       };
       xmlhttp.open("POST", filename, true);
       xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      console.log(filename + "?q=" + params);
+      console.log("DBMANAGER: " + filename + "?q=" + params);
       xmlhttp.send(params);
     }
   };
