@@ -212,8 +212,11 @@ function Game(sb) {
       game.sandbox.write("/", viewLastRow, windowLastCol);
     },
     displayViewIcons: function(icons){ //For icons on location view
-      for(var i=0; i<icons.length && i < 6; i++)
-        game.sandbox.writeImage(icons[i].image, 13+(7*(Math.floor(i/3))), (1+viewFirstCol+(19*(i%3))), 6, 18, icons[i].align, icons[i].class);
+      if(icons.length > 6)
+        console.error("GAME: Too many icons");
+      else
+        for(var i=0; i<icons.length; i++)
+          game.sandbox.writeImage(icons[i].image, 13+(7*(Math.floor(i/3))), (1+viewFirstCol+(19*(i%3))), 6, 18, icons[i].align, icons[i].class);
     },
     displayViewRightArrow: function(){
       game.sandbox.write("\\", 13,windowLastCol - 2,"view-right-arrow");
