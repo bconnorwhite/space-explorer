@@ -78,14 +78,7 @@ function Building(b, theClass, g){
       };
     },
     init: function(){
-      //for(var e=0; e<building.elements.length; e++)
-        building.game.setClicks(building.class, building.class);
-        //building.setClick(building.elements[e]);
-    },
-    setClick: function(e){
-      e.onclick = function(){
-        building.game.switchTo(building.class);
-      };
+      building.game.setClicks(building.class, building.class);
     }
   };
   return building;
