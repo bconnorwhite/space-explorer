@@ -188,6 +188,7 @@ function Game(sb) {
       //TODO: display upgrade image (use blueprint.image), format in scratchpad.txt
     },
     displayBackButton: function(){
+      game.sandbox.repeatHorizontal("_", 25, windowFirstCol, sideBarLastCol);
       game.sandbox.write("> Back", 26, windowFirstCol+1, "back");
       game.sandbox.setClicks("back", game.switchTo, ["location"]);
     },
