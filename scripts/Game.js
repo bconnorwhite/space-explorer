@@ -166,26 +166,31 @@ function Game(sb) {
       game.drawSideBarBar("_", game.statusLastRow);
     },
     displaySideBarIcon: function(image, row, height){ //Display an icon on the sidebar
+      console.log(image);
       game.sandbox.writeImage(image, row, windowFirstCol, height, sideBarLastCol-windowFirstCol, "center");
       game.sandbox.repeatHorizontal("_", row+height, windowFirstCol, sideBarLastCol);
     },
-    displaySideBarButton: function(button, startRow){ //Buttons have [id, title]
-      if(button.title !== '')
-        game.sandbox.write(button.title, startRow+1, windowFirstCol+1, button.class);
-      game.sandbox.repeatHorizontal("_", startRow+2, windowFirstCol, sideBarLastCol);
-    },
-    displaySideBarLabel: function(string, row){
-      if(string !== '')
-        game.sandbox.write(string, row+1, windowFirstCol+1);
+    displaySideBarButton: function(title, row, theClass){
+      game.displaySideBarText(title, row, theClass);
       game.sandbox.repeatHorizontal("_", row+2, windowFirstCol, sideBarLastCol);
     },
+    displaySideBarLabel: function(string, row){
+      game.displaySideBarText(string, row);
+      game.sandbox.repeatHorizontal("_", row+2, windowFirstCol, sideBarLastCol);
+    },
+    displaySideBarText: function(string, row, theClass){
+      if(string !== '')
+        game.sandbox.write(string, row+1, windowFirstCol+1, theClass);
+    },
     displayUpgradeBox: function(blueprint){
-      //TODO: display upgrade box  (use blueprint.name), format in scratchpad.txt
+      game.displaySideBarText(blueprint.name, 14);
+      game.displaySideBarText("= $", 15); //TODO: add blueprint.cost
+      game.displaySideBarButton("> Upgrade", 16, 'upgrade');
     },
     displayUpgrade: function(blueprint){
       game.displaySideBarLabel("STORE", 11);
       game.displayUpgradeBox(blueprint);
-      //TODO: display upgrade image (use blueprint.image), format in scratchpad.txt
+      game.displaySideBarIcon(blueprint.image, 19, iconHeight);
     },
     displayBackButton: function(){
       game.sandbox.repeatHorizontal("_", 25, windowFirstCol, sideBarLastCol);

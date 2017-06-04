@@ -7,7 +7,6 @@ Where we are now:
 
 >VER 0.1: Laptop, Screen, Location functionality
 -VER 0.2: Building Formats
-  =displayUpgrade() - Game.js
   -Colony
     -design with Mine parameters (food, energy)
     =format
@@ -42,6 +41,7 @@ Where we are now:
   -Integrate these with game
 -VER 0.4: Mine functionality
   -VER 0.4.1: Mine Upgrades
+    -Blueprint costs
     -Ability to upgrade mine
   -VER 0.4.2: Mine Modules
     -Design mine modules

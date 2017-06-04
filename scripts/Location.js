@@ -37,7 +37,7 @@ function Location() {
     },
     displaySideBarButtons: function(startRow){
       for(var b=0; b<location.buildings.length; b++)
-        location.game.displaySideBarButton(location.buildings[b].getButton(), startRow+(3*b));
+        location.game.displaySideBarButton(location.buildings[b].getButton().title, startRow+(3*b), location.buildings[b].getButton().class);
     },
     initBuildings: function(){
       for(var b=0; b<location.buildings.length; b++)

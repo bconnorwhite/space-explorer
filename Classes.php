@@ -111,7 +111,7 @@
 
 			$this->level = $lvl;
 			$this->name = $obArr["Name"];
-			$this->image = explode("\r\n", htmlspecialchars($obArr["Image"]));
+			$this->image = explode("\r\n", $obArr["Image"]);
 		}
 	}
 
@@ -125,7 +125,7 @@
 
 			$this->level = $lvl;
 			$this->name = $fArr["Name"];
-			$this->image = explode("\r\n", htmlspecialchars($fArr["Image"]));
+			$this->image = explode("\r\n", $fArr["Image"]);
 		}
 	}
 
@@ -139,7 +139,7 @@
 
 			$this->level = $lvl;
 			$this->name = $mArr["Name"];
-			$this->image = explode("\r\n", htmlspecialchars($mArr["Image"]));
+			$this->image = explode("\r\n", $mArr["Image"]);
 			$this->energyInvestment = $energy;
 			$this->foodInvestment = $food;
 			$this->fuelInvestment = $fuel;
@@ -162,7 +162,7 @@
 			$this->level = $lvl;
 			$this->population = $pop;
 			$this->name = $cArr["Name"];
-			$this->image = explode("\r\n", htmlspecialchars($cArr["Image"]));
+			$this->image = explode("\r\n", $cArr["Image"]);
 		}
 	}
 
@@ -174,7 +174,7 @@
 			$bpArr = getRow(array("Level", "Type"), array($bp["Level"], $bp["Type"]), $tableName);
 
 			$this->name = $bpArr["Name"];
-			$this->image = $bpArr["Image"];
+			$this->image = explode("\r\n", $bpArr["Image"]);
 		}
 	}
 
