@@ -1,56 +1,86 @@
 Where I am now:
--OTHER:
-  -
--DESIGN:
-  -Redesign nose cones for higher volume versions, make them look a little more like a ship
+
+-VER 0.1: Laptop, Screen, Location functionality
+  =Reorder sidebar
+  -Fix laptop from splitting before load (set opacity 0 by default)
   -Rebrand nose cone as fairing
--VER 0.2: Mine
-  =displayUpgrade()         (Game.js)
-  -Upgrade functionality
-  -Mine units blueprints (Farm, Solar Array, Ore Mine, and Fuel Refinery) - only needs title and rate
-    -what does upgrading the Mine itself do then??? - capacity - able to hold larger units
-  -Mine units upgrade functionality
--VER 0.3: Colony
-  -plan colony window layout
-  =populate colony window
-  -DB: colony fields
-  -Requires: food, water, energy
-  -Output: population, blueprints
--VER 0.4: Factory
-  -plan factory window layout
-  =Populate factory window
-  -Refactor DB w/ 'Factory' and 'FactoryBlueprints'
-    -blueprints, currently building
-  -Ability to build blueprints
--VER 0.5: Observatory
-  =Populate observatory window
-  -Refactor DB w/ 'Observatory' and 'ObservatoryBlueprints'
-    -discoveries, {investment rate for new discoveries}
-  -Ability to discover moon, {automate discoveries}
--VER 0.6: Mission Control
-  =Populate mission control window
-  -Refactor DB
-    -missions, {trading}
-  -able to do missions, random missions added (LEO, GEO, Lunar)), {trading}
--VER 0.7: Launcher
-  =Build out launcher window
-  -Refactor DB
-    -rockets, {ships}, {automated launches}
-  -work out the physics
-  -able to launch to discovered locations w/any rocket)
--VER 0.8: Launch Window
-  -w/launch options
--VER 0.9:
-  =Fix laptop from being broken for like half a second on load in - use opacity 0 as default
-  -Make pretty (Intro, twinkle stars, factory moving smoke, etc.) - also more stars in view
-  -Location view behind laptop?
-  =Reorder location view tabs
--VER 1.0:
+-VER 0.2: Building Formats
+  =displayUpgrade() - Game.js
+  -Colony
+    -design with Mine parameters (food, energy)
+    =format
+  -Factory
+    -design (including thinking about testing investment option)
+    =format
+  -Observatory
+    -design
+    =format
+  -Mission Control
+    -design
+    =format
+  =Launcher
+    =format
+-VER 0.3: Building Views
+  -Mine
+    =Upgrade button
+  -Colony
+    -Decide on design
+    =Build view
+  =Factory
+    =build view
+  =Observatory
+    =build view
+  =Mission Control
+    =build view
+  =Launcher
+    =build view, including test fire functionality
+-VER 0.4: Colony Backend
+  -Clock that pauses when no users are on, 1 min = 1 yr
+  -Population auto increases if there is food
+  -Integrate these with game
+-VER 0.4: Mine functionality
+  -VER 0.4.1: Mine Upgrades
+    -Ability to upgrade mine
+  -VER 0.4.2: Mine Modules
+    -Design mine modules
+    -Add mine modules to database
+    -Ability to upgrade modules
+  -VER 0.4.3: Mine Investing
+    -Ability to adjust investment and actually accumulate resources over time
+-VER 0.5: Colony functionality
+  -Ability to adjust investment, upgrade
+-VER 0.6: Factory functionality
+    -Ability to upgrade
+    -Ability to build parts, rockets
+-VER 0.7: Observatory functionality
+    -Ability to upgrade
+    -Ability to discover planets with observed location of bodies
+-VER 0.8: MissionControl functionality
+    -Ability to choose missions and create your own missions
+-VER 0.9: Launcher functionality
+    -Ability to launch
+    -Physics of launch, travel time, result, etc.
+-VER 1.0: Initial launch
   -All the stuff above, beta tested, and launched live
   -Uglify JS & CSS
--Ver 1.x:
-  -Fill out solar system
-    -Accurate clock (sped up to 1yr = 1minute), travel speed, and observed location of bodies
-    -Observatory w/accurate varying brightness (opacity) and color
-  -Fill out known stars and exoplanets from database, random generation for rest of galaxy
-  -Fill in known galaxies from database
+-VER 1.1: Fancy Stuff
+  -VER 1.1.1:
+    -Redesign fairings for higher volume versions, make them look a little more like a ship
+  -VER 1.1.2:
+    -Make pretty (Intro, twinkle stars, factory moving smoke, etc.) - also more stars in view
+  -VER 1.1.3:
+    -Location view behind laptop?
+  -VER 1.1.4:
+    -Launch shows rocket taking off from location
+-VER 1.2: Universe Backend
+  VER 1.2.1: Known Bodies
+    -Fill out known bodies as best as possible from available external databases
+  VER 1.2.2: Random generation on new bodies
+    -Randomly generate new planets, stars, etc. (consistent across all explorers)
+-VER 1.3: Mission Control Backend
+  -Randomly generate new missions
+-VER 1.4: Advanced Factory
+  -Testing & Launch Failure Rate
+  -Launch Failure chance in Launcher
+-VER 1.5: Advanced Observatory
+  -Accurate color, brightness (opacity)
