@@ -8,8 +8,7 @@ Where we are now:
 >VER 0.1: Laptop, Screen, Location functionality
 -VER 0.2: Building Formats
   -Colony
-    -design with Mine parameters (food, energy)
-    =format
+    -figure out how to get Mine parameters (food, energy)
   -Factory
     -design (including thinking about testing investment option)
     =format
@@ -68,14 +67,16 @@ Where we are now:
   -Uglify JS & CSS
 -VER 1.1: Redesign
   -VER 1.1.1:
-    -Redesign fairings for higher volume versions, make them look a little more like a ship
+    -Change all numbers to space notation with n sigfigs (4.35M, 43.5B, 435T, etc.)
   -VER 1.1.2:
-    -Redesign colony floors (use . not just _)
+    -Redesign fairings for higher volume versions, make them look a little more like a ship
   -VER 1.1.3:
-    -Make pretty (Intro, twinkle stars, factory moving smoke, etc.) - also more stars in view
+    -Redesign colony floors (use . not just _)
   -VER 1.1.4:
-    -Location view behind laptop?
+    -Make pretty (Intro, twinkle stars, factory moving smoke, etc.) - also more stars in view
   -VER 1.1.5:
+    -Location view behind laptop?
+  -VER 1.1.6:
     -Launch shows rocket taking off from location
 -VER 1.2: Universe Backend
   VER 1.2.1: Known Bodies
@@ -89,3 +90,4 @@ Where we are now:
   -Launch Failure chance in Launcher
 -VER 1.5: Advanced Observatory
   -Accurate color, brightness (opacity)
+-VER 2.0: Trading with other explorers

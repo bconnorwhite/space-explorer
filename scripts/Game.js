@@ -166,7 +166,6 @@ function Game(sb) {
       game.drawSideBarBar("_", game.statusLastRow);
     },
     displaySideBarIcon: function(image, row, height){ //Display an icon on the sidebar
-      console.log(image);
       game.sandbox.writeImage(image, row, windowFirstCol, height, sideBarLastCol-windowFirstCol, "center");
       game.sandbox.repeatHorizontal("_", row+height, windowFirstCol, sideBarLastCol);
     },
