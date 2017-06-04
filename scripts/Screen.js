@@ -128,16 +128,21 @@ function Screen(sb) {
       }
     },
     write: function(string, row, startCol, theClass){
-      var element = screen.elements[row];
-      screen.writeElement(string, element, startCol, theClass);
+      if(string !== '' && string !== undefined){//Make sure there is actually something to write
+        var element = screen.elements[row];
+        screen.writeElement(string, element, startCol, theClass);
+      }
     },
     writeElement: function(string, element, startCol, theClass){
       var nodes = element.childNodes;
       screen.writeNode(string, nodes, startCol, theClass);
     },
     writeNode: function(string, nodes, startCol, theClass){
+      var debug = false;
+      if(string == 'Res. Extract. Lv1')
+        debug = true;
       //Get nodes that overlap with string, starting from startCol
-      var overlapping = screen.getOverlappingNodes(startCol, string.length, nodes);
+      var overlapping = screen.getOverlappingNodes(startCol, string.length, nodes, debug);
       //Combine overlapping nodes
       var combinedNode = screen.combineNodes(overlapping.nodes);
       //Recursively call this function OR begin writing
@@ -172,19 +177,25 @@ function Screen(sb) {
               nodes: list of nodes which are overlapped by counting 'count' chars starting at 'startCol'
               start: first column of first node
     */
-    getOverlappingNodes: function(startCol, count, nodes){
+    getOverlappingNodes: function(startCol, chars, nodes, debug){
       var overlapping = [];
-      var counter = 0;
-      var start = -1;
+      var counter = 0;//Marks beginning of current node
+      var start = -1;//Marks beginning of first overlapping node
       for(var n=0; n<nodes.length; n++){//Run past each node
         var nodeLength = nodes[n].textContent.length;
-        if(startCol < counter+nodeLength){//If start is in this node
+        if(startCol<counter+nodeLength && startCol>=counter){//If startCol is in the current node
           overlapping.push(nodes[n]);
-          startCol += nodes[n].textContent.substring(startCol, count).length;//Set startCol to end of string or node, whichever is first
+          var charsInThisNode = nodes[n].textContent.substring(startCol-counter, chars).length;//Number of characters in current node, up to 'chars'
+          startCol += charsInThisNode;//Set startCol to end of string or node, whichever is first
+          chars -= charsInThisNode;//'chars' is now the number of chars left in future nodes
           if(start < 0)
             start = counter;
         }
         counter += nodeLength;//Set counter to beginning of next node
+      }
+      if(debug){
+        console.log(nodes);
+        console.log(overlapping);
       }
       var data = {
         nodes: overlapping,
