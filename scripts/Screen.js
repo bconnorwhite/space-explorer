@@ -130,19 +130,29 @@ function Screen(sb) {
     write: function(string, row, startCol, theClass){
       if(string !== '' && string !== undefined){//Make sure there is actually something to write
         var element = screen.elements[row];
-        screen.writeElement(string, element, startCol, theClass);
+        if(element === undefined){
+          console.error("SCREEN: Cannot write to invalid row: " + row);
+          console.trace();
+        } else {
+          screen.writeElement(string, element, startCol, theClass);
+        }
+      } else {
+        console.warn("SCREEN: Attempted to write blank string. row: " + row + " col: " + startCol + " class: " +  theClass);
+        console.trace();
       }
     },
     writeElement: function(string, element, startCol, theClass){
-      var nodes = element.childNodes;
-      screen.writeNode(string, nodes, startCol, theClass);
+      if(element === undefined){
+        console.error("SCREEN: Cannot write undefined element");
+        console.trace();
+      } else {
+        var nodes = element.childNodes;
+        screen.writeNode(string, nodes, startCol, theClass);
+      }
     },
     writeNode: function(string, nodes, startCol, theClass){
-      var debug = false;
-      if(string == 'Res. Extract. Lv1')
-        debug = true;
       //Get nodes that overlap with string, starting from startCol
-      var overlapping = screen.getOverlappingNodes(startCol, string.length, nodes, debug);
+      var overlapping = screen.getOverlappingNodes(startCol, string.length, nodes);
       //Combine overlapping nodes
       var combinedNode = screen.combineNodes(overlapping.nodes);
       //Recursively call this function OR begin writing
@@ -177,7 +187,7 @@ function Screen(sb) {
               nodes: list of nodes which are overlapped by counting 'count' chars starting at 'startCol'
               start: first column of first node
     */
-    getOverlappingNodes: function(startCol, chars, nodes, debug){
+    getOverlappingNodes: function(startCol, chars, nodes){
       var overlapping = [];
       var counter = 0;//Marks beginning of current node
       var start = -1;//Marks beginning of first overlapping node
@@ -192,10 +202,6 @@ function Screen(sb) {
             start = counter;
         }
         counter += nodeLength;//Set counter to beginning of next node
-      }
-      if(debug){
-        console.log(nodes);
-        console.log(overlapping);
       }
       var data = {
         nodes: overlapping,
