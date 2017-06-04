@@ -139,12 +139,19 @@ function Game(sb) {
     drawSideBarBar: function(char, row){
       game.sandbox.repeatHorizontal(char, row, windowFirstCol, sideBarLastCol);
     },
-    setTitle: function(title){
-      game.sandbox.write(title, titleRow, windowFirstCol + 1);
+    setTitle: function(title, subtitle){
+      game.sandbox.write(title, titleRow, windowFirstCol+1);
+      if(subtitle !== undefined)
+        game.sandbox.write(subtitle, titleRow+1, windowFirstCol+1);
     },
-    displayTitleBox: function(title){
-      game.drawSideBarBar("_", titleRow + 1);
-      game.setTitle(title);
+    displayTitleBox: function(title, subtitle){
+      var rows;
+      if(subtitle === undefined)
+        rows = 1;
+      else
+        rows = 2;
+      game.drawSideBarBar("_", titleRow+rows);
+      game.setTitle(title, subtitle);
     },
     setStatus: function(image){//Set location status
       for(var r = 0; r < image.length; r++)
