@@ -11,7 +11,6 @@ function Screen(sb) {
     save: [],
     brightness: 15,
     pow: false,
-    load: false,
     loadImage: [],
     init: function() {
       screen.sandbox.register('power', screen.power);
@@ -23,18 +22,17 @@ function Screen(sb) {
       screen.sandbox.register('repeatVerticle', screen.repeatVerticle);
       screen.sandbox.register('repeatHorizontal', screen.repeatHorizontal);
       screen.sandbox.register('setClicks', screen.setClicks);
+      screen.sandbox.register('loaded', screen.onLoad);
     },
     on: function() { //Turns screen on
       console.log("SCREEN: Power On");
       screen.pow = true;
       screen.updateColor(screen.getColor());
-      if(screen.load === true){
-        console.log("SCREEN: Loading");
-        screen.tempFill(screen.loadImage);
-        setTimeout(function(){screen.refresh();}, 2000);
-      } else {
-        screen.sandbox.loaded();
-      }
+      console.log("SCREEN: Loading");
+      screen.tempFill(screen.loadImage);
+    },
+    onLoad: function(){
+      screen.refresh();
     },
     off: function() { //Turns screen off
       console.log("SCREEN: Power Off");
@@ -85,7 +83,6 @@ function Screen(sb) {
     refresh: function(){
       for(var r=0; r<screen.elements.length; r++)
         screen.elements[r].innerHTML = screen.save[r];
-      screen.sandbox.loaded();
     },
     repeatVerticle: function(string, startRow, endRow, col){
       for(var r=startRow; r<=endRow; r++)

@@ -86,15 +86,16 @@ function Game(sb) {
     init: function(){ //Register sandbox functions
       game.sandbox.setLoad(game.spiceXLogo);
       game.sandbox.register('getExplorer', game.getExplorer);
-      game.sandbox.register('loaded', game.loaded);
       game.sandbox.requestExplorer();
     },
     getExplorer: function(exp){ //Sets explorer to 'exp'
       console.log("GAME: Explorer: ");
       console.log(exp);
       game.explorer = exp;
+      game.sandbox.loaded();
+      game.onLoad();
     },
-    loaded: function(){ //Function to be called when game is loaded (after SpiceX Logo)
+    onLoad: function(){ //Function to be called when game is loaded (after SpiceX Logo)
       game.switchTo("location");
       game.sandbox.register('escape', game.escape);//Register escape, which returns to location screen
     },
