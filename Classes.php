@@ -97,7 +97,7 @@
 			$this->image = explode("\r\n", $launchArr["Image"]);
 			$this->capacity = $launchArr["Capacity"];
 			for($r=0; $r<count($rocketArr); $r++)
-				$this->rockets[] = new Rocket($rocketArr[$r]["Size"], $rocketArr[$r]["NoseCone"], $rocketArr[$r]["Fuselage"], $rocketArr[$r]["Engine"]);
+				$this->rockets[] = new Rocket($rocketArr[$r]["Size"], $rocketArr[$r]["Fairing"], $rocketArr[$r]["Fuselage"], $rocketArr[$r]["Engine"]);
 		}
 	}
 
@@ -179,21 +179,21 @@
 	}
 
 	class Rocket {
-		public $size, $noseCone, $fuselage, $engine;
+		public $size, $fairing, $fuselage, $engine;
 
 		public function __construct($s, $nc, $f, $e){
-			$ncArr = getRow(array("Size","Level"), array($s,$nc), "NoseCones");
+			$ncArr = getRow(array("Size","Level"), array($s,$nc), "Fairings");
 			$fArr = getRow(array("Size", "Level"), array($s,$f), "Fuselages");
 			$eArr = getRow(array("Size", "Level"), array($s,$e), "Engines");
 
 			$this->size = $s;
-			$this->noseCone = new NoseCone($nc, $ncArr["Name"], $ncArr["Mass"], $ncArr["Drag"], $ncArr["Image"]);
+			$this->fairing = new Fairing($nc, $ncArr["Name"], $ncArr["Mass"], $ncArr["Drag"], $ncArr["Image"]);
 			$this->fuselage = new Fuselage($s, $f, $fArr["Name"]);
 			$this->engine = new Engine($e, $eArr["Name"], $eArr["Mass"], $eArr["ISP"], $eArr["Image"], $eArr["Flames"]);
 		}
 	}
 
-	class NoseCone {
+	class Fairing {
 		public $level, $name, $mass, $drag, $image;
 
 		public function __construct($lvl, $n, $m, $dr, $img){
