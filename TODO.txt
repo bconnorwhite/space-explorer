@@ -1,7 +1,6 @@
 Where I am now:
 -OTHER:
-  -Tie loading procedure to when explorer is loaded
-  -Sandbox deregister (i.e. escape/other keys except power when computer is off)
+  -
 -VER 0.2: Mine
   =displayUpgrade()         (Game.js)
   =displayBackButton()      (Game.js)

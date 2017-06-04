@@ -11,12 +11,23 @@ function Sandbox(dbm) {
         sandbox.channels[channel] = [];
       sandbox.channels[channel].push(fn);
     },
+    deregister: function(channel, func){
+      for(var f=0; f<sandbox.channels[channel].length; f++)//For each function in channel
+        if(sandbox.channels[channel][f] == func)//Check if function matches func
+          sandbox.channels[channel].splice(f, 1);//If so, delete
+    },
     broadcast: function(channel, params){//Call all functions registered with a channel
-      if(sandbox.channels[channel]===undefined)
-        console.error("SANDBOX: Missing channel");
-      else
-        for(var f=0; f<sandbox.channels[channel].length; f++)
-          sandbox.channels[channel][f].apply(this, params);
+      if(sandbox.channels[channel] === undefined){
+        console.warn("SANDBOX: Missing channel");
+      } else {
+        for(var f=0; f<sandbox.channels[channel].length; f++){
+          if(sandbox.channels[channel][f] === undefined){
+            console.error("SANDBOX: Undefined channel function");
+          } else {
+            sandbox.channels[channel][f].apply(this, params);
+          }
+        }
+      }
     },
     runSpaceExplorer: function(){
       sandbox.broadcast('runSpaceExplorer');
@@ -38,6 +49,12 @@ function Sandbox(dbm) {
     },
     power: function() {
       sandbox.broadcast('power');
+    },
+    on: function(){
+      sandbox.broadcast('on');
+    },
+    off: function(){
+      sandbox.broadcast('off');
     },
     loaded: function(){
       sandbox.broadcast('loaded');

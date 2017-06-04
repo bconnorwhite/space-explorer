@@ -10,12 +10,11 @@ function Screen(sb) {
     elements: document.getElementsByClassName('screen'),
     save: [],
     brightness: 15,
-    pow: false,
+    power: false,
+    loaded: false,
     loadImage: [],
     init: function() {
-      screen.sandbox.register('power', screen.power);
-      screen.sandbox.register('brighten', screen.brighten);
-      screen.sandbox.register('dim', screen.dim);
+      screen.sandbox.register('power', screen.togglePower);
       screen.sandbox.register('write', screen.write);
       screen.sandbox.register('writeImage', screen.writeImage);
       screen.sandbox.register('setLoad', screen.setLoad);
@@ -26,40 +25,65 @@ function Screen(sb) {
     },
     on: function() { //Turns screen on
       console.log("SCREEN: Power On");
-      screen.pow = true;
+      screen.power = true;
       screen.updateColor(screen.getColor());
-      console.log("SCREEN: Loading");
-      screen.tempFill(screen.loadImage);
+      if(!screen.loaded){
+        console.log("SCREEN: Loading...");
+        screen.tempFill(screen.loadImage);//Temporarily show loading screen
+      } else {
+        screen.register();
+      }
     },
     onLoad: function(){
-      screen.refresh();
+      screen.setTransition(0.5);
+      screen.loaded = true;
+      if(screen.power){
+        screen.refresh();
+        screen.register();
+      }
+    },
+    register: function(){
+      screen.sandbox.register('brighten', screen.brighten);
+      screen.sandbox.register('dim', screen.dim);
+      screen.sandbox.on();
     },
     off: function() { //Turns screen off
       console.log("SCREEN: Power Off");
       screen.updateColor('#000000');
-      screen.pow = false;
+      screen.power = false;
+      screen.deregister();
+    },
+    deregister: function(){//Deregister key functions when power is off.
+      screen.sandbox.deregister('brighten', screen.brighten);
+      screen.sandbox.deregister('dim', screen.dim);
+      screen.sandbox.off();
+    },
+    setTransition: function(time){
+      elements = document.getElementsByClassName('screen');
+      for(var e=0; e<elements.length; e++)
+        elements[e].style.transition = "color " + time + "s ease";
     },
     getColor: function() {
       return "#" + (screen.brightness * 1118481).toString(16);
     },
     updateColor: function(color) {
-      if(screen.pow)
+      if(screen.power)
         for (var i = 0; i < screen.elements.length; i++)
           screen.elements[i].style.color = color;
     },
-    power: function(){ //Toggles power
-      if(screen.pow)
+    togglePower: function(){ //Toggles power
+      if(screen.power)
         screen.off();
       else
         screen.on();
     },
     brighten: function() {
-      if (screen.pow && screen.brightness < 15)
+      if(screen.brightness < 15)
         screen.brightness++;
       screen.updateColor(screen.getColor());
     },
     dim: function() {
-      if (screen.brightness > 1){
+      if(screen.brightness > 1){
         screen.brightness--;
         screen.updateColor(screen.getColor());
       }

@@ -86,6 +86,8 @@ function Game(sb) {
     init: function(){ //Register sandbox functions
       game.sandbox.setLoad(game.spiceXLogo);
       game.sandbox.register('getExplorer', game.getExplorer);
+      game.sandbox.register('on', game.register);
+      game.sandbox.register('off', game.deregister);
       game.sandbox.requestExplorer();
     },
     getExplorer: function(exp){ //Sets explorer to 'exp'
@@ -97,7 +99,12 @@ function Game(sb) {
     },
     onLoad: function(){ //Function to be called when game is loaded (after SpiceX Logo)
       game.switchTo("location");
-      game.sandbox.register('escape', game.escape);//Register escape, which returns to location screen
+    },
+    register: function(){
+      game.sandbox.register('escape', game.escape);
+    },
+    deregister: function(){
+      game.sandbox.deregister('escape', game.escape);
     },
     escape: function(){
       game.switchTo('location');
