@@ -85,23 +85,24 @@ function Game(sb) {
       game.sandbox.register('on', game.register);
       game.sandbox.register('off', game.deregister);
       game.sandbox.requestExplorer();
-      game.initBuildings();
-    },
-    initBuildings: function(){
-      game.location = Location(game);
-      game.colony = Colony(game);
-      game.mine = Mine(game);
-      game.factory = Factory(game);
-      game.observatory = Observatory(game);
-      game.missionControl = MissionControl(game);
-      game.launcher = Launcher(game);
     },
     getExplorer: function(exp){ //Sets explorer to 'exp'
       console.log("GAME: Explorer: ");
       console.log(exp);
       game.explorer = exp;
+      game.initBuildings();//Maybe use observer pattern here?
       game.sandbox.loaded();
       game.onLoad();
+    },
+    initBuildings: function(){
+      game.location = Location(game);
+      game.colony = Colony(game);
+      game.mine = Mine(game);//Refactor these to all be in an array too
+      game.mine.init();
+      game.factory = Factory(game);
+      game.observatory = Observatory(game);
+      game.missionControl = MissionControl(game);
+      game.launcher = Launcher(game);
     },
     onLoad: function(){ //Function to be called when game is loaded (after SpiceX Logo)
       game.switchTo("location");
@@ -131,7 +132,7 @@ function Game(sb) {
       game.factory.init(game);
     },
     initMine: function(){
-      game.mine.init();
+      game.mine.run();
     },
     initColony: function(){
       game.colony.init(game);

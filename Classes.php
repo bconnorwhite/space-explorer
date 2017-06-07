@@ -132,7 +132,7 @@
 	class Mine {
 		public $level, $name, $image;
 
-		public function __construct($lvl, $type, $energy, $fuel, $ore, $food, $source, $bps){
+		public function __construct($lvl, $type, $energy, $fuel, $ore, $food, $energyName, $bps){
 			$mArr = getRow(array("Level","Type"), array($lvl,"$type"), "Mines");
 			if($mArr == null)
 				$mArr = getRow("Level", $lvl, "Mines");
@@ -140,14 +140,23 @@
 			$this->level = $lvl;
 			$this->name = $mArr["Name"];
 			$this->image = explode("\r\n", $mArr["Image"]);
-			$this->energyInvestment = $energy;
-			$this->foodInvestment = $food;
-			$this->fuelInvestment = $fuel;
-			$this->oreInvestment = $ore;
-			$this->energySource = $source;
+
+			$this->energyModule = new Module($energyName, "J", $energy, 1);//TODO: get cpu from database
+			$this->foodModule = new Module("Food", "J", $food, 1);//TODO: get cpu from database
+			$this->fuelModule = new Module("Fuel", "J", $fuel, 1);//TODO: get cpu from database
+			$this->oreModule = new Module("Ore", "kg", $ore, 1);//TODO: get cpu from database
 
 			$bp = getUpgradeBlueprint($lvl, $type, $bps);
 			$this->blueprint = new Blueprint($bp);
+		}
+	}
+
+	class Module {
+		public function __construct($n, $u, $inv, $cpu){
+			$this->name = $n;
+			$this->units = $u;
+			$this->investment = $inv;
+			$this->costPerUnit = $cpu;
 		}
 	}
 
