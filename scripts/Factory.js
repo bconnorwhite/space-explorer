@@ -2,10 +2,10 @@
  *
  */
 
- function Factory() {
+ function Factory(g) {
    var factory = {
-     init: function(game) {
-       factory.game = game;
+     game: g,
+     init: function() {
        factory.format();
      },
      format: function(){

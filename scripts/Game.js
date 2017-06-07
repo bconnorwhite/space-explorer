@@ -79,19 +79,22 @@ function Game(sb) {
         "|                                                                              |",
         "|______________________________________________________________________________|"
     ],
-    location: Location(),
-    missionControl: MissionControl(),
-    observatory: Observatory(),
-    launcher: Launcher(),
-    factory: Factory(),
-    mine: Mine(),
-    colony: Colony(),
     init: function(){ //Register sandbox functions
       game.sandbox.setLoad(game.spiceXLogo);
       game.sandbox.register('getExplorer', game.getExplorer);
       game.sandbox.register('on', game.register);
       game.sandbox.register('off', game.deregister);
       game.sandbox.requestExplorer();
+      game.initBuildings();
+    },
+    initBuildings: function(){
+      game.location = Location(game);
+      game.colony = Colony(game);
+      game.mine = Mine(game);
+      game.factory = Factory(game);
+      game.observatory = Observatory(game);
+      game.missionControl = MissionControl(game);
+      game.launcher = Launcher(game);
     },
     getExplorer: function(exp){ //Sets explorer to 'exp'
       console.log("GAME: Explorer: ");
@@ -128,7 +131,7 @@ function Game(sb) {
       game.factory.init(game);
     },
     initMine: function(){
-      game.mine.init(game);
+      game.mine.init();
     },
     initColony: function(){
       game.colony.init(game);

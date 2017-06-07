@@ -13,10 +13,10 @@ var Adjust = {
   DIVEST: 1,
 };
 
-function Mine() {
+function Mine(g) {
  var mine = {
-   init: function(game) {
-     mine.game = game;
+   game: g,
+   init: function() {
      mine.format();
      mine.displayView();
    },
@@ -137,12 +137,4 @@ function Mine() {
    }
  };
  return mine;
-}
-
-
-function Unit(){
-  var unit = {
-
-  };
-  return unit;
 }

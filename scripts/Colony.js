@@ -19,10 +19,10 @@ function Colony() {
      colony.game.displaySideBarText("Food:", 16);
      //TODO: food
      colony.game.displaySideBarText("Food Prod. Rate:", 18);
-     //colony.game.mine.getEnergyProduction(); <- wont work b/c not initialized. Need to find a way for buildings to talk.
-      colony.game.displaySideBarText("Energy:", 20);
+     colony.game.mine.getEnergyProduction(); //<- wont work b/c mine not initialized. Need to find a way for buildings to talk.
+     colony.game.displaySideBarText("Energy:", 20);
      //TODO: energy
-      colony.game.displaySideBarText("Energy Prod. Rate:", 22);
+     colony.game.displaySideBarText("Energy Prod. Rate:", 22);
      //TODO: energy production rate
      colony.game.displayBackButton();
      colony.game.displayCreditBox(colony.game.explorer.credits);
