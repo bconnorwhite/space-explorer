@@ -5,10 +5,13 @@ Legend:
 
 Where we are now:
 
+BACKLOG: (bugs, refactoring)
+  -turn off screen while loading causes bug
+  -Store buildings in an array within game so you can just loop through the array to do things to all of them
+  -refactor buildings to use both run() and init()
+
 >VER 0.1: Laptop, Screen, Location functionality
 -VER 0.2: Building Formats
-  -Colony
-    -figure out how to get Mine parameters (food, energy)
   -Factory
     -design (including thinking about testing investment option)
     =format
@@ -38,6 +41,7 @@ Where we are now:
   -Clock that pauses when no users are on, 1 min = 1 yr
   -Population auto increases if there is food
   -Integrate these with game
+  -getConsumption from Colony (based on pop) -> used in Mine.js
 -VER 0.4: Mine functionality
   -VER 0.4.1: Mine Upgrades
     -Blueprint costs
