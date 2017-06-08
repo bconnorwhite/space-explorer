@@ -524,27 +524,27 @@ Large Resource Extraction Center (access to antimatter, dyson sphere)
 
   ______________________________________________________________________________
  /==============================================================================\
-|| Res. Extract. Lv1||/                                                        \||
-||__________________||  Solar Array:                                            ||
+|| Res. Extract. Lv1||/ -------------------------------------------------------\||
+||__________________||  Solar Array:                                 > Upgrade  ||
 ||                  ||    Production Rate: 1M Joules / year                     || <- add consumption rate
 ||                  ||    Investment Rate: $10T / year               + Adjust - || <- Add “Solar Farm: $1092039      > Upgrade”
-||       -7\        ||                                                          ||
-||       /          ||  Fuel:                                                   ||
+||       -7\        ||  ------------------------------------------------------- ||
+||       /          ||  Fuel:                                        > Upgrade  ||
 ||                  ||    Current Production Rate: 20 Fuelios / year            ||
-||                  ||    Investment Rate: $10T / year              + Adjust -  ||
-||__________________||                                                          ||
-||                  ||  Ore:                                                    ||
+||                  ||    Investment Rate: $10T / year               + Adjust - ||
+||__________________||  ------------------------------------------------------- ||
+||                  ||  Ore:                                         >Upgrade   ||
 || STORE            ||    Current Production Rate: 30 Oreos / year              ||
-||__________________||    Investment Rate: $10T / year              + Adjust -  ||
-||                  ||                                                          ||
+||__________________||    Investment Rate: $10T / year               + Adjust - ||
+||                  ||  ------------------------------------------------------- ||
 || Mine 2           ||  Food:                                                   ||
 || = $100000        ||    Production Rate: 40 Foodies / year                    ||
-||__________________||    Investment Rate: $10M / year              + Adjust -  || <- add consumption rate
-||                  ||                                                          ||
+||__________________||    Investment Rate: $10M / year               + Adjust - || <- add consumption rate
+||                  ||  ------------------------------------------------------- ||
 ||                  ||  Water:                                                  ||
 ||      <=7\        ||    Production Rate:                                      ||
 ||       / \        ||    Consumption Rate:                                     ||  -Reorder to Energy, Food, Water, Fuel, Ore
-||      /           ||    Investment Rate:                          + Adjust -  ||  -$/res determined by current body (consider distance from star for energy & food, others rand.)
+||      /           ||    Investment Rate:                           + Adjust - ||  -$/res determined by current body (consider distance from star for energy & food, others rand.)
 ||                  ||                                                          ||  -Upgrading Mine itself takes you to the factory, where you have to build it
 ||__________________||                                                          ||  -Store is empty if no blueprint yet
 ||                  ||                                                          ||
@@ -716,7 +716,7 @@ __/_|_|_\______\__
      \ \\___\\ \
       \_________\
 
-
+Launcher Format
       ______________________________________________________________________________
      /==============================================================================\
     || Launcher name    ||/                                                        \||
