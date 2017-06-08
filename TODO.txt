@@ -6,8 +6,7 @@ Legend:
 Where we are now:
 
 BACKLOG: (bugs, refactoring)
-  -Store buildings in an array within game so you can just loop through the array to do things to all of them
-  -sidebar upgrade box height?
+  -N/A, yay! :)
 
 >VER 0.1: Laptop, Screen, Location functionality
 -VER 0.2: Building Formats
@@ -96,3 +95,6 @@ BACKLOG: (bugs, refactoring)
 -VER 1.5: Advanced Observatory
   -Accurate color, brightness (opacity)
 -VER 2.0: Trading with other explorers
+
+Future Maybe?
+-Navigation using enter & arrow keys

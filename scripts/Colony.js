@@ -13,19 +13,18 @@ function Colony() {
    },
    format: function(){
      colony.game.displaySideBar();
-     colony.game.displayTitleBox(colony.game.explorer.location.body.name, colony.game.explorer.location.colony.name);
-     colony.game.displaySideBarIcon(colony.game.explorer.location.colony.image, 5, 6);
+     colony.game.displayTitleBox(colony.game.explorer.location.body.name, colony.game.explorer.location.colony.image, colony.game.explorer.location.colony.name);
      //TODO: date
-     colony.game.displaySideBarText("Population:", 14);
+     colony.game.displaySideBarText("Population:", 13);
      //TODO: population
-     colony.game.displaySideBarText("Food:", 16);
-     //TODO: food
-     colony.game.displaySideBarText("Food Prod. Rate:", 18);
-     colony.game.displaySideBarText(" " + colony.game.mine.modules.food.getProductionString(), 23);
-     colony.game.displaySideBarText("Energy:", 20);
-     //TODO: energy
-     colony.game.displaySideBarText("Energy Prod. Rate:", 22);
-     colony.game.displaySideBarText(" " + colony.game.mine.modules.energy.getProductionString(), 23);
+     colony.game.displaySideBarText("Food:", 15);
+     //TODO: food amount
+     colony.game.displaySideBarText("Food Prod. Rate:", 17);
+     colony.game.displaySideBarText(" " + colony.game.mine.modules.food.getProductionString(), 18);
+     colony.game.displaySideBarText("Energy:", 19);
+     //TODO: energy amount
+     colony.game.displaySideBarText("Energy Prod. Rate:", 21);
+     colony.game.displaySideBarText(" " + colony.game.mine.modules.energy.getProductionString(), 22);
      colony.game.displayBackButton();
      colony.game.displayCreditBox(colony.game.explorer.credits);
      colony.game.displayBottomBar();

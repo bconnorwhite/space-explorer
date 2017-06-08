@@ -13,13 +13,12 @@
      },
      format: function(){
        launcher.game.displaySideBar();
-       launcher.game.displayTitleBox(launcher.game.explorer.location.launcher.name);
-       //launcher.game.displaySideBarIcon(launcher.game.explorer.location.launcher.image);
+       launcher.game.displayTitleBox(launcher.game.explorer.location.launcher.name, launcher.game.explorer.location.launcher.image);
        launcher.game.displayCreditBox(launcher.game.explorer.credits);
        launcher.game.displayBottomBar();
        launcher.game.displayViewCorners();
-       launcher.game.displaySideBarLabel("STORE",11);
-       launcher.game.displaySideBarIcon(launcher.game.explorer.location.launcher.image,4,6);
+
+       launcher.game.displaySideBarLabel("STORE",11);//TODO: use launcher.game.displayUpgrade() instead
        launcher.game.drawSideBarBar("_",17);
        launcher.game.drawSideBarBar("_",24);
      },

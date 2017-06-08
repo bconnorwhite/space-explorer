@@ -157,7 +157,7 @@ function Game(sb) {
       if(subtitle !== undefined)
         game.sandbox.write(subtitle, titleRow+1, windowFirstCol+1);
     },
-    displayTitleBox: function(title, subtitle){
+    displayTitleBox: function(title, image, subtitle){
       var rows;
       if(subtitle === undefined)
         rows = 1;
@@ -165,6 +165,8 @@ function Game(sb) {
         rows = 2;
       game.drawSideBarBar("_", titleRow+rows);
       game.setTitle(title, subtitle);
+      if(image !== undefined)
+        game.displaySideBarIcon(image, titleRow+rows+1);
     },
     setStatus: function(image){//Set location status
       for(var r = 0; r < image.length; r++)
@@ -175,9 +177,9 @@ function Game(sb) {
       game.setStatus(image);
       game.drawSideBarBar("_", game.statusLastRow);
     },
-    displaySideBarIcon: function(image, row, height){ //Display an icon on the sidebar
-      game.sandbox.writeImage(image, row, windowFirstCol, height, sideBarLastCol-windowFirstCol, "center");
-      game.sandbox.repeatHorizontal("_", row+height, windowFirstCol, sideBarLastCol);
+    displaySideBarIcon: function(image, row){ //Display an icon on the sidebar
+      game.sandbox.writeImage(image, row, windowFirstCol, iconHeight, sideBarLastCol-windowFirstCol, "center");
+      game.sandbox.repeatHorizontal("_", row+iconHeight, windowFirstCol, sideBarLastCol);
     },
     displaySideBarButton: function(title, row, theClass){
       game.displaySideBarText(title, row, theClass);
@@ -191,18 +193,18 @@ function Game(sb) {
       if(string !== '')
         game.sandbox.write(string, row+1, windowFirstCol+1, theClass);
     },
-    displayUpgradeBox: function(blueprint){
-      game.displaySideBarText(blueprint.name, 14);
-      game.displaySideBarText("= $", 15); //TODO: add blueprint.cost
-      game.displaySideBarButton("> Upgrade", 16, 'upgrade');
+    displayUpgradeDetails: function(blueprint){
+      game.displaySideBarText(blueprint.name, 13);
+      game.displaySideBarText("= $", 14); //TODO: add blueprint.cost
+      game.displaySideBarButton("> Upgrade", 15, 'upgrade');
     },
     displayUpgrade: function(blueprint){
-      game.displaySideBarLabel("STORE", 11);
-      game.displayUpgradeBox(blueprint);
-      game.displaySideBarIcon(blueprint.image, 19, iconHeight);
+      game.displaySideBarLabel("STORE", 10);
+      game.displayUpgradeDetails(blueprint);
+      game.displaySideBarIcon(blueprint.image, 18);
     },
     displayBackButton: function(){
-      game.sandbox.repeatHorizontal("_", 25, windowFirstCol, sideBarLastCol);
+      game.sandbox.repeatHorizontal("_", 24, windowFirstCol, sideBarLastCol);
       game.sandbox.write("> Back", 26, windowFirstCol+1, "back");
       game.sandbox.setClicks("back", game.switchTo, ["location"]);
     },
