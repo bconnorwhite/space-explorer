@@ -6,7 +6,6 @@ Legend:
 Where we are now:
 
 BACKLOG: (bugs, refactoring)
-  -turn off screen while loading causes bug
   -Store buildings in an array within game so you can just loop through the array to do things to all of them
   -refactor buildings to use both run() and init()
 
@@ -82,6 +81,8 @@ BACKLOG: (bugs, refactoring)
     -Location view behind laptop?
   -VER 1.1.6:
     -Launch shows rocket taking off from location
+  -VER 1.1.7:
+    -Upgrade SpiceX Logo
 -VER 1.2: Universe Backend
   VER 1.2.1: Known Bodies
     -Fill out known bodies as best as possible from available external databases

@@ -12,9 +12,13 @@ function Sandbox(dbm) {
       sandbox.channels[channel].push(fn);
     },
     deregister: function(channel, func){
-      for(var f=0; f<sandbox.channels[channel].length; f++)//For each function in channel
-        if(sandbox.channels[channel][f] == func)//Check if function matches func
-          sandbox.channels[channel].splice(f, 1);//If so, delete
+      if(sandbox.channels[channel] !== undefined){
+        for(var f=0; f<sandbox.channels[channel].length; f++)//For each function in channel
+          if(sandbox.channels[channel][f] == func)//Check if function matches func
+            sandbox.channels[channel].splice(f, 1);//If so, delete
+      } else {
+        console.warn("SANDBOX: Cannot deregister undefined channel");
+      }
     },
     broadcast: function(channel, params){//Call all functions registered with a channel
       if(sandbox.channels[channel] === undefined){

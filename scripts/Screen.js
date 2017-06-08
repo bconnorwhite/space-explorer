@@ -27,11 +27,12 @@ function Screen(sb) {
       console.log("SCREEN: Power On");
       screen.power = true;
       screen.updateColor(screen.getColor());
-      if(!screen.loaded){
-        console.log("SCREEN: Loading...");
-        screen.tempFill(screen.loadImage);//Temporarily show loading screen
+      screen.tempFill(screen.loadImage);//Show loading screen
+      if(screen.loaded){
+        screen.onLoad();
       } else {
-        screen.register();
+        screen.setTransition(5);
+        console.log("SCREEN: Loading...");
       }
     },
     onLoad: function(){
@@ -51,7 +52,10 @@ function Screen(sb) {
       console.log("SCREEN: Power Off");
       screen.updateColor('#000000');
       screen.power = false;
-      screen.deregister();
+      if(screen.loaded)
+        screen.deregister();
+      else
+        screen.setTransition(0.5);
     },
     deregister: function(){//Deregister key functions when power is off.
       screen.sandbox.deregister('brighten', screen.brighten);
