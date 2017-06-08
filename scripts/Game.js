@@ -79,6 +79,13 @@ function Game(sb) {
         "|                                                                              |",
         "|______________________________________________________________________________|"
     ],
+    location: Location(),
+    colony: Colony(),
+    mine: Mine(),
+    factory: Factory(),
+    observatory: Observatory(),
+    missionControl: MissionControl(),
+    launcher: Launcher(),
     init: function(){ //Register sandbox functions
       game.sandbox.setLoad(game.spiceXLogo);
       game.sandbox.register('getExplorer', game.getExplorer);
@@ -95,14 +102,13 @@ function Game(sb) {
       game.onLoad();
     },
     initBuildings: function(){
-      game.location = Location(game);
-      game.colony = Colony(game);
-      game.mine = Mine(game);//Refactor these to all be in an array too
-      game.mine.init();
-      game.factory = Factory(game);
-      game.observatory = Observatory(game);
-      game.missionControl = MissionControl(game);
-      game.launcher = Launcher(game);
+      game.location.init(game);
+      game.colony.init(game);
+      game.mine.init(game);
+      game.factory.init(game);
+      game.observatory.init(game);
+      game.missionControl.init(game);
+      game.launcher.init(game);
     },
     onLoad: function(){ //Function to be called when game is loaded (after SpiceX Logo)
       game.switchTo("location");
@@ -116,26 +122,26 @@ function Game(sb) {
     escape: function(){
       game.switchTo('location');
     },
-    initLocation: function(){
-      game.location.init(game);
+    runLocation: function(){
+      game.location.run();
     },
-    initMissionControl: function(){
-      game.missionControl.init(game);
+    runMissionControl: function(){
+      game.missionControl.run();
     },
-    initObservatory: function(){
-      game.observatory.init(game);
+    runObservatory: function(){
+      game.observatory.run();
     },
-    initLauncher: function(){
-      game.launcher.init(game);
+    runLauncher: function(){
+      game.launcher.run();
     },
-    initFactory: function(){
-      game.factory.init(game);
+    runFactory: function(){
+      game.factory.run();
     },
-    initMine: function(){
+    runMine: function(){
       game.mine.run();
     },
-    initColony: function(){
-      game.colony.init(game);
+    runColony: function(){
+      game.colony.run();
     },
     clear: function(row, startCol, endCol){//Clears a row (fills with spaces)
       game.sandbox.repeatHorizontal(" ", row, startCol, endCol);
@@ -259,25 +265,25 @@ function Game(sb) {
       game.sandbox.writeImage(game.windowBorder, 0, 0, windowLastRow+1, windowLastCol+1, "top-left");
       switch(context){
         case "location":
-          game.initLocation();
+          game.runLocation();
           break;
         case "mission-control":
-          game.initMissionControl();
+          game.runMissionControl();
           break;
         case "observatory":
-          game.initObservatory();
+          game.runObservatory();
           break;
         case "launcher":
-          game.initLauncher();
+          game.runLauncher();
           break;
         case "colony":
-          game.initColony();
+          game.runColony();
           break;
         case "mine":
-          game.initMine();
+          game.runMine();
           break;
         case "factory":
-          game.initFactory();
+          game.runFactory();
           break;
       }
     }

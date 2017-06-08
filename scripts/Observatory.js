@@ -2,10 +2,12 @@
  *
  */
 
- function Observatory(g) {
+ function Observatory() {
    var observatory = {
-     game: g,
-     init: function() {
+     init: function(g) {
+       observatory.game = g;
+     },
+     run: function(){
        observatory.format();
      },
      format: function(){

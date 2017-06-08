@@ -2,10 +2,12 @@
  *
  */
 
- function Launcher(g) {
+ function Launcher() {
    var launcher = {
-     game: g,
-     init: function() {
+     init: function(g) {
+       launcher.game = g;
+     },
+     run: function(){
        launcher.format();
        launcher.displayView();
      },

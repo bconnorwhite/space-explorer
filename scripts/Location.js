@@ -2,11 +2,13 @@
  *
  */
 
-function Location(g) {
+function Location() {
   var location = {
-    game: g,
     buildings: [],
-    init: function() {
+    init: function(g) {
+      location.game = g;
+    },
+    run: function(){
       location.format();
       location.build();
       location.displayViewIcons();

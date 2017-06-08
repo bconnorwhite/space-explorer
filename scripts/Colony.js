@@ -4,8 +4,10 @@
 
 function Colony() {
  var colony = {
-   init: function(game) {
-     colony.game = game;
+   init: function(g) {
+     colony.game = g;
+   },
+   run: function(){
      colony.format();
      colony.displayView();
    },

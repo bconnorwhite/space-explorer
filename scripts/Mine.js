@@ -11,10 +11,10 @@ var Adjust = {
   DIVEST: 1,
 };
 
-function Mine(g) {
+function Mine() {
  var mine = {
-   game: g,
-   init: function() {
+   init: function(g) {
+     mine.game = g;
      mine.modules = {
        energy: new Module(mine.game.explorer.location.mine.energyModule),
        food: new Module(mine.game.explorer.location.mine.foodModule),
@@ -75,6 +75,10 @@ function Mine(g) {
  };
  return mine;
 }
+
+/* Mine.js
+ *
+ */
 
 function Module(p){//Might need investment to be a function
   var mod = p;

@@ -7,7 +7,7 @@ Where we are now:
 
 BACKLOG: (bugs, refactoring)
   -Store buildings in an array within game so you can just loop through the array to do things to all of them
-  -refactor buildings to use both run() and init()
+  -sidebar upgrade box height?
 
 >VER 0.1: Laptop, Screen, Location functionality
 -VER 0.2: Building Formats

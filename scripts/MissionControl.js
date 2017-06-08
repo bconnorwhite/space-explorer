@@ -2,10 +2,12 @@
  *
  */
 
- function MissionControl(g) {
+ function MissionControl() {
    var missionControl = {
-     game: g,
-     init: function() {
+     init: function(g) {
+       missionControl.game = g;
+     },
+     run: function(){
        missionControl.format();
      },
      format: function(){
