@@ -7,8 +7,8 @@ Legend:
 Where we are now:
 
 BACKLOG: (bugs, refactoring)
-  -Turning laptop on after explorer has loaded causes all links on Location to not work
   -Look at possibly refactoring Classes.php (use an abstract building class)
+  -Replace windows border with function
 
 >VER 0.1: Laptop, Screen, Location functionality
 -VER 0.2: Building Screen Formats

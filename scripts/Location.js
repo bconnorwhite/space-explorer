@@ -3,47 +3,53 @@
  */
 
 function Location() {
+  var buttonStartRow = 10;
   var location = {
     buildings: [],
     init: function(g) {
       location.game = g;
+      location.buildings = {
+        colony: Building(location.game.explorer.location.colony),
+        mine: Building(location.game.explorer.location.mine),
+        factory: Building(location.game.explorer.location.factory),
+        observatory: Building(location.game.explorer.location.observatory),
+        missionControl: Building(location.game.explorer.location.missionControl),
+        launcher: Building(location.game.explorer.location.launcher)
+      };
     },
     run: function(){
       location.format();
-      location.build();
-      location.displayViewIcons();
-      location.displaySideBarButtons(10);
-      location.initBuildings();
+      location.displayView();
     },
     format: function(){
       location.game.displaySideBar();
       location.game.displayTitleBox("SPACE EXPLORER");
       location.game.displayStatus(location.getStatus(location.game.explorer.location));
+      location.displaySideBarButtons();
       location.game.displayCreditBox(location.game.explorer.credits);
-      location.game.displayBottomBar();
+    },
+    displaySideBarButtons: function(){
+      var buttonNum = 0;
+      for(var b in location.buildings){
+        location.game.displaySideBarButton(location.buildings[b].name, buttonStartRow+(3*buttonNum), b);
+        buttonNum++;
+      }
+    },
+    displayView: function(){
       location.game.displayView(location.game.explorer.location.view);
+      location.displayViewIcons();
+      location.setBuildingClicks();
+      location.game.displayBottomBar();
     },
-    build: function(){
-      location.buildings[0] = Building(location.game.explorer.location.colony, "colony", location.game);
-      location.buildings[1] = Building(location.game.explorer.location.mine, "mine", location.game);
-      location.buildings[2] = Building(location.game.explorer.location.factory, "factory", location.game);
-      location.buildings[3] = Building(location.game.explorer.location.observatory, "observatory", location.game);
-      location.buildings[4] = Building(location.game.explorer.location.missionControl, "mission-control", location.game);
-      location.buildings[5] = Building(location.game.explorer.location.launcher, "launcher", location.game);
-    },
-    displayViewIcons: function(align){
-      icons = [];
-      for(var b=0; b<location.buildings.length; b++)
-        icons[b] = location.buildings[b].getViewIcon("center");
+    displayViewIcons: function(){
+      var icons = [];
+      for(var b in location.buildings)
+        icons.push(location.buildings[b].getViewIcon("center", b));
       location.game.displayViewIcons(icons);
     },
-    displaySideBarButtons: function(startRow){
-      for(var b=0; b<location.buildings.length; b++)
-        location.game.displaySideBarButton(location.buildings[b].getButton().title, startRow+(3*b), location.buildings[b].getButton().class);
-    },
-    initBuildings: function(){
-      for(var b=0; b<location.buildings.length; b++)
-        location.buildings[b].init();
+    setBuildingClicks: function(){
+      for(var b in location.buildings)
+        location.game.setClicks(b);
     },
     getStatus: function(expLoc) {
       return [
@@ -59,29 +65,14 @@ function Location() {
   return location;
 }
 
-function Building(b, theClass, g){
-  var building = {
-    game: g,
-    name: b.name,
-    image: b.image,
-    class: theClass,
-    elements: document.getElementsByClassName(theClass),
-    getButton: function(){
-      return {
-        title: building.name,
-        class: building.class
-      };
-    },
-    getViewIcon: function(a){
-      return {
-        image: building.image,
-        align: a,
-        class: building.class
-      };
-    },
-    init: function(){
-      building.game.setClicks(building.class, building.class);
-    }
+function Building(b){
+  var building = b;
+  building.getViewIcon = function(a, c){
+    return {
+      image: building.image,
+      align: a,
+      class: c
+    };
   };
   return building;
 }

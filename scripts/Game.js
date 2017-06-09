@@ -2,107 +2,107 @@
  *
  */
 
-var windowFirstRow = 1;
-var windowLastRow = 29;
-var windowFirstCol = 1;
-var windowLastCol = 78;
-var sideBarLastCol = 19;
-var viewFirstCol = 22;
-var viewLastRow = 26;
-var titleRow = 1;
-var creditRow = 28;
-var statusRow = 3;
-var viewIconStartRow = 13;
-var iconHeight = 6;
-var iconWidth = 18;
-
 function Game(sb) {
+  var spiceXLogo = [
+      "      .``                                                                       ",
+      "      --::::--.``                                                               ",
+      "         ``.-:::/::-..`                                                         ",
+      "               ``.-:://::-.``                                                   ",
+      "                    `.-::////:-.``                `.:::::::::::                 ",
+      "                          `.-:////::-.`         .:sdddddddhyo:                  ",
+      "                            ``.:://///:-.`   `-oysdddddddd/.                    ",
+      "                                 `.-://////:-../oyhdddds/.                      ",
+      "                                    `-://////::-.-/s+-`                         ",
+      "                                     `-:--:///////:-.`                          ",
+      "                                  ./shhyo:.-:///////:-`                         ",
+      "                                .:shhhhdddhs.`.-////////:.`                     ",
+      "                            `:ohhhddddhhs:.    `-:///////:-`                    ",
+      "                         `-oyhhdddddhs/.         `.:////////:.                  ",
+      "                        .osyyyyyyys/.`              .-::::::::.                 ",
+      "                         `                                                      ",
+  ];
+  var spiceXTextLogo = [
+      "      .``                                                                       ",
+      "      --::::--.``                                                               ",
+      "         ``.-:::/::-..`                                                         ",
+      "               ``.-:://::-.``                                                   ",
+      "                    `.-::////:-.``                `.:::::::::::                 ",
+      "                          `.-:////::-.`         .:sdddddddhyo:                  ",
+      "                            ``.:://///:-.`   `-oysdddddddd/.                    ",
+      "                                 `.-://////:-../oyhdddds/.                      ",
+      "                                    `-://////::-.-/s+-`                         ",
+      "                                     `-:--:///////:-.`                          ",
+      "                                  ./shhyo:.-:///////:-`                         ",
+      "                                .:shhhhdddhs.`.-////////:.`                     ",
+      "                            `:ohhhddddhhs:.    `-:///////:-`                    ",
+      "                         `-oyhhdddddhs/.         `.:////////:.                  ",
+      "                        .osyyyyyyys/.`              .-::::::::.                 ",
+      "                         `                                                      ",
+      "                                                                                ",
+      "                                                                                ",
+      "                                                                                ",
+      "                                  PROPERTY OF SPICEX                            ",
+      "                         SPICE EXPLORATION TECHNOLOGIES CORP                    ",
+      "                                THORNEHAW, AUSTRALIAR                           ",
+  ];
+  var spaceExplorerLogo = [
+      "  ___                         ____            _",
+      " / _ \\                       |  __|          | |",
+      " \\ \\\\_\\_ __   __ _  ___ ___  | |____  ___ __ | | ___  _ __ ___ _ __",
+      "__\\ \\ | '_ \\ / _` |/ __/ _ \\ |  __\\ \\/ / ‘_ \\| |/ _ \\| ‘__/ _ \\ ‘__/",
+      "\\ \\\\ \\| |_) | (_| | (_|  __/ | |__|&gt;  &lt;| |_) | | (_) | | |  __/ |",
+      " \\___/| .__/ \\__,_|\\___\\___| |____/_/\\_\\ .__/|_|\\___/|_|  \\___|_|",
+      "      | |                              | |",
+      "      |_|                              |_|",
+  ];
+  var windowBorder = [
+      "===============================================================================",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|                                                                              |",
+      "|______________________________________________________________________________|"
+  ];
+  var windowFirstRow = 1;
+  var windowLastRow = 29;
+  var windowFirstCol = 1;
+  var windowLastCol = 78;
+  var sideBarLastCol = 19;
+  var viewFirstCol = 22;
+  var viewLastRow = 26;
+  var titleRow = 1;
+  var creditRow = 28;
+  var statusRow = 3;
+  var viewIconStartRow = 13;
+  var iconHeight = 6;
+  var iconWidth = 18;
   var game = {
     sandbox: sb,
-    spiceXLogo: [
-        "      .``                                                                       ",
-        "      --::::--.``                                                               ",
-        "         ``.-:::/::-..`                                                         ",
-        "               ``.-:://::-.``                                                   ",
-        "                    `.-::////:-.``                `.:::::::::::                 ",
-        "                          `.-:////::-.`         .:sdddddddhyo:                  ",
-        "                            ``.:://///:-.`   `-oysdddddddd/.                    ",
-        "                                 `.-://////:-../oyhdddds/.                      ",
-        "                                    `-://////::-.-/s+-`                         ",
-        "                                     `-:--:///////:-.`                          ",
-        "                                  ./shhyo:.-:///////:-`                         ",
-        "                                .:shhhhdddhs.`.-////////:.`                     ",
-        "                            `:ohhhddddhhs:.    `-:///////:-`                    ",
-        "                         `-oyhhdddddhs/.         `.:////////:.                  ",
-        "                        .osyyyyyyys/.`              .-::::::::.                 ",
-        "                         `                                                      ",
-    ],
-    spiceXTextLogo: [
-        "      .``                                                                       ",
-        "      --::::--.``                                                               ",
-        "         ``.-:::/::-..`                                                         ",
-        "               ``.-:://::-.``                                                   ",
-        "                    `.-::////:-.``                `.:::::::::::                 ",
-        "                          `.-:////::-.`         .:sdddddddhyo:                  ",
-        "                            ``.:://///:-.`   `-oysdddddddd/.                    ",
-        "                                 `.-://////:-../oyhdddds/.                      ",
-        "                                    `-://////::-.-/s+-`                         ",
-        "                                     `-:--:///////:-.`                          ",
-        "                                  ./shhyo:.-:///////:-`                         ",
-        "                                .:shhhhdddhs.`.-////////:.`                     ",
-        "                            `:ohhhddddhhs:.    `-:///////:-`                    ",
-        "                         `-oyhhdddddhs/.         `.:////////:.                  ",
-        "                        .osyyyyyyys/.`              .-::::::::.                 ",
-        "                         `                                                      ",
-        "                                                                                ",
-        "                                                                                ",
-        "                                                                                ",
-        "                                  PROPERTY OF SPICEX                            ",
-        "                         SPICE EXPLORATION TECHNOLOGIES CORP                    ",
-        "                                THORNEHAW, AUSTRALIAR                           ",
-    ],
-    spaceExplorerLogo: [
-        "  ___                         ____            _",
-        " / _ \\                       |  __|          | |",
-        " \\ \\\\_\\_ __   __ _  ___ ___  | |____  ___ __ | | ___  _ __ ___ _ __",
-        "__\\ \\ | '_ \\ / _` |/ __/ _ \\ |  __\\ \\/ / ‘_ \\| |/ _ \\| ‘__/ _ \\ ‘__/",
-        "\\ \\\\ \\| |_) | (_| | (_|  __/ | |__|&gt;  &lt;| |_) | | (_) | | |  __/ |",
-        " \\___/| .__/ \\__,_|\\___\\___| |____/_/\\_\\ .__/|_|\\___/|_|  \\___|_|",
-        "      | |                              | |",
-        "      |_|                              |_|",
-    ],
-    windowBorder: [
-        "===============================================================================",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|                                                                              |",
-        "|______________________________________________________________________________|"
-    ],
+    loaded: false,
     location: Location(),
     colony: Colony(),
     mine: Mine(),
@@ -111,10 +111,10 @@ function Game(sb) {
     missionControl: MissionControl(),
     launcher: Launcher(),
     init: function(){ //Register sandbox functions
-      game.sandbox.setLoad(game.spiceXLogo);
+      game.sandbox.setLoad(spiceXLogo);
       game.sandbox.register('getExplorer', game.getExplorer);
-      game.sandbox.register('on', game.register);
-      game.sandbox.register('off', game.deregister);
+      game.sandbox.register('on', game.on);
+      game.sandbox.register('off', game.off);
       game.sandbox.requestExplorer();
     },
     getExplorer: function(exp){ //Sets explorer to 'exp'
@@ -135,10 +135,19 @@ function Game(sb) {
       game.launcher.init(game);
     },
     onLoad: function(){ //Function to be called when game is loaded (after SpiceX Logo)
+      game.loaded = true;
       game.switchTo("location");
+    },
+    on: function(){
+      game.register();
+      if(game.loaded)
+        game.switchTo("location");
     },
     register: function(){
       game.sandbox.register('escape', game.escape);
+    },
+    off: function(){
+      game.deregister();
     },
     deregister: function(){
       game.sandbox.deregister('escape', game.escape);
@@ -273,12 +282,16 @@ function Game(sb) {
       game.sandbox.write("\\", viewLastRow, viewFirstCol);
       game.sandbox.write("/", viewLastRow, windowLastCol);
     },
-    displayViewIcons: function(icons){ //For icons on location view
-      if(icons.length > 6)
+    displayViewIcons: function(icons){ //For icons on location view. Use list of icons b/c of positioning.
+      if(icons.length > 6){
         console.error("GAME: Too many view icons");
-      else
-        for(var i=0; i<icons.length; i++)
-          game.sandbox.writeImage(icons[i].image, viewIconStartRow+((iconHeight+1)*(1-(i%2))), (viewFirstCol+1+((iconWidth+1)*(Math.floor(i/2)))), iconHeight, iconWidth, icons[i].align, icons[i].class);
+      } else {
+        var iconNum = 0;
+        for(var i in icons){
+          game.sandbox.writeImage(icons[i].image, viewIconStartRow+((iconHeight+1)*(1-(iconNum%2))), (viewFirstCol+1+((iconWidth+1)*(Math.floor(iconNum/2)))), iconHeight, iconWidth, icons[i].align, icons[i].class);
+          iconNum++;
+        }
+      }
     },
     displayViewRightArrow: function(){
       game.sandbox.write("\\", 13,windowLastCol - 2,"view-right-arrow");
@@ -293,11 +306,13 @@ function Game(sb) {
       game.sandbox.write("\\", 16,viewFirstCol + 2,"view-left-arrow");
     },
     setClicks: function(theClass, context){
+      if(context === undefined)
+        context = theClass;
       game.sandbox.setClicks(theClass, game.switchTo, [context]);
     },
     switchTo: function(context){ //Switch to a new context
       console.log("GAME: Switching to " + context);
-      game.sandbox.writeImage(game.windowBorder, 0, 0, windowLastRow+1, windowLastCol+1, "top-left");
+      game.sandbox.writeImage(windowBorder, 0, 0, windowLastRow+1, windowLastCol+1, "top-left");//TODO: switch to function rather than image
       switch(context){
         case "location":
           game.runLocation();
