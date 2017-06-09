@@ -214,13 +214,15 @@ function Game(sb) {
       game.sandbox.repeatHorizontal("_", row+2, windowFirstCol, sideBarLastCol);
     },
     displaySideBarText: function(string, row, theClass){
-      if(string !== '')
+      if(string !== '' && string !== null)
         game.sandbox.write(string, row+1, windowFirstCol+1, theClass);
     },
     displayUpgradeDetails: function(blueprint){
-      game.displaySideBarText(blueprint.name, 13);
-      game.displaySideBarText("= $", 14); //TODO: add blueprint.cost
-      game.displaySideBarButton("> Upgrade", 15, 'upgrade');
+      if(blueprint.name !== null){
+        game.displaySideBarText(blueprint.name, 13);
+        game.displaySideBarText("= $", 14); //TODO: add blueprint.cost
+        game.displaySideBarButton("> Upgrade", 15, 'upgrade');
+      }
     },
     displayUpgrade: function(blueprint){
       game.displaySideBarLabel("STORE", 10);

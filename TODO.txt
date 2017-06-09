@@ -7,13 +7,10 @@ Legend:
 Where we are now:
 
 BACKLOG: (bugs, refactoring)
-  -N/A, yay! :)
+  -Look at possibly refactoring Classes.php (use an abstract building class)
 
 >VER 0.1: Laptop, Screen, Location functionality
 -VER 0.2: Building Screen Formats
-  -Factory
-    -design format (including thinking about testing investment option)
-    :build format
   -Observatory
     -design format
     :build format
