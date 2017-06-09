@@ -1,6 +1,12 @@
 <?php
 	include 'DBManager.php';
 
+	/* getUpgradeBlueprint
+	 * Input: $lvl: Level of current building
+	 *				$type: Type of current building
+	 *				$bps: List of all blueprints available
+	 * Output: Blueprint that is the next upgrade for given building type
+	 */
 	function getUpgradeBlueprint($lvl, $type, $bps){
 		foreach($bps as $bp){
 			if($bp["Level"] == $lvl+1 && $bp["Type"] == $type){
@@ -80,6 +86,8 @@
 			$this->name = $mcArr["Name"];
 			$this->image = explode("\r\n", $mcArr["Image"]);
 			$this->missions = $misArr;
+
+			$this->blueprint = new Blueprint(getUpgradeBlueprint($lvl, $type, $bps));
 		}
 	}
 
@@ -98,6 +106,8 @@
 			$this->capacity = $launchArr["Capacity"];
 			for($r=0; $r<count($rocketArr); $r++)
 				$this->rockets[] = new Rocket($rocketArr[$r]["Size"], $rocketArr[$r]["Fairing"], $rocketArr[$r]["Fuselage"], $rocketArr[$r]["Engine"]);
+
+			$this->blueprint = new Blueprint(getUpgradeBlueprint($lvl, $type, $bps));
 		}
 	}
 
@@ -112,6 +122,8 @@
 			$this->level = $lvl;
 			$this->name = $obArr["Name"];
 			$this->image = explode("\r\n", $obArr["Image"]);
+
+			$this->blueprint = new Blueprint(getUpgradeBlueprint($lvl, $type, $bps));
 		}
 	}
 
@@ -126,6 +138,8 @@
 			$this->level = $lvl;
 			$this->name = $fArr["Name"];
 			$this->image = explode("\r\n", $fArr["Image"]);
+
+			$this->blueprint = new Blueprint(getUpgradeBlueprint($lvl, $type, $bps));
 		}
 	}
 
@@ -172,6 +186,8 @@
 			$this->population = $pop;
 			$this->name = $cArr["Name"];
 			$this->image = explode("\r\n", $cArr["Image"]);
+
+			$this->blueprint = new Blueprint(getUpgradeBlueprint($lvl, $type, $bps));
 		}
 	}
 
