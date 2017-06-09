@@ -445,17 +445,18 @@ Type 2 Civ (10B - 99B)
 
 Type 3 Civ (100B - 999B)
 
+Colony Example:
  ______________________________________________________________________________
 /==============================================================================\
 || Body             ||/                                                        \||
-|| Colony Name      || Blueprints                                               ||
-||__________________||                                                        ^ || -should we use a scroll bar and have Buildings, fairings, fuselages, engines OR
-||                  ||  Buildings                                               || -should we not use a scroll bar and have Buildings, Rocket Parts?
-||        _.        ||     xxxxxxxxxxxxxxxxxx  Type: Resource Extraction        ||
-||       /_/        ||   / x                x  Name: Res. Extract. Lv2       \  ||
-||                  ||  /  x     Image      x                                 \ ||
-||                  ||  \  x                x  Progress: 0%                   / || -rate at which progress increases is based on project budget
-||                  ||   \ x                x  Research Budget: $0           /  || -once progress hits 100%, blueprint is no longer displayed in colony, available for use at factory or building
+|| Colony Name      || Blueprints                                             ^ ||
+||__________________||                                                          || -scroll bar to see Buildings, fairings, fuselages, engines
+||                  ||  Buildings                                               ||
+||        _.        ||     xxxxxxxxxxxxxxxxxx  Type: Resource Extraction      | || -scroll bar marker (eventually, don't have to do right away but would be awesome)
+||       /_/        ||   / x                x  Name: Res. Extract. Lv2     \    ||
+||                  ||  /  x     Image      x                               \   ||
+||                  ||  \  x                x  Progress: 0%                 /   || -rate at which progress increases is based on project budget
+||                  ||   \ x                x  Research Budget: $0         /    || -once progress hits 100%, blueprint is no longer displayed in colony, available for use at factory or building
 ||__________________||     xxxxxxxxxxxxxxxxxx                   + Adjust -      ||
 ||                  ||                                                          ||
 || Population:      ||  Rocket Parts                                            ||
@@ -1058,6 +1059,69 @@ Mac Mini
   [__]
 
 ----------------------------
+
+Mission Control Example:
+ ______________________________________________________________________________
+/==============================================================================\
+|| mc name          ||/                                                        \||
+||__________________|| Missions                                    Pay        ^ ||
+||                  ||  Mission Title                              C: $14.5M    || -scroll bar to see Buildings, fairings, fuselages, engines
+||                  ||  Mission 2 Title                            C: $15.6M    ||
+||        _.        ||                                                        | || -scroll bar marker (eventually, don't have to do right away but would be awesome)
+||       /_/        ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          || -rate at which progress increases is based on project budget
+||__________________||                                                          || -once progress hits 100%, blueprint is no longer displayed in colony, available for use at factory or building
+||                  ||                                                          ||
+|| Standard rest    ||                                                          || On clicking '> Custom Mission' or a mission row mission details/selectors pop up
+|| of the upgrade   ||                                                          || Custom Mission button becomes new back button that goes back to mission select screen
+|| sidebar          ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||__________________||  > Custom Mission                                      v ||
+|| > Back           ||\                                                        /||
+||__________________||----------------------------------------------------------||
+|| C: $100000       ||  Not enough credits.                                     || <- for messages, such as not enough credits
+||__________________||__________________________________________________________||
+
+______________________________________________________________________________
+/==============================================================================\
+|| mc name          ||/                                                        \||
+||__________________|| Mission Title                                          ^ ||
+||                  ||   Destination:   (move this down one row prolly)         || -scroll bar to see Buildings, fairings, fuselages, engines
+||                  ||     Galaxy: THE MILKY WAY                                ||
+||        _.        ||     System: SOL                                        | || -scroll bar marker (eventually, don't have to do right away but would be awesome)
+||       /_/        ||     Planet: JUPITER                                      ||
+||                  ||     Moon: EUROPA   (or - if going to planet)             ||
+||                  ||     Delta V: big number                                  || -rate at which progress increases is based on project budget
+||__________________||   Cargo:                                                 || -once progress hits 100%, blueprint is no longer displayed in colony, available for use at factory or building
+||                  ||     Passengers: 12                                       ||
+|| Standard rest    ||     Energy: 0 J                                          || On clicking '> Custom Mission' or a mission row mission details/selectors pop up
+|| of the upgrade   ||     Food: 0 J                                           || Custom Mission button becomes new back button that goes back to mission select screen
+|| sidebar          ||     Fuel: 0 J                                            ||
+||                  ||     Ore: 1.25t kg                                        ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||                                                          ||
+||                  ||   > To [launcher name]                                   ||
+||__________________||   > Back                                               v ||
+|| > Back           ||\                                                        /||
+||__________________||----------------------------------------------------------||
+|| C: $100000       ||  Not enough credits.                                     || <- for messages, such as not enough credits
+||__________________||__________________________________________________________||
 
 
 

@@ -14,18 +14,19 @@ BACKLOG: (bugs, refactoring)
 -VER 0.3: Building Views (remember - don't need bottom bar on every view)
   -Mine
     =Add "> Upgrade" button for each module (on row with module name, directly above "+ Adjust -")
-  -Colony
-    -Decide on design
-    :Build view
-  :Factory
-    -Design view
+  -Colony (search "Colony Example:" in scratchpad.txt)
+    =Build view
+  -Factory
+    -Design factory view
     :build view
   :Observatory
     -Design view
     :build view
   :Mission Control
-    -Design view
-    :build view
+    =build mission selector view (search 'Mission Control Example:' in scratchpad.txt)
+    =build mission details view (search 'Mission Control Example:' in scratchpad.txt)
+    -Design custom mission builder view
+    :build custom mission builder
   =Launcher
     =build view, including test fire functionality (example in scratchpad.txt)
 -VER 0.4: Colony Backend
@@ -44,18 +45,23 @@ BACKLOG: (bugs, refactoring)
   -VER 0.4.3: Mine Investing
     -Ability to adjust investment and actually accumulate resources over time
 -VER 0.5: Colony functionality
-  -Ability to adjust investment, upgrade
+  -VER 0.5.1
+    -Ability to adjust investments
+  -VER 0.5.2
+    -Get blueprints, save to DB, refresh so other buildings can see available upgrades
+  -VER 0.5.3
+    -Auto upgrade colony on pop increase
 -VER 0.6: Factory functionality
-    -Ability to upgrade
-    -Ability to build parts, rockets
+  -Ability to upgrade
+  -Ability to build parts, rockets
 -VER 0.7: Observatory functionality
-    -Ability to upgrade
-    -Ability to discover planets with observed location of bodies
+  -Ability to upgrade
+  -Ability to discover planets with observed location of bodies
 -VER 0.8: MissionControl functionality
-    -Ability to choose missions and create your own missions
+  -Ability to choose missions and create your own missions
 -VER 0.9: Launcher functionality
-    -Ability to launch
-    -Physics of launch, travel time, result, etc.
+  -Ability to launch
+  -Physics of launch, travel time, result, etc.
 -VER 1.0: Initial launch
   -All the stuff above, beta tested, and launched live
   -Convert to SCSS
