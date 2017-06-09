@@ -925,14 +925,12 @@ Workshed (1 project at a time)
 
    _
   /_\
-  |.|
-__|=|__
+__|.|__
 
 Expanded Workshed
    ___
   //_\\
-  ||.||
-__||=||__
+__||.||__
 
 Small Factory 1 (10 projects at a time)
 
