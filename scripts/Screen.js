@@ -22,6 +22,7 @@ function Screen(sb) {
       screen.sandbox.register('repeatHorizontal', screen.repeatHorizontal);
       screen.sandbox.register('setClicks', screen.setClicks);
       screen.sandbox.register('loaded', screen.onLoad);
+      screen.sandbox.register('clear', screen.clear);
     },
     on: function() { //Turns screen on
       console.log("SCREEN: Power On");

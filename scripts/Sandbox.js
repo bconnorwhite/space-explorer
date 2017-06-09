@@ -69,6 +69,9 @@ function Sandbox(dbm) {
     write: function(string, row, startCol, theClass) {
       sandbox.broadcast('write', [string, row, startCol, theClass]);
     },
+    clear: function(){
+      sandbox.broadcast('clear');
+    },
     setClicks: function(theClass, func, params){
       sandbox.broadcast('setClicks', [theClass, func, params]);
     },

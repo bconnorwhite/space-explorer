@@ -55,38 +55,6 @@ function Game(sb) {
       "      | |                              | |",
       "      |_|                              |_|",
   ];
-  var windowBorder = [
-      "===============================================================================",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|                                                                              |",
-      "|______________________________________________________________________________|"
-  ];
   var windowFirstRow = 1;
   var windowLastRow = 29;
   var windowFirstCol = 1;
@@ -312,7 +280,7 @@ function Game(sb) {
     },
     switchTo: function(context){ //Switch to a new context
       console.log("GAME: Switching to " + context);
-      game.sandbox.writeImage(windowBorder, 0, 0, windowLastRow+1, windowLastCol+1, "top-left");//TODO: switch to function rather than image
+      game.drawBorder();
       switch(context){
         case "location":
           game.runLocation();
@@ -336,6 +304,13 @@ function Game(sb) {
           game.runFactory();
           break;
       }
+    },
+    drawBorder: function(){
+      game.sandbox.clear();
+      game.sandbox.repeatHorizontal("=", 0, 0, windowLastCol);
+      game.sandbox.repeatHorizontal("_", windowLastRow, 0, windowLastCol+1);
+      game.sandbox.repeatVerticle("|", windowFirstRow, windowLastRow, 0);
+      game.sandbox.repeatVerticle("|", windowFirstRow, windowLastRow, windowLastCol+1);
     }
   };
   return game;
