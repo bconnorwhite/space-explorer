@@ -168,7 +168,22 @@ function Screen(sb) {
         var left = document.createTextNode(combinedNode.textContent.substring(0, startCol-overlapping.start));
         var right = document.createTextNode(combinedNode.textContent.substring(startCol-overlapping.start + string.length));
         var middle;
-        var stringNode = document.createTextNode(string);
+        var stringNode;
+        var strings = string.split("");//Adjust for  extra width
+        if(strings.length > 1){//Did contain 
+          stringNode = document.createElement("SPAN");
+          for(var s=0; s<strings.length; s++){
+            stringNode.appendChild(document.createTextNode(strings[s]));
+            if(s < strings.length-1){//If not last string in strings
+              var appleNode = document.createElement("SPAN");
+              appleNode.className = "apple";
+              appleNode.appendChild(document.createTextNode(""));
+              stringNode.appendChild(appleNode);
+            }
+          }
+        } else {
+          stringNode = document.createTextNode(string);
+        }
         if(theClass !== undefined){//There is a class, use A element
           middle = document.createElement("a");
           middle.className = theClass;

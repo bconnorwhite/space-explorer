@@ -285,7 +285,7 @@ function Game(sb) {
         case "location":
           game.runLocation();
           break;
-        case "mission-control":
+        case "missionControl":
           game.runMissionControl();
           break;
         case "observatory":

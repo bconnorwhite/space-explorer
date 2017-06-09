@@ -1,5 +1,5 @@
     <pre id="copyright">© <?php echo date("Y"); ?> Connor White, Wesley White</pre>
-    <pre id="version">Version 0.1</pre>
+    <pre id="version">Version 0.2</pre>
   </body>
         <script type="text/javascript" src="/SpaceExplorer/scripts/Location.js"></script>
         <script type="text/javascript" src="/SpaceExplorer/scripts/MissionControl.js"></script>

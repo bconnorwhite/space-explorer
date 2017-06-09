@@ -8,17 +8,9 @@ Where we are now:
 
 BACKLOG: (bugs, refactoring)
   -Look at possibly refactoring Classes.php (use an abstract building class)
-  -Replace windows border with function
 
 >VER 0.1: Laptop, Screen, Location functionality
--VER 0.2: Building Screen Formats
-  -Observatory
-    =build format
-  -Mission Control
-    =build format
-  =Launcher
-    =build format (view in scratchpad.txt, search 'Location Format')
-  =Remove bottom bar from all format() functions - should go in view.
+>VER 0.2: Building Screen Formats
 -VER 0.3: Building Views (remember - don't need bottom bar on every view)
   -Mine
     =Add "> Upgrade" button for each module (on row with module name, directly above "+ Adjust -")
