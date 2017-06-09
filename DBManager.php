@@ -2,10 +2,12 @@
 
 	function getRow($keys, $ids, $table){//Returns the first row in '$table' where each column '$keys' matches '$ids'
 		$result = getResult($keys, $ids, $table);
-		if(mysqli_num_rows($result) > 0){
-			$row = mysqli_fetch_assoc($result);
-			mysqli_free_result($result);
-			return $row;
+		if($result !== false){
+			if(mysqli_num_rows($result) > 0){
+				$row = mysqli_fetch_assoc($result);
+				mysqli_free_result($result);
+				return $row;
+			}
 		}
 		return null;
 	}
