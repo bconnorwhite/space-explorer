@@ -234,12 +234,19 @@ function Game(sb) {
       game.sandbox.write("> Back", 26, windowFirstCol+1, "back");
       game.sandbox.setClicks("back", game.switchTo, ["location"]);
     },
-    displayCreditBox: function(credits){
-      game.drawSideBarBar("_", creditRow - 1);
-      game.setCredits(credits);
-    },
-    setCredits: function(credits){
+    displayCredits: function(credits){
       game.sandbox.write("C: $" + credits, creditRow, windowFirstCol + 1);
+    },
+    displayCreditBox: function(){
+      game.drawSideBarBar("_", creditRow - 1);
+      game.displayCredits(game.explorer.credits);
+    },
+    displayUpgradeSideBar: function(building){
+      game.displaySideBar();
+      game.displayTitleBox(building.name, building.image);
+      game.displayUpgrade(building.blueprint);
+      game.displayBackButton();
+      game.displayCreditBox();
     },
     displayBottomBar: function(){ //Display a blank bottom bar on the screen
       game.sandbox.repeatHorizontal("-", viewLastRow + 1, viewFirstCol, windowLastCol);

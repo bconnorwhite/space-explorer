@@ -7,19 +7,19 @@ Legend:
 Where we are now:
 
 BACKLOG: (bugs, refactoring)
+  -Turning laptop on after explorer has loaded causes all links on Location to not work
   -Look at possibly refactoring Classes.php (use an abstract building class)
 
 >VER 0.1: Laptop, Screen, Location functionality
 -VER 0.2: Building Screen Formats
   -Observatory
-    -design format
-    :build format
+    =build format
   -Mission Control
-    -design format
-    :build format
+    =build format
   =Launcher
     =build format (view in scratchpad.txt, search 'Location Format')
--VER 0.3: Building Views
+  =Remove bottom bar from all format() functions - should go in view.
+-VER 0.3: Building Views (remember - don't need bottom bar on every view)
   -Mine
     =Add "> Upgrade" button for each module (on row with module name, directly above "+ Adjust -")
   -Colony
@@ -74,7 +74,7 @@ BACKLOG: (bugs, refactoring)
   =VER 1.1.2:
     =Redesign fairings for higher volume versions, make them look a little more like a ship
   =VER 1.1.3:
-    =Redesign colony floors (use . not just _)
+    =Redesign colony floors (use . not just _, maybe not so long)
   -VER 1.1.4:
     -Make pretty (Intro, twinkle stars, factory moving smoke, etc.) - also more stars in view
   -VER 1.1.5:

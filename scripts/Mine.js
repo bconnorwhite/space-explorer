@@ -27,11 +27,7 @@ function Mine() {
      mine.displayView();
    },
    format: function(){
-     mine.game.displaySideBar();
-     mine.game.displayTitleBox(mine.game.explorer.location.mine.name, mine.game.explorer.location.mine.image);
-     mine.game.displayUpgrade(mine.game.explorer.location.mine.blueprint, mine.upgrade());
-     mine.game.displayBackButton();
-     mine.game.displayCreditBox(mine.game.explorer.credits);
+     mine.game.displayUpgradeSideBar(mine.game.explorer.location.mine);
      mine.game.displayBottomBar();
      mine.game.displayViewCorners();
    },
